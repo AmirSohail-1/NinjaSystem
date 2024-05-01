@@ -1,0 +1,17 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.NinjaCombatSystem.cpp.obj": [
+			"CombatComponent.gen.cpp.obj",
+			"NinjaCombatCharacter.gen.cpp.obj",
+			"NinjaCombatSystem.init.gen.cpp.obj",
+			"PrinterTest.gen.cpp.obj",
+			"StateComponent.gen.cpp.obj",
+			"CombatComponent.cpp.obj",
+			"NinjaCombatCharacter.cpp.obj",
+			"NinjaCombatSystem.cpp.obj",
+			"PrinterTest.cpp.obj",
+			"StateComponent.cpp.obj"
+		]
+	}
+}
