@@ -17,13 +17,13 @@ void EmptyLinkFunctionForGeneratedCodeNinjaCombatSystem_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0x23D4778E,
-				0xC97B71A7,
+				0xE30663A1,
+				0xE09A2AB3,
 				METADATA_PARAMS(nullptr, 0)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_NinjaCombatSystem.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_NinjaCombatSystem.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_NinjaCombatSystem(Z_Construct_UPackage__Script_NinjaCombatSystem, TEXT("/Script/NinjaCombatSystem"), Z_Registration_Info_UPackage__Script_NinjaCombatSystem, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x23D4778E, 0xC97B71A7));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_NinjaCombatSystem(Z_Construct_UPackage__Script_NinjaCombatSystem, TEXT("/Script/NinjaCombatSystem"), Z_Registration_Info_UPackage__Script_NinjaCombatSystem, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xE30663A1, 0xE09A2AB3));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

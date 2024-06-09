@@ -1,0 +1,29 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.InteractionModule.cpp.obj": [
+			"ArchVizFunctionLibrary.gen.cpp.obj",
+			"CameraGameMode.gen.cpp.obj",
+			"CameraHorizontalMovementActor.gen.cpp.obj",
+			"FocusActor.gen.cpp.obj",
+			"InteractActorPrinter.gen.cpp.obj",
+			"InteractionModule.init.gen.cpp.obj",
+			"LevelTransitionFunction.gen.cpp.obj",
+			"LevelTransitionInterface.gen.cpp.obj",
+			"MyArray.gen.cpp.obj",
+			"SpatialAudioActor.gen.cpp.obj",
+			"SplineCameraActor.gen.cpp.obj",
+			"MyArray.cpp.obj",
+			"ArchVizFunctionLibrary.cpp.obj",
+			"CameraGameMode.cpp.obj",
+			"CameraHorizontalMovementActor.cpp.obj",
+			"FocusActor.cpp.obj",
+			"InteractActorPrinter.cpp.obj",
+			"InteractionModule.cpp.obj",
+			"LevelTransitionFunction.cpp.obj",
+			"LevelTransitionInterface.cpp.obj",
+			"SpatialAudioActor.cpp.obj",
+			"SplineCameraActor.cpp.obj"
+		]
+	}
+}

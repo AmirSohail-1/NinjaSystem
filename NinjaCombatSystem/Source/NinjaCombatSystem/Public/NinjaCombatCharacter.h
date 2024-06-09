@@ -5,7 +5,18 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "InputActionValue.h"
+#include "NinjaCharacterMovementComponent.h" // Include your custom movement component
 #include "NinjaCombatCharacter.generated.h"
+
+
+class USpringArmComponent;
+class UCameraComponent;
+class UInputMappingContext;
+class UInputAction;
+class UCombatComponent;
+class UStateComponent;
+
+
 
 UCLASS()
 class NINJACOMBATSYSTEM_API ANinjaCombatCharacter : public ACharacter
@@ -31,6 +42,15 @@ private:
 	// State component
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Combat", meta = (AllowPrivateAccess = "true"))
 	class UStateComponent* StateComponent;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta=(AllowPrivateAccess="true"))
+	USpringArmComponent* SpringArmComponent;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta=(AllowPrivateAccess="true"))
+	UCameraComponent* CameraComponent;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta=(AllowPrivateAccess="true"))
+	UNinjaCharacterMovementComponent* NinjaMovementComponent; // Pointer to your custom movement component
 
 
 public:
@@ -65,14 +85,34 @@ public:
 	/** Dash Attack Input Action */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	class UInputAction* DashAttackAction;
+
 	
 	// Input handlers
+	UFUNCTION(BlueprintCallable, Category = "Input")
 	void Move(const FInputActionValue& Value);
+
+	UFUNCTION(BlueprintCallable, Category = "Input")
 	void Look(const FInputActionValue& Value);
+
+	
+
+	// Combat actions ---------------------------
+	UFUNCTION(BlueprintCallable, Category = "Combat")
 	void LightAttack();
+
+	UFUNCTION(BlueprintCallable, Category = "Combat")
 	void AirAttack();
+
+	UFUNCTION(BlueprintCallable, Category = "Combat")
 	void HeavyAttack();
+
+	UFUNCTION(BlueprintCallable, Category = "Combat")
 	void DashAttack();
 
+	
+
+	//  character state ---------------------------
+	UFUNCTION(BlueprintCallable, Category = "Character State")
+	void UpdateCharacterState();
  
 };

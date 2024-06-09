@@ -5,14 +5,14 @@
 #include "EnhancedInputSubsystems.h"
 #include "InputMappingContext.h"
 #include "InputAction.h"
-#include "Engine/LocalPlayer.h"
+// #include "Engine/LocalPlayer.h"
 
 #include "CombatComponent.h"
 #include "StateComponent.h"
 
 #include "Components/InputComponent.h"
-// #include "GameFramework/SpringArmComponent.h"
-// #include "Camera/CameraComponent.h"
+#include "GameFramework/SpringArmComponent.h"
+#include "Camera/CameraComponent.h"
 // #include "GameFramework/CharacterMovementComponent.h"
 
 #include "GameFramework/PlayerController.h"
@@ -24,7 +24,22 @@ ANinjaCombatCharacter::ANinjaCombatCharacter()
     PrimaryActorTick.bCanEverTick = true;
 
     CombatComponent = CreateDefaultSubobject<UCombatComponent>(TEXT("CombatComponent"));
-    StateComponent = CreateDefaultSubobject<UStateComponent>(TEXT("MYStateComponentChar"));
+    StateComponent = CreateDefaultSubobject<UStateComponent>(TEXT("StateComponentChar"));
+
+    // Set up the camera system
+    SpringArmComponent = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArmComponent"));
+    SpringArmComponent->SetupAttachment(RootComponent);
+    SpringArmComponent->TargetArmLength = 300.0f; // The camera follows at this distance behind the character
+    SpringArmComponent->bEnableCameraLag = true;
+    SpringArmComponent->CameraLagSpeed = 3.0f;
+
+    CameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("CameraComponent"));
+    CameraComponent->SetupAttachment(SpringArmComponent, USpringArmComponent::SocketName);
+
+    NinjaMovementComponent = CreateDefaultSubobject<UNinjaCharacterMovementComponent>(TEXT("NinjaMovementComponent")); // Initialize custom movement component
+
+    // Set the custom movement component as the character's movement component
+    // GetCharacterMovement()->SetMovementComponent(NinjaMovementComponent);
 
     DefaultMappingContext = nullptr;
  
@@ -80,6 +95,10 @@ void ANinjaCombatCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInp
 void ANinjaCombatCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+    
+    // Update character state based on current combat state
+    UpdateCharacterState();
+    
 }
 
 
@@ -119,9 +138,44 @@ void ANinjaCombatCharacter::Look(const FInputActionValue& Value)
     }
 }
 
+// COMBAT FUNCTIONS
+//
+// void ANinjaCombatCharacter::LightAttack()
+// {
+//     if (CombatComponent)
+//     {
+//         CombatComponent->LightAttack();
+//     }
+// }
+//
+// void ANinjaCombatCharacter::AirAttack()
+// {
+//     if (CombatComponent)
+//     {
+//         CombatComponent->AirAttack();
+//     }
+// }
+//
+// void ANinjaCombatCharacter::HeavyAttack()
+// {
+//     if (CombatComponent)
+//     {
+//         CombatComponent->HeavyAttack();
+//     }
+// }
+//
+// void ANinjaCombatCharacter::DashAttack()
+// {
+//     if (CombatComponent)
+//     {
+//         CombatComponent->DashAttack();
+//     }
+// }
+
+
 void ANinjaCombatCharacter::LightAttack()
 {
-    if (CombatComponent)
+    if (CombatComponent && StateComponent && StateComponent->HasCombatState(FGameplayTag::RequestGameplayTag(FName("State.CanAttack"))))
     {
         CombatComponent->LightAttack();
     }
@@ -129,7 +183,7 @@ void ANinjaCombatCharacter::LightAttack()
 
 void ANinjaCombatCharacter::AirAttack()
 {
-    if (CombatComponent)
+    if (CombatComponent && StateComponent && StateComponent->HasCombatState(FGameplayTag::RequestGameplayTag(FName("State.CanAttack"))))
     {
         CombatComponent->AirAttack();
     }
@@ -137,7 +191,7 @@ void ANinjaCombatCharacter::AirAttack()
 
 void ANinjaCombatCharacter::HeavyAttack()
 {
-    if (CombatComponent)
+    if (CombatComponent && StateComponent && StateComponent->HasCombatState(FGameplayTag::RequestGameplayTag(FName("State.CanAttack"))))
     {
         CombatComponent->HeavyAttack();
     }
@@ -145,8 +199,20 @@ void ANinjaCombatCharacter::HeavyAttack()
 
 void ANinjaCombatCharacter::DashAttack()
 {
-    if (CombatComponent)
+    if (CombatComponent && StateComponent && StateComponent->HasCombatState(FGameplayTag::RequestGameplayTag(FName("State.CanAttack"))))
     {
         CombatComponent->DashAttack();
+    }
+}
+
+void ANinjaCombatCharacter::UpdateCharacterState()
+{
+    if (StateComponent)
+    {
+        if (!StateComponent->HasCombatState(FGameplayTag::RequestGameplayTag(FName("State.Attacking"))) &&
+            !StateComponent->HasCombatState(FGameplayTag::RequestGameplayTag(FName("State.Airborne"))))
+        {
+            StateComponent->SetCombatState(FGameplayTag::RequestGameplayTag(FName("State.CanAttack")));
+        }
     }
 }

@@ -1,0 +1,12 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-InteractionModule.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"D:\Amir\TestCpp\Intermediate\Build\Win64\x64\TestCppEditor\Development\Engine\SharedPCH.Engine.Cpp20.InclOrderUnreal5_0.h.obj"
+"D:\Amir\TestCpp\Plugins\InteractionModule\Intermediate\Build\Win64\x64\UnrealEditor\Development\InteractionModule\Module.InteractionModule.cpp.obj"
+"D:\Amir\TestCpp\Plugins\InteractionModule\Intermediate\Build\Win64\x64\UnrealEditor\Development\InteractionModule\Default.rc2.res"
+/OUT:"D:\Amir\TestCpp\Plugins\InteractionModule\Intermediate\Build\Win64\x64\UnrealEditor\Development\InteractionModule\UnrealEditor-InteractionModule.lib"
