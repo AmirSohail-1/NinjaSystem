@@ -303,7 +303,7 @@ void EmptyLinkFunctionForGeneratedCodeStateComponent() {}
 		{ "ModuleRelativePath", "Public/StateComponent.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UStateComponent_Statics::NewProp_CombatStates = { "CombatStates", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(UStateComponent, CombatStates), Z_Construct_UScriptStruct_FGameplayTagContainer, METADATA_PARAMS(Z_Construct_UClass_UStateComponent_Statics::NewProp_CombatStates_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UStateComponent_Statics::NewProp_CombatStates_MetaData)) }; // 3057219007
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UStateComponent_Statics::NewProp_CombatStates = { "CombatStates", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(UStateComponent, CombatStates), Z_Construct_UScriptStruct_FGameplayTagContainer, METADATA_PARAMS(Z_Construct_UClass_UStateComponent_Statics::NewProp_CombatStates_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UStateComponent_Statics::NewProp_CombatStates_MetaData)) }; // 3057219007
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UStateComponent_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UStateComponent_Statics::NewProp_CombatStates,
 	};
@@ -344,9 +344,9 @@ void EmptyLinkFunctionForGeneratedCodeStateComponent() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_NinjaCombatSystem_Source_NinjaCombatSystem_Public_StateComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UStateComponent, UStateComponent::StaticClass, TEXT("UStateComponent"), &Z_Registration_Info_UClass_UStateComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UStateComponent), 2580280508U) },
+		{ Z_Construct_UClass_UStateComponent, UStateComponent::StaticClass, TEXT("UStateComponent"), &Z_Registration_Info_UClass_UStateComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UStateComponent), 3923277988U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_NinjaCombatSystem_Source_NinjaCombatSystem_Public_StateComponent_h_553265916(TEXT("/Script/NinjaCombatSystem"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_NinjaCombatSystem_Source_NinjaCombatSystem_Public_StateComponent_h_3540680217(TEXT("/Script/NinjaCombatSystem"),
 		Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_NinjaCombatSystem_Source_NinjaCombatSystem_Public_StateComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_NinjaCombatSystem_Source_NinjaCombatSystem_Public_StateComponent_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

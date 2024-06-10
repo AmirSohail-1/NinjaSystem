@@ -8,12 +8,14 @@
 // #include "Engine/LocalPlayer.h"
 
 #include "CombatComponent.h"
-#include "StateComponent.h"
+// #include "StateComponent.h"
+#include "GeneralStateManagerComponent.h"
 
 #include "Components/InputComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 // #include "GameFramework/CharacterMovementComponent.h"
+
 
 #include "GameFramework/PlayerController.h"
 
@@ -24,24 +26,33 @@ ANinjaCombatCharacter::ANinjaCombatCharacter()
     PrimaryActorTick.bCanEverTick = true;
 
     CombatComponent = CreateDefaultSubobject<UCombatComponent>(TEXT("CombatComponent"));
-    StateComponent = CreateDefaultSubobject<UStateComponent>(TEXT("StateComponentChar"));
+    StateComponents = CreateDefaultSubobject<UGeneralStateManagerComponent>(TEXT("StateComponents"));
+
+ 
 
     // Set up the camera system
     SpringArmComponent = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArmComponent"));
     SpringArmComponent->SetupAttachment(RootComponent);
     SpringArmComponent->TargetArmLength = 300.0f; // The camera follows at this distance behind the character
     SpringArmComponent->bEnableCameraLag = true;
-    SpringArmComponent->CameraLagSpeed = 3.0f;
+    SpringArmComponent->CameraLagSpeed = 1.0f;
 
     CameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("CameraComponent"));
     CameraComponent->SetupAttachment(SpringArmComponent, USpringArmComponent::SocketName);
 
-    NinjaMovementComponent = CreateDefaultSubobject<UNinjaCharacterMovementComponent>(TEXT("NinjaMovementComponent")); // Initialize custom movement component
+    // NinjaMovementComponent = CreateDefaultSubobject<UNinjaCharacterMovementComponent>(TEXT("NinjaMovementComponent")); // Initialize custom movement component
 
     // Set the custom movement component as the character's movement component
     // GetCharacterMovement()->SetMovementComponent(NinjaMovementComponent);
 
+    
+
+    // Ensure these are set correctly
     DefaultMappingContext = nullptr;
+    LightAttackAction = nullptr;
+    AirAttackAction = nullptr;
+    HeavyAttackAction = nullptr;
+    DashAttackAction = nullptr;
  
 }
 
@@ -54,9 +65,35 @@ void ANinjaCombatCharacter::BeginPlay()
     {
         if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
         {
-            Subsystem->AddMappingContext(DefaultMappingContext, 0);
+            if (DefaultMappingContext)
+            {
+                Subsystem->AddMappingContext(DefaultMappingContext, 0);
+            }
+            else
+            {
+                UE_LOG(LogTemp, Error, TEXT("DefaultMappingContext is not set"));
+            }
         }
     }
+
+    if (!CombatComponent)
+    {
+        UE_LOG(LogTemp, Error, TEXT("CombatComponent is not initialized"));
+    }
+    else
+    {
+        UE_LOG(LogTemp, Log, TEXT("CombatComponent is initialized"));
+    }
+
+    if (!StateComponents)
+    {
+        UE_LOG(LogTemp, Error, TEXT("StateComponent is not initialized"));
+    }
+    else
+    {
+        UE_LOG(LogTemp, Log, TEXT("StateComponent is initialized"));
+    }
+    
 }
 
  
@@ -77,11 +114,28 @@ void ANinjaCombatCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInp
         // Looking
         EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &ANinjaCombatCharacter::Look);
 
-        // Combat actions
-        EnhancedInputComponent->BindAction(LightAttackAction, ETriggerEvent::Started, this, &ANinjaCombatCharacter::LightAttack);
-        EnhancedInputComponent->BindAction( AirAttackAction , ETriggerEvent::Started, this, &ANinjaCombatCharacter::AirAttack);
-        EnhancedInputComponent->BindAction( HeavyAttackAction , ETriggerEvent::Started, this, &ANinjaCombatCharacter::HeavyAttack);
-        EnhancedInputComponent->BindAction( DashAttackAction , ETriggerEvent::Started, this, &ANinjaCombatCharacter::DashAttack);
+         
+
+        // Bind to input actions inside C++ , not need to bind in blueprint below attacks.
+        if (LightAttackAction)
+        {
+            EnhancedInputComponent->BindAction(LightAttackAction, ETriggerEvent::Triggered, this, &ANinjaCombatCharacter::LightAttack);
+        }
+
+        if (AirAttackAction)
+        {
+            EnhancedInputComponent->BindAction(AirAttackAction, ETriggerEvent::Triggered, this, &ANinjaCombatCharacter::AirAttack);
+        }
+
+        if (HeavyAttackAction)
+        {
+            EnhancedInputComponent->BindAction(HeavyAttackAction, ETriggerEvent::Triggered, this, &ANinjaCombatCharacter::HeavyAttack);
+        }
+
+        if (DashAttackAction)
+        {
+            EnhancedInputComponent->BindAction(DashAttackAction, ETriggerEvent::Triggered, this, &ANinjaCombatCharacter::DashAttack);
+        }
     }
     else
     {
@@ -138,52 +192,33 @@ void ANinjaCombatCharacter::Look(const FInputActionValue& Value)
     }
 }
 
-// COMBAT FUNCTIONS
-//
-// void ANinjaCombatCharacter::LightAttack()
-// {
-//     if (CombatComponent)
-//     {
-//         CombatComponent->LightAttack();
-//     }
-// }
-//
-// void ANinjaCombatCharacter::AirAttack()
-// {
-//     if (CombatComponent)
-//     {
-//         CombatComponent->AirAttack();
-//     }
-// }
-//
-// void ANinjaCombatCharacter::HeavyAttack()
-// {
-//     if (CombatComponent)
-//     {
-//         CombatComponent->HeavyAttack();
-//     }
-// }
-//
-// void ANinjaCombatCharacter::DashAttack()
-// {
-//     if (CombatComponent)
-//     {
-//         CombatComponent->DashAttack();
-//     }
-// }
+ 
 
 
 void ANinjaCombatCharacter::LightAttack()
 {
-    if (CombatComponent && StateComponent && StateComponent->HasCombatState(FGameplayTag::RequestGameplayTag(FName("State.CanAttack"))))
+    if (CombatComponent && StateComponents)
     {
-        CombatComponent->LightAttack();
+        if (StateComponents->HasCombatState(FGameplayTag::RequestGameplayTag(FName("State.CanAttack"))))
+        {
+            UE_LOG(LogTemp, Warning, TEXT("Light Attack executed"));
+            CombatComponent->LightAttack();
+        }
+        else
+        {
+            UE_LOG(LogTemp, Warning, TEXT("Cannot perform Light Attack: Not in CanAttack state"));
+        }
+    }
+    else
+    {
+        UE_LOG(LogTemp, Warning, TEXT("CombatComponent or StateComponent is null"));
     }
 }
 
+
 void ANinjaCombatCharacter::AirAttack()
 {
-    if (CombatComponent && StateComponent && StateComponent->HasCombatState(FGameplayTag::RequestGameplayTag(FName("State.CanAttack"))))
+    if (CombatComponent && StateComponents && StateComponents->HasCombatState(FGameplayTag::RequestGameplayTag(FName("State.CanAttack"))))
     {
         CombatComponent->AirAttack();
     }
@@ -191,7 +226,7 @@ void ANinjaCombatCharacter::AirAttack()
 
 void ANinjaCombatCharacter::HeavyAttack()
 {
-    if (CombatComponent && StateComponent && StateComponent->HasCombatState(FGameplayTag::RequestGameplayTag(FName("State.CanAttack"))))
+    if (CombatComponent && StateComponents && StateComponents->HasCombatState(FGameplayTag::RequestGameplayTag(FName("State.CanAttack"))))
     {
         CombatComponent->HeavyAttack();
     }
@@ -199,7 +234,7 @@ void ANinjaCombatCharacter::HeavyAttack()
 
 void ANinjaCombatCharacter::DashAttack()
 {
-    if (CombatComponent && StateComponent && StateComponent->HasCombatState(FGameplayTag::RequestGameplayTag(FName("State.CanAttack"))))
+    if (CombatComponent && StateComponents && StateComponents->HasCombatState(FGameplayTag::RequestGameplayTag(FName("State.CanAttack"))))
     {
         CombatComponent->DashAttack();
     }
@@ -207,12 +242,13 @@ void ANinjaCombatCharacter::DashAttack()
 
 void ANinjaCombatCharacter::UpdateCharacterState()
 {
-    if (StateComponent)
+    if (StateComponents)
     {
-        if (!StateComponent->HasCombatState(FGameplayTag::RequestGameplayTag(FName("State.Attacking"))) &&
-            !StateComponent->HasCombatState(FGameplayTag::RequestGameplayTag(FName("State.Airborne"))))
+        if (!StateComponents->HasCombatState(FGameplayTag::RequestGameplayTag(FName("State.Attacking"))) &&
+            !StateComponents->HasCombatState(FGameplayTag::RequestGameplayTag(FName("State.Airborne"))))
         {
-            StateComponent->SetCombatState(FGameplayTag::RequestGameplayTag(FName("State.CanAttack")));
+            StateComponents->SetCombatState(FGameplayTag::RequestGameplayTag(FName("State.CanAttack")));
         }
     }
 }
+

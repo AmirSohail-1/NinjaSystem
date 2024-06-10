@@ -25,8 +25,7 @@ public:
 	bool HasCombatState(const FGameplayTag& StateToCheck) const;
 
 protected:
-	UPROPERTY()
-	FGameplayTagContainer CombatStates;
+	
 	
 	UFUNCTION()
 	void AddCombatState(const FGameplayTag& NewState);
@@ -35,10 +34,14 @@ protected:
 	void ClearCombatStates();
 
  
-	virtual void BeginPlay() override;
+
 
 public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType,
 	                           FActorComponentTickFunction* ThisTickFunction) override;
+	UPROPERTY()
+	FGameplayTagContainer CombatStates;
+
+	virtual void BeginPlay() override;
 };

@@ -20,5 +20,10 @@
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		}
+	],
+	"AdditionalDependencies": [
+		"EnhancedInput"   
 	]
+	
+	
 }

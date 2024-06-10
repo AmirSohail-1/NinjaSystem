@@ -4,8 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-
-#include "StateComponent.h"
 #include "CombatComponent.generated.h"
 
 

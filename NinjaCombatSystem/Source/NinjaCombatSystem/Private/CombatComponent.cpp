@@ -2,7 +2,6 @@
 
 #include "CombatComponent.h"
 #include "GameFramework/Character.h"
-#include "GameplayTagContainer.h"
 #include "GameFramework/CharacterMovementComponent.h"
 
 UCombatComponent::UCombatComponent()

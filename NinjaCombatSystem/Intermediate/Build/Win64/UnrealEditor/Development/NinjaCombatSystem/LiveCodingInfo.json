@@ -3,12 +3,14 @@
 	{
 		"Module.NinjaCombatSystem.cpp.obj": [
 			"CombatComponent.gen.cpp.obj",
+			"GeneralStateManagerComponent.gen.cpp.obj",
 			"NinjaCharacterMovementComponent.gen.cpp.obj",
 			"NinjaCombatCharacter.gen.cpp.obj",
 			"NinjaCombatSystem.init.gen.cpp.obj",
 			"PrinterTest.gen.cpp.obj",
 			"StateComponent.gen.cpp.obj",
 			"CombatComponent.cpp.obj",
+			"GeneralStateManagerComponent.cpp.obj",
 			"NinjaCharacterMovementComponent.cpp.obj",
 			"NinjaCombatCharacter.cpp.obj",
 			"NinjaCombatSystem.cpp.obj",

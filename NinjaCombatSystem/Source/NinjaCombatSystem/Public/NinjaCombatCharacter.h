@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "InputActionValue.h"
-#include "NinjaCharacterMovementComponent.h" // Include your custom movement component
+// #include "NinjaCharacterMovementComponent.h" // Include your custom movement component
 #include "NinjaCombatCharacter.generated.h"
 
 
@@ -14,7 +14,7 @@ class UCameraComponent;
 class UInputMappingContext;
 class UInputAction;
 class UCombatComponent;
-class UStateComponent;
+class UGeneralStateManagerComponent;
 
 
 
@@ -41,7 +41,7 @@ private:
 
 	// State component
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Combat", meta = (AllowPrivateAccess = "true"))
-	class UStateComponent* StateComponent;
+	class UGeneralStateManagerComponent* StateComponents;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta=(AllowPrivateAccess="true"))
 	USpringArmComponent* SpringArmComponent;
@@ -49,8 +49,8 @@ private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta=(AllowPrivateAccess="true"))
 	UCameraComponent* CameraComponent;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta=(AllowPrivateAccess="true"))
-	UNinjaCharacterMovementComponent* NinjaMovementComponent; // Pointer to your custom movement component
+	// UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta=(AllowPrivateAccess="true"))
+	// UNinjaCharacterMovementComponent* NinjaMovementComponent; // Pointer to your custom movement component
 
 
 public:
