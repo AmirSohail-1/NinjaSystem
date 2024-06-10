@@ -23,6 +23,7 @@ void APrinterTest::BeginPlay()
 void APrinterTest::PrintFunction()
 {
 	UE_LOG(LogTemp, Warning, TEXT("PrintFunction"));
+	UE_LOG(LogTemp, Warning, TEXT("PrintFunction 22222222"));
 	
 }
 
