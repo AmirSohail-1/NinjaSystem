@@ -6,6 +6,10 @@
 #include "GameFramework/Character.h"
 #include "InputActionValue.h"
 // #include "NinjaCharacterMovementComponent.h" // Include your custom movement component
+
+#include "NinjaSaveSystemComponent.h" // Include the save system component header
+#include "NinjaSaveGame.h" // Include the save game class header
+
 #include "NinjaCombatCharacter.generated.h"
 
 
@@ -15,6 +19,7 @@ class UInputMappingContext;
 class UInputAction;
 class UCombatComponent;
 class UGeneralStateManagerComponent;
+class UNinjaSaveSystemComponent;
 
 
 
@@ -35,6 +40,13 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 private:
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta=(AllowPrivateAccess="true"))
+	USpringArmComponent* SpringArmComponent;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta=(AllowPrivateAccess="true"))
+	UCameraComponent* CameraComponent;
+	
 	// Combat component
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Combat", meta = (AllowPrivateAccess = "true"))
 	class UCombatComponent* CombatComponent;
@@ -43,11 +55,9 @@ private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Combat", meta = (AllowPrivateAccess = "true"))
 	class UGeneralStateManagerComponent* StateComponents;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta=(AllowPrivateAccess="true"))
-	USpringArmComponent* SpringArmComponent;
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta=(AllowPrivateAccess="true"))
-	UCameraComponent* CameraComponent;
+	// Save system component Ref
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Combat", meta = (AllowPrivateAccess = "true"))
+	UNinjaSaveSystemComponent* SaveSystemComponent;
 
 	// UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta=(AllowPrivateAccess="true"))
 	// UNinjaCharacterMovementComponent* NinjaMovementComponent; // Pointer to your custom movement component
@@ -114,5 +124,15 @@ public:
 	//  character state ---------------------------
 	UFUNCTION(BlueprintCallable, Category = "Character State")
 	void UpdateCharacterState();
- 
+
+
+	//  Save Component & SaveData.h  ---------------------------
+
+	UFUNCTION(BlueprintCallable, Category="Save")	
+	void SaveGameData();
+
+	UFUNCTION(BlueprintCallable, Category="Save")
+	void LoadGameData();
+	
+	
 };

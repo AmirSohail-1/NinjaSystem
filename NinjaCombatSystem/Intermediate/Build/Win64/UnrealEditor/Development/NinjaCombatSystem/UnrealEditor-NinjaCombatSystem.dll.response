@@ -42,6 +42,7 @@
 "..\Intermediate\Build\Win64\UnrealEditor\Development\SlateCore\UnrealEditor-SlateCore.lib"
 "..\Plugins\EnhancedInput\Intermediate\Build\Win64\UnrealEditor\Development\EnhancedInput\UnrealEditor-EnhancedInput.lib"
 "..\Intermediate\Build\Win64\UnrealEditor\Development\GameplayTags\UnrealEditor-GameplayTags.lib"
+"..\Intermediate\Build\Win64\UnrealEditor\Development\UMG\UnrealEditor-UMG.lib"
 "..\Intermediate\Build\Win64\UnrealEditor\Development\Core\UnrealEditor-Core.lib"
 "delayimp.lib"
 "wininet.lib"

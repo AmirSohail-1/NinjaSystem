@@ -7,14 +7,22 @@
 			"NinjaCharacterMovementComponent.gen.cpp.obj",
 			"NinjaCombatCharacter.gen.cpp.obj",
 			"NinjaCombatSystem.init.gen.cpp.obj",
+			"NinjaSaveGame.gen.cpp.obj",
+			"NinjaSaveSystemComponent.gen.cpp.obj",
 			"PrinterTest.gen.cpp.obj",
+			"QuestComponent.gen.cpp.obj",
+			"QuestGiverComponent.gen.cpp.obj",
 			"StateComponent.gen.cpp.obj",
 			"CombatComponent.cpp.obj",
 			"GeneralStateManagerComponent.cpp.obj",
 			"NinjaCharacterMovementComponent.cpp.obj",
 			"NinjaCombatCharacter.cpp.obj",
 			"NinjaCombatSystem.cpp.obj",
+			"NinjaSaveGame.cpp.obj",
+			"NinjaSaveSystemComponent.cpp.obj",
 			"PrinterTest.cpp.obj",
+			"QuestComponent.cpp.obj",
+			"QuestGiverComponent.cpp.obj",
 			"StateComponent.cpp.obj"
 		]
 	}

@@ -26,6 +26,13 @@ public class NinjaCombatSystem : ModuleRules
 			new string[]
 			{
 				"Core",
+				"CoreUObject",
+				"Engine",
+				"Slate",
+				"SlateCore",
+				"EnhancedInput",
+				"GameplayTags",
+				"UMG", 
 				// ... add other public dependencies that you statically link with here ...
 			}
 			);
@@ -40,6 +47,7 @@ public class NinjaCombatSystem : ModuleRules
 				"SlateCore",
 				"EnhancedInput",
 				"GameplayTags",
+				"UMG",  
 				// ... add private dependencies that you statically link with here ...	
 			}
 			);

@@ -25,9 +25,10 @@ ANinjaCombatCharacter::ANinjaCombatCharacter()
     // Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
     PrimaryActorTick.bCanEverTick = true;
 
+    // Set up the components Save, State, Combat etc.
     CombatComponent = CreateDefaultSubobject<UCombatComponent>(TEXT("CombatComponent"));
     StateComponents = CreateDefaultSubobject<UGeneralStateManagerComponent>(TEXT("StateComponents"));
-
+    SaveSystemComponent = CreateDefaultSubobject<UNinjaSaveSystemComponent>(TEXT("SaveSystemComponent"));
  
 
     // Set up the camera system
@@ -60,6 +61,9 @@ ANinjaCombatCharacter::ANinjaCombatCharacter()
 void ANinjaCombatCharacter::BeginPlay()
 {
     Super::BeginPlay();
+
+    // save test
+     
 
     if (APlayerController* PlayerController = Cast<APlayerController>(Controller))
     {
@@ -193,7 +197,7 @@ void ANinjaCombatCharacter::Look(const FInputActionValue& Value)
 }
 
  
-
+//  State & Combat Component  ----------------------------------------------------------
 
 void ANinjaCombatCharacter::LightAttack()
 {
@@ -252,3 +256,48 @@ void ANinjaCombatCharacter::UpdateCharacterState()
     }
 }
 
+//  Save Component & SaveData.h  ----------------------------------------------------------
+
+void ANinjaCombatCharacter::SaveGameData()
+{
+    UNinjaSaveGame* SaveGameData = SaveSystemComponent->CreateSaveGameObject();
+    if (SaveGameData)
+    {
+        // Populate save game data properties
+        SaveGameData->PlayerName = "Player1";
+        SaveGameData->PlayerLevel = 10;
+        SaveGameData->PlayerLocation = GetActorLocation();
+        SaveGameData->PlayerRotation = GetActorRotation();
+
+        // Log each property individually
+        UE_LOG(LogTemp, Warning, TEXT("Player name saved: %s"), *SaveGameData->PlayerName);
+        UE_LOG(LogTemp, Warning, TEXT("Player level saved: %d"), SaveGameData->PlayerLevel);
+        UE_LOG(LogTemp, Warning, TEXT("Player location saved: %s"), *SaveGameData->PlayerLocation.ToString());
+        UE_LOG(LogTemp, Warning, TEXT("Player rotation saved: %s"), *SaveGameData->PlayerRotation.ToString());
+
+        // Call save function on save system component
+        SaveSystemComponent->SaveGame(SaveGameData);
+    }
+}
+
+
+void ANinjaCombatCharacter::LoadGameData()
+{
+    UNinjaSaveGame* LoadedGameData = SaveSystemComponent->LoadGame();
+    if (LoadedGameData)
+    {
+        // Use loaded game data properties
+        FString PlayerName = LoadedGameData->PlayerName;
+        int32 PlayerLevel = LoadedGameData->PlayerLevel;
+        FVector PlayerLocation = LoadedGameData->PlayerLocation;
+        FRotator PlayerRotation = LoadedGameData->PlayerRotation;
+
+        // Log loaded data for verification
+        UE_LOG(LogTemp, Warning, TEXT("Player name loaded: %s"), *PlayerName);
+        UE_LOG(LogTemp, Warning, TEXT("Player level loaded: %d"), PlayerLevel);
+        UE_LOG(LogTemp, Warning, TEXT("Player location loaded: %s"), *PlayerLocation.ToString());
+        UE_LOG(LogTemp, Warning, TEXT("Player rotation loaded: %s"), *PlayerRotation.ToString());
+
+        // Use the loaded data as needed
+    }
+}

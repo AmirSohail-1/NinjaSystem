@@ -20,8 +20,23 @@ void EmptyLinkFunctionForGeneratedCodeNinjaCombatCharacter() {}
 	NINJACOMBATSYSTEM_API UClass* Z_Construct_UClass_ANinjaCombatCharacter_NoRegister();
 	NINJACOMBATSYSTEM_API UClass* Z_Construct_UClass_UCombatComponent_NoRegister();
 	NINJACOMBATSYSTEM_API UClass* Z_Construct_UClass_UGeneralStateManagerComponent_NoRegister();
+	NINJACOMBATSYSTEM_API UClass* Z_Construct_UClass_UNinjaSaveSystemComponent_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_NinjaCombatSystem();
 // End Cross Module References
+	DEFINE_FUNCTION(ANinjaCombatCharacter::execLoadGameData)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->LoadGameData();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ANinjaCombatCharacter::execSaveGameData)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SaveGameData();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ANinjaCombatCharacter::execUpdateCharacterState)
 	{
 		P_FINISH;
@@ -81,8 +96,10 @@ void EmptyLinkFunctionForGeneratedCodeNinjaCombatCharacter() {}
 			{ "DashAttack", &ANinjaCombatCharacter::execDashAttack },
 			{ "HeavyAttack", &ANinjaCombatCharacter::execHeavyAttack },
 			{ "LightAttack", &ANinjaCombatCharacter::execLightAttack },
+			{ "LoadGameData", &ANinjaCombatCharacter::execLoadGameData },
 			{ "Look", &ANinjaCombatCharacter::execLook },
 			{ "Move", &ANinjaCombatCharacter::execMove },
+			{ "SaveGameData", &ANinjaCombatCharacter::execSaveGameData },
 			{ "UpdateCharacterState", &ANinjaCombatCharacter::execUpdateCharacterState },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -181,6 +198,29 @@ void EmptyLinkFunctionForGeneratedCodeNinjaCombatCharacter() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_ANinjaCombatCharacter_LoadGameData_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ANinjaCombatCharacter_LoadGameData_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Save" },
+		{ "ModuleRelativePath", "Public/NinjaCombatCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ANinjaCombatCharacter_LoadGameData_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ANinjaCombatCharacter, nullptr, "LoadGameData", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ANinjaCombatCharacter_LoadGameData_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ANinjaCombatCharacter_LoadGameData_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ANinjaCombatCharacter_LoadGameData()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ANinjaCombatCharacter_LoadGameData_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_ANinjaCombatCharacter_Look_Statics
 	{
 		struct NinjaCombatCharacter_eventLook_Parms
@@ -265,6 +305,31 @@ void EmptyLinkFunctionForGeneratedCodeNinjaCombatCharacter() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_ANinjaCombatCharacter_SaveGameData_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ANinjaCombatCharacter_SaveGameData_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Save" },
+		{ "Comment", "//  Save Component & SaveData.h  ---------------------------\n" },
+		{ "ModuleRelativePath", "Public/NinjaCombatCharacter.h" },
+		{ "ToolTip", "Save Component & SaveData.h  ---------------------------" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ANinjaCombatCharacter_SaveGameData_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ANinjaCombatCharacter, nullptr, "SaveGameData", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ANinjaCombatCharacter_SaveGameData_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ANinjaCombatCharacter_SaveGameData_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ANinjaCombatCharacter_SaveGameData()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ANinjaCombatCharacter_SaveGameData_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_ANinjaCombatCharacter_UpdateCharacterState_Statics
 	{
 #if WITH_METADATA
@@ -303,6 +368,14 @@ void EmptyLinkFunctionForGeneratedCodeNinjaCombatCharacter() {}
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_SpringArmComponent_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_SpringArmComponent;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CameraComponent_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_CameraComponent;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_CombatComponent_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_CombatComponent;
@@ -311,13 +384,9 @@ void EmptyLinkFunctionForGeneratedCodeNinjaCombatCharacter() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_StateComponents;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_SpringArmComponent_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_SaveSystemComponent_MetaData[];
 #endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_SpringArmComponent;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_CameraComponent_MetaData[];
-#endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_CameraComponent;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_SaveSystemComponent;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_DefaultMappingContext_MetaData[];
 #endif
@@ -363,8 +432,10 @@ void EmptyLinkFunctionForGeneratedCodeNinjaCombatCharacter() {}
 		{ &Z_Construct_UFunction_ANinjaCombatCharacter_DashAttack, "DashAttack" }, // 380075825
 		{ &Z_Construct_UFunction_ANinjaCombatCharacter_HeavyAttack, "HeavyAttack" }, // 556167646
 		{ &Z_Construct_UFunction_ANinjaCombatCharacter_LightAttack, "LightAttack" }, // 732712122
+		{ &Z_Construct_UFunction_ANinjaCombatCharacter_LoadGameData, "LoadGameData" }, // 2566986683
 		{ &Z_Construct_UFunction_ANinjaCombatCharacter_Look, "Look" }, // 357970796
 		{ &Z_Construct_UFunction_ANinjaCombatCharacter_Move, "Move" }, // 3434184404
+		{ &Z_Construct_UFunction_ANinjaCombatCharacter_SaveGameData, "SaveGameData" }, // 584156658
 		{ &Z_Construct_UFunction_ANinjaCombatCharacter_UpdateCharacterState, "UpdateCharacterState" }, // 2128516739
 	};
 #if WITH_METADATA
@@ -374,6 +445,24 @@ void EmptyLinkFunctionForGeneratedCodeNinjaCombatCharacter() {}
 		{ "ModuleRelativePath", "Public/NinjaCombatCharacter.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_SpringArmComponent_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Components" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/NinjaCombatCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_SpringArmComponent = { "SpringArmComponent", nullptr, (EPropertyFlags)0x00400000000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(ANinjaCombatCharacter, SpringArmComponent), Z_Construct_UClass_USpringArmComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_SpringArmComponent_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_SpringArmComponent_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_CameraComponent_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Components" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/NinjaCombatCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_CameraComponent = { "CameraComponent", nullptr, (EPropertyFlags)0x00400000000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(ANinjaCombatCharacter, CameraComponent), Z_Construct_UClass_UCameraComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_CameraComponent_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_CameraComponent_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_CombatComponent_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
@@ -397,23 +486,16 @@ void EmptyLinkFunctionForGeneratedCodeNinjaCombatCharacter() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_StateComponents = { "StateComponents", nullptr, (EPropertyFlags)0x00400000000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(ANinjaCombatCharacter, StateComponents), Z_Construct_UClass_UGeneralStateManagerComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_StateComponents_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_StateComponents_MetaData)) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_SpringArmComponent_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_SaveSystemComponent_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
-		{ "Category", "Components" },
+		{ "Category", "Combat" },
+		{ "Comment", "// Save system component Ref\n" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/NinjaCombatCharacter.h" },
+		{ "ToolTip", "Save system component Ref" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_SpringArmComponent = { "SpringArmComponent", nullptr, (EPropertyFlags)0x00400000000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(ANinjaCombatCharacter, SpringArmComponent), Z_Construct_UClass_USpringArmComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_SpringArmComponent_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_SpringArmComponent_MetaData)) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_CameraComponent_MetaData[] = {
-		{ "AllowPrivateAccess", "true" },
-		{ "Category", "Components" },
-		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Public/NinjaCombatCharacter.h" },
-	};
-#endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_CameraComponent = { "CameraComponent", nullptr, (EPropertyFlags)0x00400000000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(ANinjaCombatCharacter, CameraComponent), Z_Construct_UClass_UCameraComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_CameraComponent_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_CameraComponent_MetaData)) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_SaveSystemComponent = { "SaveSystemComponent", nullptr, (EPropertyFlags)0x00400000000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(ANinjaCombatCharacter, SaveSystemComponent), Z_Construct_UClass_UNinjaSaveSystemComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_SaveSystemComponent_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_SaveSystemComponent_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_DefaultMappingContext_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
@@ -495,10 +577,11 @@ void EmptyLinkFunctionForGeneratedCodeNinjaCombatCharacter() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_DashAttackAction = { "DashAttackAction", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(ANinjaCombatCharacter, DashAttackAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_DashAttackAction_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_DashAttackAction_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ANinjaCombatCharacter_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_CombatComponent,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_StateComponents,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_SpringArmComponent,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_CameraComponent,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_CombatComponent,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_StateComponents,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_SaveSystemComponent,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_DefaultMappingContext,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_JumpAction,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_MoveAction,
@@ -545,9 +628,9 @@ void EmptyLinkFunctionForGeneratedCodeNinjaCombatCharacter() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ProjectSystemTest_Plugins_NinjaCombatSystem_Source_NinjaCombatSystem_Public_NinjaCombatCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ANinjaCombatCharacter, ANinjaCombatCharacter::StaticClass, TEXT("ANinjaCombatCharacter"), &Z_Registration_Info_UClass_ANinjaCombatCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ANinjaCombatCharacter), 1500052186U) },
+		{ Z_Construct_UClass_ANinjaCombatCharacter, ANinjaCombatCharacter::StaticClass, TEXT("ANinjaCombatCharacter"), &Z_Registration_Info_UClass_ANinjaCombatCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ANinjaCombatCharacter), 227819023U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ProjectSystemTest_Plugins_NinjaCombatSystem_Source_NinjaCombatSystem_Public_NinjaCombatCharacter_h_46629989(TEXT("/Script/NinjaCombatSystem"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ProjectSystemTest_Plugins_NinjaCombatSystem_Source_NinjaCombatSystem_Public_NinjaCombatCharacter_h_2740212494(TEXT("/Script/NinjaCombatSystem"),
 		Z_CompiledInDeferFile_FID_ProjectSystemTest_Plugins_NinjaCombatSystem_Source_NinjaCombatSystem_Public_NinjaCombatCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ProjectSystemTest_Plugins_NinjaCombatSystem_Source_NinjaCombatSystem_Public_NinjaCombatCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

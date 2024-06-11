@@ -1,6 +1,10 @@
-D:\Amir\ProjectSystemTest\Plugins\NinjaCombatSystem\Source\NinjaCombatSystem\Public\PrinterTest.h
-D:\Amir\ProjectSystemTest\Plugins\NinjaCombatSystem\Source\NinjaCombatSystem\Public\NinjaCombatCharacter.h
 D:\Amir\ProjectSystemTest\Plugins\NinjaCombatSystem\Source\NinjaCombatSystem\Public\CombatComponent.h
-D:\Amir\ProjectSystemTest\Plugins\NinjaCombatSystem\Source\NinjaCombatSystem\Public\GeneralStateManagerComponent.h
 D:\Amir\ProjectSystemTest\Plugins\NinjaCombatSystem\Source\NinjaCombatSystem\Public\NinjaCharacterMovementComponent.h
+D:\Amir\ProjectSystemTest\Plugins\NinjaCombatSystem\Source\NinjaCombatSystem\Public\QuestComponent.h
+D:\Amir\ProjectSystemTest\Plugins\NinjaCombatSystem\Source\NinjaCombatSystem\Public\NinjaCombatCharacter.h
+D:\Amir\ProjectSystemTest\Plugins\NinjaCombatSystem\Source\NinjaCombatSystem\Public\GeneralStateManagerComponent.h
+D:\Amir\ProjectSystemTest\Plugins\NinjaCombatSystem\Source\NinjaCombatSystem\Public\QuestGiverComponent.h
 D:\Amir\ProjectSystemTest\Plugins\NinjaCombatSystem\Source\NinjaCombatSystem\Public\StateComponent.h
+D:\Amir\ProjectSystemTest\Plugins\NinjaCombatSystem\Source\NinjaCombatSystem\Public\NinjaSaveGame.h
+D:\Amir\ProjectSystemTest\Plugins\NinjaCombatSystem\Source\NinjaCombatSystem\Public\PrinterTest.h
+D:\Amir\ProjectSystemTest\Plugins\NinjaCombatSystem\Source\NinjaCombatSystem\Public\NinjaSaveSystemComponent.h
