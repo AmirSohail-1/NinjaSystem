@@ -7,9 +7,11 @@
 #include "UObject/GeneratedCppIncludes.h"
 #include "NinjaCombatSystem/Public/NinjaCombatCharacter.h"
 #include "EnhancedInput/Public/InputActionValue.h"
+#include "NinjaCombatSystem/Public/QuestSystem/Quest.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeNinjaCombatCharacter() {}
 // Cross Module References
+	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 	ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
@@ -21,8 +23,26 @@ void EmptyLinkFunctionForGeneratedCodeNinjaCombatCharacter() {}
 	NINJACOMBATSYSTEM_API UClass* Z_Construct_UClass_UCombatComponent_NoRegister();
 	NINJACOMBATSYSTEM_API UClass* Z_Construct_UClass_UGeneralStateManagerComponent_NoRegister();
 	NINJACOMBATSYSTEM_API UClass* Z_Construct_UClass_UNinjaSaveSystemComponent_NoRegister();
+	NINJACOMBATSYSTEM_API UClass* Z_Construct_UClass_UQuestManagerComponent_NoRegister();
+	NINJACOMBATSYSTEM_API UClass* Z_Construct_UClass_UQuestWidget_NoRegister();
+	NINJACOMBATSYSTEM_API UScriptStruct* Z_Construct_UScriptStruct_FQuest();
+	UMG_API UClass* Z_Construct_UClass_UUserWidget_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_NinjaCombatSystem();
 // End Cross Module References
+	DEFINE_FUNCTION(ANinjaCombatCharacter::execAddQuestsFromDataTable)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->AddQuestsFromDataTable();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ANinjaCombatCharacter::execHandleQuestCompleted)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->HandleQuestCompleted();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ANinjaCombatCharacter::execLoadGameData)
 	{
 		P_FINISH;
@@ -92,8 +112,10 @@ void EmptyLinkFunctionForGeneratedCodeNinjaCombatCharacter() {}
 	{
 		UClass* Class = ANinjaCombatCharacter::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "AddQuestsFromDataTable", &ANinjaCombatCharacter::execAddQuestsFromDataTable },
 			{ "AirAttack", &ANinjaCombatCharacter::execAirAttack },
 			{ "DashAttack", &ANinjaCombatCharacter::execDashAttack },
+			{ "HandleQuestCompleted", &ANinjaCombatCharacter::execHandleQuestCompleted },
 			{ "HeavyAttack", &ANinjaCombatCharacter::execHeavyAttack },
 			{ "LightAttack", &ANinjaCombatCharacter::execLightAttack },
 			{ "LoadGameData", &ANinjaCombatCharacter::execLoadGameData },
@@ -103,6 +125,31 @@ void EmptyLinkFunctionForGeneratedCodeNinjaCombatCharacter() {}
 			{ "UpdateCharacterState", &ANinjaCombatCharacter::execUpdateCharacterState },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_ANinjaCombatCharacter_AddQuestsFromDataTable_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ANinjaCombatCharacter_AddQuestsFromDataTable_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Quest" },
+		{ "DisplayName", "AddQuestsFromDataTable" },
+		{ "Keywords", "AddQuestsFromDataTable" },
+		{ "ModuleRelativePath", "Public/NinjaCombatCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ANinjaCombatCharacter_AddQuestsFromDataTable_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ANinjaCombatCharacter, nullptr, "AddQuestsFromDataTable", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ANinjaCombatCharacter_AddQuestsFromDataTable_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ANinjaCombatCharacter_AddQuestsFromDataTable_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ANinjaCombatCharacter_AddQuestsFromDataTable()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ANinjaCombatCharacter_AddQuestsFromDataTable_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_ANinjaCombatCharacter_AirAttack_Statics
 	{
@@ -147,6 +194,29 @@ void EmptyLinkFunctionForGeneratedCodeNinjaCombatCharacter() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ANinjaCombatCharacter_DashAttack_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ANinjaCombatCharacter_HandleQuestCompleted_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ANinjaCombatCharacter_HandleQuestCompleted_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Quest" },
+		{ "ModuleRelativePath", "Public/NinjaCombatCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ANinjaCombatCharacter_HandleQuestCompleted_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ANinjaCombatCharacter, nullptr, "HandleQuestCompleted", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ANinjaCombatCharacter_HandleQuestCompleted_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ANinjaCombatCharacter_HandleQuestCompleted_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ANinjaCombatCharacter_HandleQuestCompleted()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ANinjaCombatCharacter_HandleQuestCompleted_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -419,6 +489,22 @@ void EmptyLinkFunctionForGeneratedCodeNinjaCombatCharacter() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_DashAttackAction_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_DashAttackAction;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_QuestManagerComponent_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_QuestManagerComponent;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_QuestWidget_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_QuestWidget;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_QuestWidgetClass_MetaData[];
+#endif
+		static const UECodeGen_Private::FClassPropertyParams NewProp_QuestWidgetClass;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CurrentQuest_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_CurrentQuest;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -428,8 +514,10 @@ void EmptyLinkFunctionForGeneratedCodeNinjaCombatCharacter() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_NinjaCombatSystem,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ANinjaCombatCharacter_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_ANinjaCombatCharacter_AddQuestsFromDataTable, "AddQuestsFromDataTable" }, // 1677431590
 		{ &Z_Construct_UFunction_ANinjaCombatCharacter_AirAttack, "AirAttack" }, // 2610847223
 		{ &Z_Construct_UFunction_ANinjaCombatCharacter_DashAttack, "DashAttack" }, // 380075825
+		{ &Z_Construct_UFunction_ANinjaCombatCharacter_HandleQuestCompleted, "HandleQuestCompleted" }, // 2335957048
 		{ &Z_Construct_UFunction_ANinjaCombatCharacter_HeavyAttack, "HeavyAttack" }, // 556167646
 		{ &Z_Construct_UFunction_ANinjaCombatCharacter_LightAttack, "LightAttack" }, // 732712122
 		{ &Z_Construct_UFunction_ANinjaCombatCharacter_LoadGameData, "LoadGameData" }, // 2566986683
@@ -576,6 +664,44 @@ void EmptyLinkFunctionForGeneratedCodeNinjaCombatCharacter() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_DashAttackAction = { "DashAttackAction", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(ANinjaCombatCharacter, DashAttackAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_DashAttackAction_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_DashAttackAction_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_QuestManagerComponent_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Quest" },
+		{ "Comment", "// Quest Widget & QuestManagerComponent ---------------------------\n// Reference to the quest manager component\n" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/NinjaCombatCharacter.h" },
+		{ "ToolTip", "Quest Widget & QuestManagerComponent ---------------------------\nReference to the quest manager component" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_QuestManagerComponent = { "QuestManagerComponent", nullptr, (EPropertyFlags)0x00100000000a000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(ANinjaCombatCharacter, QuestManagerComponent), Z_Construct_UClass_UQuestManagerComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_QuestManagerComponent_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_QuestManagerComponent_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_QuestWidget_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Quest" },
+		{ "Comment", "// Reference to the quest widget\n" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/NinjaCombatCharacter.h" },
+		{ "ToolTip", "Reference to the quest widget" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_QuestWidget = { "QuestWidget", nullptr, (EPropertyFlags)0x00100000000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(ANinjaCombatCharacter, QuestWidget), Z_Construct_UClass_UQuestWidget_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_QuestWidget_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_QuestWidget_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_QuestWidgetClass_MetaData[] = {
+		{ "Category", "Quest UI" },
+		{ "Comment", "// Editable property to set the widget class in the editor\n" },
+		{ "ModuleRelativePath", "Public/NinjaCombatCharacter.h" },
+		{ "ToolTip", "Editable property to set the widget class in the editor" },
+	};
+#endif
+	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_QuestWidgetClass = { "QuestWidgetClass", nullptr, (EPropertyFlags)0x0014000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(ANinjaCombatCharacter, QuestWidgetClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UUserWidget_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_QuestWidgetClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_QuestWidgetClass_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_CurrentQuest_MetaData[] = {
+		{ "Category", "Quest" },
+		{ "ModuleRelativePath", "Public/NinjaCombatCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_CurrentQuest = { "CurrentQuest", nullptr, (EPropertyFlags)0x0010000000000014, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(ANinjaCombatCharacter, CurrentQuest), Z_Construct_UScriptStruct_FQuest, METADATA_PARAMS(Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_CurrentQuest_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_CurrentQuest_MetaData)) }; // 1864122079
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ANinjaCombatCharacter_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_SpringArmComponent,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_CameraComponent,
@@ -590,6 +716,10 @@ void EmptyLinkFunctionForGeneratedCodeNinjaCombatCharacter() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_AirAttackAction,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_HeavyAttackAction,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_DashAttackAction,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_QuestManagerComponent,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_QuestWidget,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_QuestWidgetClass,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANinjaCombatCharacter_Statics::NewProp_CurrentQuest,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ANinjaCombatCharacter_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ANinjaCombatCharacter>::IsAbstract,
@@ -623,15 +753,15 @@ void EmptyLinkFunctionForGeneratedCodeNinjaCombatCharacter() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(ANinjaCombatCharacter);
 	ANinjaCombatCharacter::~ANinjaCombatCharacter() {}
-	struct Z_CompiledInDeferFile_FID_ProjectSystemTest_Plugins_NinjaCombatSystem_Source_NinjaCombatSystem_Public_NinjaCombatCharacter_h_Statics
+	struct Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_NinjaCombatSystem_Source_NinjaCombatSystem_Public_NinjaCombatCharacter_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ProjectSystemTest_Plugins_NinjaCombatSystem_Source_NinjaCombatSystem_Public_NinjaCombatCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ANinjaCombatCharacter, ANinjaCombatCharacter::StaticClass, TEXT("ANinjaCombatCharacter"), &Z_Registration_Info_UClass_ANinjaCombatCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ANinjaCombatCharacter), 227819023U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_NinjaCombatSystem_Source_NinjaCombatSystem_Public_NinjaCombatCharacter_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_ANinjaCombatCharacter, ANinjaCombatCharacter::StaticClass, TEXT("ANinjaCombatCharacter"), &Z_Registration_Info_UClass_ANinjaCombatCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ANinjaCombatCharacter), 151809254U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ProjectSystemTest_Plugins_NinjaCombatSystem_Source_NinjaCombatSystem_Public_NinjaCombatCharacter_h_2740212494(TEXT("/Script/NinjaCombatSystem"),
-		Z_CompiledInDeferFile_FID_ProjectSystemTest_Plugins_NinjaCombatSystem_Source_NinjaCombatSystem_Public_NinjaCombatCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ProjectSystemTest_Plugins_NinjaCombatSystem_Source_NinjaCombatSystem_Public_NinjaCombatCharacter_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_NinjaCombatSystem_Source_NinjaCombatSystem_Public_NinjaCombatCharacter_h_2946636408(TEXT("/Script/NinjaCombatSystem"),
+		Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_NinjaCombatSystem_Source_NinjaCombatSystem_Public_NinjaCombatCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_NinjaCombatSystem_Source_NinjaCombatSystem_Public_NinjaCombatCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

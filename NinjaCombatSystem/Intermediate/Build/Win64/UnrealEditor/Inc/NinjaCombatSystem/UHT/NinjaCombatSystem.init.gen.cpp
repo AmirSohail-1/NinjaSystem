@@ -7,23 +7,29 @@
 #include "UObject/GeneratedCppIncludes.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeNinjaCombatSystem_init() {}
+	NINJACOMBATSYSTEM_API UFunction* Z_Construct_UDelegateFunction_NinjaCombatSystem_DialogueStartedSignature__DelegateSignature();
+	NINJACOMBATSYSTEM_API UFunction* Z_Construct_UDelegateFunction_NinjaCombatSystem_OnQuestUpdated__DelegateSignature();
 	static FPackageRegistrationInfo Z_Registration_Info_UPackage__Script_NinjaCombatSystem;
 	FORCENOINLINE UPackage* Z_Construct_UPackage__Script_NinjaCombatSystem()
 	{
 		if (!Z_Registration_Info_UPackage__Script_NinjaCombatSystem.OuterSingleton)
 		{
+			static UObject* (*const SingletonFuncArray[])() = {
+				(UObject* (*)())Z_Construct_UDelegateFunction_NinjaCombatSystem_DialogueStartedSignature__DelegateSignature,
+				(UObject* (*)())Z_Construct_UDelegateFunction_NinjaCombatSystem_OnQuestUpdated__DelegateSignature,
+			};
 			static const UECodeGen_Private::FPackageParams PackageParams = {
 				"/Script/NinjaCombatSystem",
-				nullptr,
-				0,
+				SingletonFuncArray,
+				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0x55CA1F4A,
-				0xB726D078,
+				0xBC223B1F,
+				0x3F911FDE,
 				METADATA_PARAMS(nullptr, 0)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_NinjaCombatSystem.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_NinjaCombatSystem.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_NinjaCombatSystem(Z_Construct_UPackage__Script_NinjaCombatSystem, TEXT("/Script/NinjaCombatSystem"), Z_Registration_Info_UPackage__Script_NinjaCombatSystem, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x55CA1F4A, 0xB726D078));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_NinjaCombatSystem(Z_Construct_UPackage__Script_NinjaCombatSystem, TEXT("/Script/NinjaCombatSystem"), Z_Registration_Info_UPackage__Script_NinjaCombatSystem, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xBC223B1F, 0x3F911FDE));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

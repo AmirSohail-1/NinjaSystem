@@ -10,6 +10,10 @@
 #include "NinjaSaveSystemComponent.h" // Include the save system component header
 #include "NinjaSaveGame.h" // Include the save game class header
 
+// Quest System
+#include "QuestSystem//QuestManagerComponent.h"
+#include "QuestSystem/QuestWidget.h"
+
 #include "NinjaCombatCharacter.generated.h"
 
 
@@ -133,6 +137,30 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category="Save")
 	void LoadGameData();
+
+	// Quest Widget & QuestManagerComponent ---------------------------
+	// Reference to the quest manager component
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Quest", meta = (AllowPrivateAccess = "true"))
+	UQuestManagerComponent* QuestManagerComponent;
+
+	// Reference to the quest widget
+	UPROPERTY( VisibleAnywhere, BlueprintReadOnly, Category = "Quest", meta = (AllowPrivateAccess = "true"))
+	UQuestWidget* QuestWidget;
+
+ 	// Editable property to set the widget class in the editor
+    UPROPERTY(EditAnywhere, Category = "Quest UI")
+    TSubclassOf<UUserWidget> QuestWidgetClass;
 	
+	UFUNCTION(BlueprintCallable, Category="Quest")	
+	void HandleQuestCompleted();
+
+	UFUNCTION(BlueprintCallable, Category = "Quest", meta = (Keywords = "AddQuestsFromDataTable", DisplayName = "AddQuestsFromDataTable"))
+	void AddQuestsFromDataTable();
+
+	UPROPERTY(BlueprintReadOnly, Category = "Quest")
+	FQuest CurrentQuest;
+
+	 
+
 	
 };

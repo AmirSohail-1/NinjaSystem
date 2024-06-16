@@ -3,17 +3,25 @@
 	{
 		"Module.NinjaCombatSystem.cpp.obj": [
 			"CombatComponent.gen.cpp.obj",
+			"DialogueUserWidget.gen.cpp.obj",
+			"DialogueWidgetController.gen.cpp.obj",
 			"GeneralStateManagerComponent.gen.cpp.obj",
 			"NinjaCharacterMovementComponent.gen.cpp.obj",
 			"NinjaCombatCharacter.gen.cpp.obj",
 			"NinjaCombatSystem.init.gen.cpp.obj",
+			"NinjaPlayerController.gen.cpp.obj",
 			"NinjaSaveGame.gen.cpp.obj",
 			"NinjaSaveSystemComponent.gen.cpp.obj",
 			"PrinterTest.gen.cpp.obj",
+			"Quest.gen.cpp.obj",
 			"QuestComponent.gen.cpp.obj",
 			"QuestGiverComponent.gen.cpp.obj",
+			"QuestManagerComponent.gen.cpp.obj",
+			"QuestWidget.gen.cpp.obj",
 			"StateComponent.gen.cpp.obj",
 			"CombatComponent.cpp.obj",
+			"DialogueUserWidget.cpp.obj",
+			"DialogueWidgetController.cpp.obj",
 			"GeneralStateManagerComponent.cpp.obj",
 			"NinjaCharacterMovementComponent.cpp.obj",
 			"NinjaCombatCharacter.cpp.obj",
@@ -23,6 +31,10 @@
 			"PrinterTest.cpp.obj",
 			"QuestComponent.cpp.obj",
 			"QuestGiverComponent.cpp.obj",
+			"NinjaPlayerController.cpp.obj",
+			"Quest.cpp.obj",
+			"QuestManagerComponent.cpp.obj",
+			"QuestWidget.cpp.obj",
 			"StateComponent.cpp.obj"
 		]
 	}

@@ -6,7 +6,7 @@
 /NAME:"UnrealEditor-NinjaCombatSystem.dll"
 /IGNORE:4221
 /NODEFAULTLIB
-"D:\Amir\ProjectSystemTest\Intermediate\Build\Win64\ProjectSystemTestEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.InclOrderUnreal5_0.h.obj"
-"D:\Amir\ProjectSystemTest\Plugins\NinjaCombatSystem\Intermediate\Build\Win64\UnrealEditor\Development\NinjaCombatSystem\Module.NinjaCombatSystem.cpp.obj"
-"D:\Amir\ProjectSystemTest\Plugins\NinjaCombatSystem\Intermediate\Build\Win64\UnrealEditor\Development\NinjaCombatSystem\Default.rc2.res"
-/OUT:"D:\Amir\ProjectSystemTest\Plugins\NinjaCombatSystem\Intermediate\Build\Win64\UnrealEditor\Development\NinjaCombatSystem\UnrealEditor-NinjaCombatSystem.lib"
+"C:\Users\99026\Unreal\CPP\Ninja\Intermediate\Build\Win64\NinjaEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
+"C:\Users\99026\Unreal\CPP\Ninja\Plugins\NinjaCombatSystem\Intermediate\Build\Win64\UnrealEditor\Development\NinjaCombatSystem\Module.NinjaCombatSystem.cpp.obj"
+"C:\Users\99026\Unreal\CPP\Ninja\Plugins\NinjaCombatSystem\Intermediate\Build\Win64\UnrealEditor\Development\NinjaCombatSystem\Default.rc2.res"
+/OUT:"C:\Users\99026\Unreal\CPP\Ninja\Plugins\NinjaCombatSystem\Intermediate\Build\Win64\UnrealEditor\Development\NinjaCombatSystem\UnrealEditor-NinjaCombatSystem.lib"

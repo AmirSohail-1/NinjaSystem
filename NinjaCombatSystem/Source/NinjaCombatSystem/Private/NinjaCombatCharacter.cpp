@@ -29,6 +29,9 @@ ANinjaCombatCharacter::ANinjaCombatCharacter()
     CombatComponent = CreateDefaultSubobject<UCombatComponent>(TEXT("CombatComponent"));
     StateComponents = CreateDefaultSubobject<UGeneralStateManagerComponent>(TEXT("StateComponents"));
     SaveSystemComponent = CreateDefaultSubobject<UNinjaSaveSystemComponent>(TEXT("SaveSystemComponent"));
+
+    // Create and attach the quest manager component
+    QuestManagerComponent = CreateDefaultSubobject<UQuestManagerComponent>(TEXT("QuestManagerComponent"));
  
 
     // Set up the camera system
@@ -80,26 +83,66 @@ void ANinjaCombatCharacter::BeginPlay()
         }
     }
 
-    if (!CombatComponent)
-    {
-        UE_LOG(LogTemp, Error, TEXT("CombatComponent is not initialized"));
-    }
-    else
-    {
-        UE_LOG(LogTemp, Log, TEXT("CombatComponent is initialized"));
-    }
+ 
 
-    if (!StateComponents)
+    // Quest system ---------------
+    // if (QuestManagerComponent)
+    // {
+    //     // Create the quest widget and add it to the viewport
+    //     QuestWidget = CreateWidget<UQuestWidget>(GetWorld(), UQuestWidget::StaticClass());
+    //     if (QuestWidget)
+    //     {
+    //         QuestWidget->AddToViewport();
+    //         // Bind the widget to the quest manager's update event
+    //         QuestManagerComponent->OnQuestUpdated.AddDynamic(QuestWidget, &UQuestWidget::UpdateQuestList);
+    //     }
+    // }
+
+    // Setup Quest Widget
+    if (QuestManagerComponent && QuestWidgetClass)
     {
-        UE_LOG(LogTemp, Error, TEXT("StateComponent is not initialized"));
+        QuestWidget = CreateWidget<UQuestWidget>(GetWorld(), QuestWidgetClass);
+        if (QuestWidget)
+        {
+            QuestWidget->AddToViewport();
+            QuestManagerComponent->OnQuestUpdated.AddDynamic(QuestWidget, &UQuestWidget::UpdateQuestList);
+            
+            // Adding all quests from the DataTable at the start
+            AddQuestsFromDataTable();
+        }
     }
-    else
-    {
-        UE_LOG(LogTemp, Log, TEXT("StateComponent is initialized"));
-    }
+ 
     
 }
 
+// void ANinjaCombatCharacter::HandleQuestCompleted()
+// {
+//     QuestManagerComponent->CompleteQuest(TEXT("Find the Lost Sword")); 
+// }
+//
+// void ANinjaCombatCharacter::AddQuestsFromDataTable()
+// {
+//     if (QuestManagerComponent)
+//     {
+//         QuestManagerComponent->AddAllQuestsFromDataTable();
+//     }
+// }
+
+void ANinjaCombatCharacter::AddQuestsFromDataTable()
+{
+    if (QuestManagerComponent)
+    {
+        QuestManagerComponent->AddAllQuestsFromDataTable();
+    }
+}
+
+void ANinjaCombatCharacter::HandleQuestCompleted()
+{
+    if (QuestManagerComponent && !CurrentQuest.Name.IsEmpty())
+    {
+        QuestManagerComponent->CompleteQuest(CurrentQuest.Name);
+    }
+}
  
 
 void ANinjaCombatCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
