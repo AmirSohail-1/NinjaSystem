@@ -3,69 +3,7 @@
 
 #include "QuestSystem/QuestManagerComponent.h"
  
-
-//
-// UQuestManagerComponent::UQuestManagerComponent()
-// {
-// 	PrimaryComponentTick.bCanEverTick = true;
-// }
-//
-// void UQuestManagerComponent::BeginPlay()
-// {
-// 	Super::BeginPlay();
-// }
-//
-// void UQuestManagerComponent::AddQuest(const FQuest& NewQuest)
-// {
-//     ActiveQuests.Add(NewQuest);
-//     UE_LOG(LogTemp, Warning, TEXT("Quest Added: %s"), *NewQuest.Name);
-//     OnQuestUpdated.Broadcast(ActiveQuests);
-// }
-//
-// void UQuestManagerComponent::CompleteQuest(const FString& QuestName)
-// {
-//     for (FQuest& Quest : ActiveQuests)
-//     {
-//         if (Quest.Name == QuestName)
-//         {
-//             Quest.bIsCompleted = true;
-//             OnQuestUpdated.Broadcast(ActiveQuests);
-//             UE_LOG(LogTemp, Warning, TEXT("Quest Completed: %s"), *Quest.Name);
-//             break;
-//         }
-//     }
-// }
-//
-// void UQuestManagerComponent::AddAllQuestsFromDataTable()
-// {
-//     if (QuestDataTable)
-//     {
-//         static const FString ContextString(TEXT("GENERAL"));
-//         TArray<FName> RowNames = QuestDataTable->GetRowNames();
-//         for (const FName& RowName : RowNames)
-//         {
-//             FQuest* Quest = QuestDataTable->FindRow<FQuest>(RowName, ContextString);
-//             if (Quest)
-//             {
-//                 AddQuest(*Quest);
-//             }
-//         }
-//     }
-//     else
-//     {
-//         UE_LOG(LogTemp, Error, TEXT("QuestDataTable is not assigned"));
-//     }
-// }
-//
-// FQuest* UQuestManagerComponent::FindQuestByName(const FString& QuestName)
-// {
-//     if (!QuestDataTable) return nullptr;
-//
-//     static const FString ContextString(TEXT("GENERAL"));
-//     return QuestDataTable->FindRow<FQuest>(*QuestName, ContextString);
-// }
-
-
+ 
 UQuestManagerComponent::UQuestManagerComponent()
 {
 	PrimaryComponentTick.bCanEverTick = true;

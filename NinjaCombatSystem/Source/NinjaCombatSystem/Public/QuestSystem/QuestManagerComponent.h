@@ -51,7 +51,5 @@ private:
 	void UpdateCurrentQuest();
 	 
 	FQuest CurrentQuest;
-	 
-	
 	
 };
