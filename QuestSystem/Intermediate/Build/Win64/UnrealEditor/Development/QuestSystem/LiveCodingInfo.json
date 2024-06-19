@@ -11,6 +11,7 @@
 			"QuestSystem.init.gen.cpp.obj",
 			"QuestTable.gen.cpp.obj",
 			"QuestWidgetShow.gen.cpp.obj",
+			"TestCharacter.gen.cpp.obj",
 			"PickupActor.cpp.obj",
 			"QuestManager.cpp.obj",
 			"MyQuestPrintActor.cpp.obj",
@@ -19,7 +20,8 @@
 			"QuestTable.cpp.obj",
 			"QuestSaveGame.cpp.obj",
 			"QuestWidgetShow.cpp.obj",
-			"QuestGameMode.cpp.obj"
+			"QuestGameMode.cpp.obj",
+			"TestCharacter.cpp.obj"
 		]
 	}
 }

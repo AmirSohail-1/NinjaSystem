@@ -8,6 +8,7 @@
 #include "D:/Amir/ProjectSystemTest/Plugins/QuestSystem/Intermediate/Build/Win64/UnrealEditor/Inc/QuestSystem/UHT/QuestSystem.init.gen.cpp"
 #include "D:/Amir/ProjectSystemTest/Plugins/QuestSystem/Intermediate/Build/Win64/UnrealEditor/Inc/QuestSystem/UHT/QuestTable.gen.cpp"
 #include "D:/Amir/ProjectSystemTest/Plugins/QuestSystem/Intermediate/Build/Win64/UnrealEditor/Inc/QuestSystem/UHT/QuestWidgetShow.gen.cpp"
+#include "D:/Amir/ProjectSystemTest/Plugins/QuestSystem/Intermediate/Build/Win64/UnrealEditor/Inc/QuestSystem/UHT/TestCharacter.gen.cpp"
 #include "D:/Amir/ProjectSystemTest/Plugins/QuestSystem/Source/QuestSystem/PickupActor.cpp"
 #include "D:/Amir/ProjectSystemTest/Plugins/QuestSystem/Source/QuestSystem/Private/Component/QuestManager.cpp"
 #include "D:/Amir/ProjectSystemTest/Plugins/QuestSystem/Source/QuestSystem/Private/MyQuestPrintActor.cpp"
@@ -17,3 +18,4 @@
 #include "D:/Amir/ProjectSystemTest/Plugins/QuestSystem/Source/QuestSystem/Private/Save/QuestSaveGame.cpp"
 #include "D:/Amir/ProjectSystemTest/Plugins/QuestSystem/Source/QuestSystem/Private/UI/QuestWidgetShow.cpp"
 #include "D:/Amir/ProjectSystemTest/Plugins/QuestSystem/Source/QuestSystem/QuestGameMode.cpp"
+#include "D:/Amir/ProjectSystemTest/Plugins/QuestSystem/Source/QuestSystem/TestCharacter.cpp"

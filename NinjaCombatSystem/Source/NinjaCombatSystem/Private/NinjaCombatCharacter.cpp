@@ -114,7 +114,6 @@ void ANinjaCombatCharacter::BeginPlay()
     
 }
  
- 
 void ANinjaCombatCharacter::AddQuestsFromDataTable()
 {
     if (QuestManagerComponent)
