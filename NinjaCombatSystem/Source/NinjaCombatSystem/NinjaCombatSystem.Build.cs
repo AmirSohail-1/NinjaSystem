@@ -8,9 +8,15 @@ public class NinjaCombatSystem : ModuleRules
 	{
 		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
 		
+		// Adjust the path to QuestSystem/Public relative to NinjaCombatSystem module
+		// string QuestSystemPath = "../../../../Plugins/QuestSystem/Source/QuestSystem/Public";
+		
 		PublicIncludePaths.AddRange(
 			new string[] {
 				// ... add public include paths required here ...
+				// QuestSystemPath
+				 
+				
 			}
 			);
 				
@@ -33,6 +39,7 @@ public class NinjaCombatSystem : ModuleRules
 				"EnhancedInput",
 				"GameplayTags",
 				"UMG", 
+				// "QuestSystem",
 				// ... add other public dependencies that you statically link with here ...
 			}
 			);
@@ -41,13 +48,13 @@ public class NinjaCombatSystem : ModuleRules
 		PrivateDependencyModuleNames.AddRange(
 			new string[]
 			{
-				"CoreUObject",
-				"Engine",
-				"Slate",
-				"SlateCore",
-				"EnhancedInput",
-				"GameplayTags",
-				"UMG",  
+				// "CoreUObject",
+				// "Engine",
+				// "Slate",
+				// "SlateCore",
+				// "EnhancedInput",
+				// "GameplayTags",
+				// "UMG",  
 				// ... add private dependencies that you statically link with here ...	
 			}
 			);

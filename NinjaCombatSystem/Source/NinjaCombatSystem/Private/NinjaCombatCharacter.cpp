@@ -1,12 +1,11 @@
 ﻿ 
 #include "NinjaCombatCharacter.h"
-
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "InputMappingContext.h"
 #include "InputAction.h"
-// #include "Engine/LocalPlayer.h"
 
+// #include "Engine/LocalPlayer.h"
 #include "CombatComponent.h"
 // #include "StateComponent.h"
 #include "GeneralStateManagerComponent.h"
@@ -114,20 +113,8 @@ void ANinjaCombatCharacter::BeginPlay()
  
     
 }
-
-// void ANinjaCombatCharacter::HandleQuestCompleted()
-// {
-//     QuestManagerComponent->CompleteQuest(TEXT("Find the Lost Sword")); 
-// }
-//
-// void ANinjaCombatCharacter::AddQuestsFromDataTable()
-// {
-//     if (QuestManagerComponent)
-//     {
-//         QuestManagerComponent->AddAllQuestsFromDataTable();
-//     }
-// }
-
+ 
+ 
 void ANinjaCombatCharacter::AddQuestsFromDataTable()
 {
     if (QuestManagerComponent)

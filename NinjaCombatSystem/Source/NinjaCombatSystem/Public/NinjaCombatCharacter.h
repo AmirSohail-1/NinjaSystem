@@ -14,6 +14,11 @@
 #include "QuestSystem//QuestManagerComponent.h"
 #include "QuestSystem/QuestWidget.h"
 
+// Quest System Modolues include Test failed :)
+// #include "QuestSystem/QuestManager.h
+
+
+
 #include "NinjaCombatCharacter.generated.h"
 
 
@@ -24,6 +29,7 @@ class UInputAction;
 class UCombatComponent;
 class UGeneralStateManagerComponent;
 class UNinjaSaveSystemComponent;
+class UQuestManagerComponent;
 
 
 

@@ -1,0 +1,25 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.QuestSystem.cpp.obj": [
+			"MyQuestPrintActor.gen.cpp.obj",
+			"PickupActor.gen.cpp.obj",
+			"QuestGameMode.gen.cpp.obj",
+			"QuestInteractionInterface.gen.cpp.obj",
+			"QuestManager.gen.cpp.obj",
+			"QuestSaveGame.gen.cpp.obj",
+			"QuestSystem.init.gen.cpp.obj",
+			"QuestTable.gen.cpp.obj",
+			"QuestWidgetShow.gen.cpp.obj",
+			"PickupActor.cpp.obj",
+			"QuestManager.cpp.obj",
+			"MyQuestPrintActor.cpp.obj",
+			"QuestInteractionInterface.cpp.obj",
+			"QuestSystem.cpp.obj",
+			"QuestTable.cpp.obj",
+			"QuestSaveGame.cpp.obj",
+			"QuestWidgetShow.cpp.obj",
+			"QuestGameMode.cpp.obj"
+		]
+	}
+}

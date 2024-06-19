@@ -4,6 +4,8 @@
 #include "Engine/DataTable.h"
 #include "Quest.generated.h"
 
+
+
 USTRUCT(BlueprintType)
 struct FQuest : public FTableRowBase
 {
@@ -29,3 +31,5 @@ struct FQuest : public FTableRowBase
 	FQuest()
 		: Name(TEXT("Default Quest")), Description(TEXT("Default Description")), bIsCompleted(false) {}
 };
+
+ 
