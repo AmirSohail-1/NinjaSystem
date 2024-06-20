@@ -7,10 +7,7 @@
 #include "QuestInteractionInterface.h"
 #include "PickupActor.generated.h"
  
-//  inherit , public IQuestInteractionInterface
-// public:    
-// virtual void Tick(float DeltaTime) override;
-// virtual void Interact(AActor* Interactor) override;
+ 
 
 UCLASS()
 class QUESTSYSTEM_API APickupActor : public AActor  , public IQuestInteractionInterface

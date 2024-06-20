@@ -19,4 +19,10 @@ public:
 
 protected:
 	virtual void NativeConstruct() override;
+
+	// Add a function prototype to update the quest list using data from the QuestManager
+	// void UpdateQuestListFromManager();
+
+	// Add a member variable to hold a reference to the QuestManager component
+	class UQuestManager* QuestManager;
 };

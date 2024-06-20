@@ -4,6 +4,7 @@
 #include "UI/QuestWidgetShow.h"
 #include "Components/ScrollBox.h"
 #include "Components/TextBlock.h"
+#include "Component/QuestManager.h"
 
 void UQuestWidgetShow::NativeConstruct()
 {
@@ -30,9 +31,25 @@ void UQuestWidgetShow::UpdateQuestList(const FQuestTable& Quest)
 			UTextBlock* TimerText = NewObject<UTextBlock>(QuestScrollBox);
 			if (TimerText)
 			{
-				TimerText->SetText(FText::FromString(FString::Printf(TEXT("Time Limit: %f seconds"), Quest.TimeLimit)));
+				TimerText->SetText(FText::FromString(FString::Printf(TEXT("%s: %s - Time Limit: %f seconds "), *Quest.Name, *Quest.Description, Quest.TimeLimit)));
 				QuestScrollBox->AddChild(TimerText);
 			}
 		}
 	}
 }
+
+// void UQuestWidgetShow::UpdateQuestListFromManager()
+// {
+// 	if (QuestManager)
+// 	{
+// 		// Get the quest data from the QuestManager component
+// 		FQuestTable QuestData = QuestManager->GetCurrentQuestData();
+//
+// 		// Update the quest list based on the QuestData
+// 		UpdateQuestList(QuestData);
+// 	}
+// 	else
+// 	{
+// 		UE_LOG(LogTemp, Error, TEXT("QuestManager is not valid."));
+// 	}
+// }

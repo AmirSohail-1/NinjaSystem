@@ -55,6 +55,10 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Quest")
 	void LoadQuestProgress();
 
+	// Declaration of GetCurrentQuestData function
+	// UFUNCTION(BlueprintCallable, Category = "Quest")
+	// FQuestTable GetCurrentQuestData()    ;
+
 private:
 	TMap<FString, FQuestTable> QuestCache;
 	FQuestTable CurrentQuest;

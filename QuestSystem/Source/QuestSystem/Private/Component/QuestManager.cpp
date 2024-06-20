@@ -153,3 +153,18 @@ void UQuestManager::LoadQuestProgress()
 		AddAllQuestsFromDataTable();
 	}
 }
+
+// Implementation of GetCurrentQuestData function with const qualifier
+// FQuestTable UQuestManager::GetCurrentQuestData()  
+// {
+// 	FQuestTable QuestData;
+//
+// 	// Check if the CurrentQuest is a valid quest in the cache
+// 	FQuestTable* CachedQuest = GetCachedQuest(CurrentQuest.Name);
+// 	if (CachedQuest)
+// 	{
+// 		QuestData = *CachedQuest;
+// 	}
+//
+// 	return QuestData;
+// }

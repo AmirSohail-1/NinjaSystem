@@ -2,6 +2,8 @@
 
 
 #include "QuestGameMode.h"
+
+#include "TestCharacter.h"
 #include "Component//QuestManager.h"
 #include "Kismet/GameplayStatics.h"
 
@@ -13,18 +15,18 @@ void AQuestGameMode::BeginPlay()
 
 void AQuestGameMode::SaveGame()
 {
-	// AMyCharacter* MyCharacter = Cast<AMyCharacter>(UGameplayStatics::GetPlayerCharacter(this, 0));
-	// if (MyCharacter && MyCharacter->QuestManager)
-	// {
-	// 	MyCharacter->QuestManager->SaveQuestProgress();
-	// }
+	ATestCharacter* MyCharacter = Cast<ATestCharacter>(UGameplayStatics::GetPlayerCharacter(this, 0));
+	if (MyCharacter && MyCharacter->QuestManager)
+	{
+		MyCharacter->QuestManager->SaveQuestProgress();
+	}
 }
 
 void AQuestGameMode::LoadGame()
 {
-// 	AMyCharacter* MyCharacter = Cast<AMyCharacter>(UGameplayStatics::GetPlayerCharacter(this, 0));
-// 	if (MyCharacter && MyCharacter->QuestManager)
-// 	{
-// 		MyCharacter->QuestManager->LoadQuestProgress();
-// 	}
+	ATestCharacter* MyCharacter = Cast<ATestCharacter>(UGameplayStatics::GetPlayerCharacter(this, 0));
+	if (MyCharacter && MyCharacter->QuestManager)
+	{
+		MyCharacter->QuestManager->LoadQuestProgress();
+	}
 }

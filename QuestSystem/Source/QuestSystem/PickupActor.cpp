@@ -2,6 +2,8 @@
 
 #include "PickupActor.h"
 
+#include "TestCharacter.h"
+
 // Sets default values
 APickupActor::APickupActor()
 {
@@ -21,11 +23,13 @@ void APickupActor::Tick(float DeltaTime)
 
 void APickupActor::Interact(AActor* Interactor)
 {
-	// AMyCharacter* Character = Cast<AMyCharacter>(Interactor);
-	// if (Character && Character->QuestManager)
-	// {
-	// 	Character->QuestManager->CompleteQuest(TEXT("FirstQuest"));
-	// 	Destroy();
-	// }
-		UE_LOG( LogTemp, Warning, TEXT("Pickup Interacted") );	
+	ATestCharacter* Character = Cast<ATestCharacter>(Interactor);
+	if (Character && Character->QuestManager)
+	{
+		Character->QuestManager->CompleteQuest(TEXT("FirstQuest"));
+		UE_LOG( LogTemp, Warning, TEXT("Pickup Interacted WITH CHARACTER CLASS") );
+		Destroy();
+	}
+		UE_LOG( LogTemp, Warning, TEXT("Pickup Interacted and char not found") );	
 }
+

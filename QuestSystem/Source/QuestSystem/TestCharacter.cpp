@@ -1,6 +1,7 @@
 #include "TestCharacter.h"
 #include "GameFramework/Actor.h"
 #include "Kismet/GameplayStatics.h"
+#include "DrawDebugHelpers.h" 
 #include "Engine/World.h"
 #include "GameFramework/PlayerController.h"
 #include "GameFramework/CharacterMovementComponent.h"
@@ -61,7 +62,11 @@ void ATestCharacter::Interact()
 {
     FVector Start = GetActorLocation();
     FVector ForwardVector = GetActorForwardVector();
-    FVector End = ((ForwardVector * 200.f) + Start);
+    FVector End = ((ForwardVector * 600.f) + Start);
+    
+    // Add this line for drawing the debug line
+    DrawDebugLine(GetWorld(), Start, End, FColor::Green, false, 2.0f, 0, 2.0f);
+
     FHitResult HitResult;
 
     FCollisionQueryParams CollisionParams;
@@ -71,9 +76,13 @@ void ATestCharacter::Interact()
 
     if (bIsHit)
     {
+        UE_LOG(LogTemp, Warning, TEXT("Interact with %s"), *HitResult.GetActor()->GetName());
+        
         AActor* Interactable = HitResult.GetActor();
         if (Interactable && Interactable->GetClass()->ImplementsInterface(UQuestInteractionInterface::StaticClass()))
         {
+            UE_LOG(LogTemp, Warning, TEXT("Interact with %s"), *Interactable->GetName());
+            
             IQuestInteractionInterface* QuestInterface = Cast<IQuestInteractionInterface>(Interactable);
             if (QuestInterface)
             {
