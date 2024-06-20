@@ -30,5 +30,5 @@ struct QUESTSYSTEM_API FQuestTable : public FTableRowBase
 
 	// Default constructor
 	FQuestTable()
-		: Name(TEXT("Default Quest")), Description(TEXT("Default Description")), bIsCompleted(false), bIsTimed(false), TimeLimit(0.0f) {}
+		: Name(TEXT("Default Quest From QuestTable C++")), Description(TEXT("Default Description  ")), bIsCompleted(false), bIsTimed(false), TimeLimit(0.0f) {}
 };

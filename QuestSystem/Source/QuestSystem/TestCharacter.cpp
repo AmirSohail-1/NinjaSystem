@@ -1,10 +1,12 @@
 #include "TestCharacter.h"
 #include "GameFramework/Actor.h"
 #include "Kismet/GameplayStatics.h"
-#include "DrawDebugHelpers.h" 
+#include "DrawDebugHelpers.h"
 #include "Engine/World.h"
 #include "GameFramework/PlayerController.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "UI/QuestWidgetShow.h"
+#include "QuestTable/QuestTable.h"
 
 ATestCharacter::ATestCharacter()
 {
@@ -23,7 +25,32 @@ ATestCharacter::ATestCharacter()
 void ATestCharacter::BeginPlay()
 {
     Super::BeginPlay();
+
+    if (QuestManager)
+    {
+        QuestManager->OnQuestUpdated.AddDynamic(this, &ATestCharacter::OnQuestCompleted);
+    }
+
+    // Find the QuestWidget in the UI and bind it to the QuestManager
+    if (APlayerController* PC = Cast<APlayerController>(GetController()))
+    {
+        if (PC->IsLocalController() && QuestWidgetClass)
+        {
+            UUserWidget* Widget = CreateWidget<UUserWidget>(PC, QuestWidgetClass);
+            if (Widget)
+            {
+                QuestWidget = Cast<UQuestWidgetShow>(Widget);
+                if (QuestWidget)
+                {
+                    QuestWidget->QuestManager = QuestManager;
+                    QuestWidget->AddToViewport();
+                }
+            }
+        }
+    }
 }
+
+
 
 void ATestCharacter::Tick(float DeltaTime)
 {
@@ -93,12 +120,20 @@ void ATestCharacter::Interact()
 }
 
 
+
 void ATestCharacter::StartQuest(const FString& QuestName)
 {
     if (QuestManager)
     {
         QuestManager->StartTimedQuest(QuestName);
     }
+
+    if (QuestWidget)
+    {
+        // QuestWidget->UpdateQuestList(QuestManager->GetCurrentQuest());
+    }
+
+    
 }
 
 void ATestCharacter::CompleteQuest(const FString& QuestName)
@@ -108,3 +143,20 @@ void ATestCharacter::CompleteQuest(const FString& QuestName)
         QuestManager->CompleteQuest(QuestName);
     }
 }
+
+void ATestCharacter::OnQuestCompleted(const FQuestTable& CompletedQuest)
+{
+    if (CompletedQuest.Name == TEXT("FirstQuest"))
+    {
+        StartQuest(TEXT("SecondQuest"));
+    }
+
+    if (QuestWidget)
+    {
+        QuestWidget->UpdateQuestList(CompletedQuest);
+    }
+}
+
+
+
+ 

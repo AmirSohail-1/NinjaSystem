@@ -10,6 +10,7 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeQuestWidgetShow() {}
 // Cross Module References
+	QUESTSYSTEM_API UClass* Z_Construct_UClass_UQuestManager_NoRegister();
 	QUESTSYSTEM_API UClass* Z_Construct_UClass_UQuestWidgetShow();
 	QUESTSYSTEM_API UClass* Z_Construct_UClass_UQuestWidgetShow_NoRegister();
 	QUESTSYSTEM_API UScriptStruct* Z_Construct_UScriptStruct_FQuestTable();
@@ -90,6 +91,10 @@ void EmptyLinkFunctionForGeneratedCodeQuestWidgetShow() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_QuestScrollBox_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_QuestScrollBox;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_QuestManager_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_QuestManager;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -115,8 +120,19 @@ void EmptyLinkFunctionForGeneratedCodeQuestWidgetShow() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UQuestWidgetShow_Statics::NewProp_QuestScrollBox = { "QuestScrollBox", nullptr, (EPropertyFlags)0x0010000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(UQuestWidgetShow, QuestScrollBox), Z_Construct_UClass_UScrollBox_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UQuestWidgetShow_Statics::NewProp_QuestScrollBox_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UQuestWidgetShow_Statics::NewProp_QuestScrollBox_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UQuestWidgetShow_Statics::NewProp_QuestManager_MetaData[] = {
+		{ "Category", "Quest" },
+		{ "Comment", "// Make the QuestManager a UPROPERTY to ensure it is not garbage collected\n" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/UI/QuestWidgetShow.h" },
+		{ "ToolTip", "Make the QuestManager a UPROPERTY to ensure it is not garbage collected" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UQuestWidgetShow_Statics::NewProp_QuestManager = { "QuestManager", nullptr, (EPropertyFlags)0x001000000008000c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(UQuestWidgetShow, QuestManager), Z_Construct_UClass_UQuestManager_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UQuestWidgetShow_Statics::NewProp_QuestManager_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UQuestWidgetShow_Statics::NewProp_QuestManager_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UQuestWidgetShow_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UQuestWidgetShow_Statics::NewProp_QuestScrollBox,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UQuestWidgetShow_Statics::NewProp_QuestManager,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UQuestWidgetShow_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UQuestWidgetShow>::IsAbstract,
@@ -150,15 +166,15 @@ void EmptyLinkFunctionForGeneratedCodeQuestWidgetShow() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UQuestWidgetShow);
 	UQuestWidgetShow::~UQuestWidgetShow() {}
-	struct Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_Public_UI_QuestWidgetShow_h_Statics
+	struct Z_CompiledInDeferFile_FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_Public_UI_QuestWidgetShow_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_Public_UI_QuestWidgetShow_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UQuestWidgetShow, UQuestWidgetShow::StaticClass, TEXT("UQuestWidgetShow"), &Z_Registration_Info_UClass_UQuestWidgetShow, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UQuestWidgetShow), 99846310U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_Public_UI_QuestWidgetShow_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_UQuestWidgetShow, UQuestWidgetShow::StaticClass, TEXT("UQuestWidgetShow"), &Z_Registration_Info_UClass_UQuestWidgetShow, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UQuestWidgetShow), 1704197937U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_Public_UI_QuestWidgetShow_h_2991700498(TEXT("/Script/QuestSystem"),
-		Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_Public_UI_QuestWidgetShow_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_Public_UI_QuestWidgetShow_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_Public_UI_QuestWidgetShow_h_2142760522(TEXT("/Script/QuestSystem"),
+		Z_CompiledInDeferFile_FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_Public_UI_QuestWidgetShow_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_Public_UI_QuestWidgetShow_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

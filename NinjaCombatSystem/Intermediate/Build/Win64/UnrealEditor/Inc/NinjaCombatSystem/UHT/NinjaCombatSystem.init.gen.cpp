@@ -23,7 +23,7 @@ void EmptyLinkFunctionForGeneratedCodeNinjaCombatSystem_init() {}
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0xBC223B1F,
+				0x73757B82,
 				0x3F911FDE,
 				METADATA_PARAMS(nullptr, 0)
 			};
@@ -31,5 +31,5 @@ void EmptyLinkFunctionForGeneratedCodeNinjaCombatSystem_init() {}
 		}
 		return Z_Registration_Info_UPackage__Script_NinjaCombatSystem.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_NinjaCombatSystem(Z_Construct_UPackage__Script_NinjaCombatSystem, TEXT("/Script/NinjaCombatSystem"), Z_Registration_Info_UPackage__Script_NinjaCombatSystem, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xBC223B1F, 0x3F911FDE));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_NinjaCombatSystem(Z_Construct_UPackage__Script_NinjaCombatSystem, TEXT("/Script/NinjaCombatSystem"), Z_Registration_Info_UPackage__Script_NinjaCombatSystem, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x73757B82, 0x3F911FDE));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

@@ -64,9 +64,9 @@
 #define UE_BUILD_DEVELOPMENT 1
 #define UE_IS_ENGINE_MODULE 0
 #define UE_DISABLE_INLINE_GEN_CPP 0
-#define UE_ENABLE_INCLUDE_ORDER_DEPRECATED_IN_5_1 0
-#define UE_PROJECT_NAME Ninja
-#define UE_TARGET_NAME NinjaEditor
+#define UE_ENABLE_INCLUDE_ORDER_DEPRECATED_IN_5_1 1
+#define UE_PROJECT_NAME ProjectSystemTest
+#define UE_TARGET_NAME ProjectSystemTestEditor
 #define UE_MODULE_NAME "InteractionModule"
 #define UE_PLUGIN_NAME "InteractionModule"
 #define IMPLEMENT_ENCRYPTION_KEY_REGISTRATION() 

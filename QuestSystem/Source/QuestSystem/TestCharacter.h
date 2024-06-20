@@ -1,14 +1,13 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #pragma once
 
 #include "CoreMinimal.h"
-#include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "QuestInteractionInterface.h"
-#include "Component//QuestManager.h"
-#include "GameFramework/Character.h"
+#include "Component/QuestManager.h"
 #include "TestCharacter.generated.h"
+
+class UQuestManager;
+class UQuestWidgetShow;
 
 UCLASS()
 class QUESTSYSTEM_API ATestCharacter : public ACharacter
@@ -28,11 +27,20 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Quest")
 	UQuestManager* QuestManager;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI")
+	TSubclassOf<UQuestWidgetShow> QuestWidgetClass;
+
+	UPROPERTY(BlueprintReadOnly, Category = "UI")
+	UQuestWidgetShow* QuestWidget;
+
 	UFUNCTION(BlueprintCallable, Category = "Quest")
 	void StartQuest(const FString& QuestName);
 
 	UFUNCTION(BlueprintCallable, Category = "Quest")
 	void CompleteQuest(const FString& QuestName);
+	
+	UFUNCTION()
+	void OnQuestCompleted(const FQuestTable& CompletedQuest);
 
 	UFUNCTION()
 	void MoveForward(float Value);
@@ -42,5 +50,6 @@ public:
 
 	UFUNCTION()
 	void Interact();
+
 	
 };

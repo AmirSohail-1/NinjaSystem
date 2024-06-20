@@ -17,12 +17,10 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Quest")
 	void UpdateQuestList(const FQuestTable& Quest);
 
+	// Make the QuestManager a UPROPERTY to ensure it is not garbage collected
+	UPROPERTY(BlueprintReadWrite, Category = "Quest")
+	class UQuestManager* QuestManager;
+
 protected:
 	virtual void NativeConstruct() override;
-
-	// Add a function prototype to update the quest list using data from the QuestManager
-	// void UpdateQuestListFromManager();
-
-	// Add a member variable to hold a reference to the QuestManager component
-	class UQuestManager* QuestManager;
 };

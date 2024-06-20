@@ -6,13 +6,17 @@
 
 #include "UObject/GeneratedCppIncludes.h"
 #include "QuestSystem/TestCharacter.h"
+#include "QuestSystem/Public/QuestTable/QuestTable.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeTestCharacter() {}
 // Cross Module References
+	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 	QUESTSYSTEM_API UClass* Z_Construct_UClass_ATestCharacter();
 	QUESTSYSTEM_API UClass* Z_Construct_UClass_ATestCharacter_NoRegister();
 	QUESTSYSTEM_API UClass* Z_Construct_UClass_UQuestManager_NoRegister();
+	QUESTSYSTEM_API UClass* Z_Construct_UClass_UQuestWidgetShow_NoRegister();
+	QUESTSYSTEM_API UScriptStruct* Z_Construct_UScriptStruct_FQuestTable();
 	UPackage* Z_Construct_UPackage__Script_QuestSystem();
 // End Cross Module References
 	DEFINE_FUNCTION(ATestCharacter::execInteract)
@@ -36,6 +40,14 @@ void EmptyLinkFunctionForGeneratedCodeTestCharacter() {}
 		P_FINISH;
 		P_NATIVE_BEGIN;
 		P_THIS->MoveForward(Z_Param_Value);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ATestCharacter::execOnQuestCompleted)
+	{
+		P_GET_STRUCT_REF(FQuestTable,Z_Param_Out_CompletedQuest);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->OnQuestCompleted(Z_Param_Out_CompletedQuest);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(ATestCharacter::execCompleteQuest)
@@ -62,6 +74,7 @@ void EmptyLinkFunctionForGeneratedCodeTestCharacter() {}
 			{ "Interact", &ATestCharacter::execInteract },
 			{ "MoveForward", &ATestCharacter::execMoveForward },
 			{ "MoveRight", &ATestCharacter::execMoveRight },
+			{ "OnQuestCompleted", &ATestCharacter::execOnQuestCompleted },
 			{ "StartQuest", &ATestCharacter::execStartQuest },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -193,6 +206,46 @@ void EmptyLinkFunctionForGeneratedCodeTestCharacter() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_ATestCharacter_OnQuestCompleted_Statics
+	{
+		struct TestCharacter_eventOnQuestCompleted_Parms
+		{
+			FQuestTable CompletedQuest;
+		};
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CompletedQuest_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_CompletedQuest;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ATestCharacter_OnQuestCompleted_Statics::NewProp_CompletedQuest_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ATestCharacter_OnQuestCompleted_Statics::NewProp_CompletedQuest = { "CompletedQuest", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(TestCharacter_eventOnQuestCompleted_Parms, CompletedQuest), Z_Construct_UScriptStruct_FQuestTable, METADATA_PARAMS(Z_Construct_UFunction_ATestCharacter_OnQuestCompleted_Statics::NewProp_CompletedQuest_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_ATestCharacter_OnQuestCompleted_Statics::NewProp_CompletedQuest_MetaData)) }; // 4046486730
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ATestCharacter_OnQuestCompleted_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ATestCharacter_OnQuestCompleted_Statics::NewProp_CompletedQuest,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ATestCharacter_OnQuestCompleted_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "TestCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ATestCharacter_OnQuestCompleted_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ATestCharacter, nullptr, "OnQuestCompleted", nullptr, nullptr, sizeof(Z_Construct_UFunction_ATestCharacter_OnQuestCompleted_Statics::TestCharacter_eventOnQuestCompleted_Parms), Z_Construct_UFunction_ATestCharacter_OnQuestCompleted_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ATestCharacter_OnQuestCompleted_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00420401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ATestCharacter_OnQuestCompleted_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ATestCharacter_OnQuestCompleted_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ATestCharacter_OnQuestCompleted()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ATestCharacter_OnQuestCompleted_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_ATestCharacter_StartQuest_Statics
 	{
 		struct TestCharacter_eventStartQuest_Parms
@@ -250,6 +303,14 @@ void EmptyLinkFunctionForGeneratedCodeTestCharacter() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_QuestManager_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_QuestManager;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_QuestWidgetClass_MetaData[];
+#endif
+		static const UECodeGen_Private::FClassPropertyParams NewProp_QuestWidgetClass;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_QuestWidget_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_QuestWidget;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -263,6 +324,7 @@ void EmptyLinkFunctionForGeneratedCodeTestCharacter() {}
 		{ &Z_Construct_UFunction_ATestCharacter_Interact, "Interact" }, // 3151869290
 		{ &Z_Construct_UFunction_ATestCharacter_MoveForward, "MoveForward" }, // 3718427898
 		{ &Z_Construct_UFunction_ATestCharacter_MoveRight, "MoveRight" }, // 342393883
+		{ &Z_Construct_UFunction_ATestCharacter_OnQuestCompleted, "OnQuestCompleted" }, // 2833024415
 		{ &Z_Construct_UFunction_ATestCharacter_StartQuest, "StartQuest" }, // 2851887232
 	};
 #if WITH_METADATA
@@ -280,8 +342,25 @@ void EmptyLinkFunctionForGeneratedCodeTestCharacter() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ATestCharacter_Statics::NewProp_QuestManager = { "QuestManager", nullptr, (EPropertyFlags)0x001000000008000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(ATestCharacter, QuestManager), Z_Construct_UClass_UQuestManager_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ATestCharacter_Statics::NewProp_QuestManager_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ATestCharacter_Statics::NewProp_QuestManager_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ATestCharacter_Statics::NewProp_QuestWidgetClass_MetaData[] = {
+		{ "Category", "UI" },
+		{ "ModuleRelativePath", "TestCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ATestCharacter_Statics::NewProp_QuestWidgetClass = { "QuestWidgetClass", nullptr, (EPropertyFlags)0x0014000000000005, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(ATestCharacter, QuestWidgetClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UQuestWidgetShow_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ATestCharacter_Statics::NewProp_QuestWidgetClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ATestCharacter_Statics::NewProp_QuestWidgetClass_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ATestCharacter_Statics::NewProp_QuestWidget_MetaData[] = {
+		{ "Category", "UI" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "TestCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ATestCharacter_Statics::NewProp_QuestWidget = { "QuestWidget", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(ATestCharacter, QuestWidget), Z_Construct_UClass_UQuestWidgetShow_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ATestCharacter_Statics::NewProp_QuestWidget_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ATestCharacter_Statics::NewProp_QuestWidget_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ATestCharacter_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATestCharacter_Statics::NewProp_QuestManager,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATestCharacter_Statics::NewProp_QuestWidgetClass,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATestCharacter_Statics::NewProp_QuestWidget,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ATestCharacter_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ATestCharacter>::IsAbstract,
@@ -315,15 +394,15 @@ void EmptyLinkFunctionForGeneratedCodeTestCharacter() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(ATestCharacter);
 	ATestCharacter::~ATestCharacter() {}
-	struct Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_TestCharacter_h_Statics
+	struct Z_CompiledInDeferFile_FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_TestCharacter_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_TestCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ATestCharacter, ATestCharacter::StaticClass, TEXT("ATestCharacter"), &Z_Registration_Info_UClass_ATestCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ATestCharacter), 466522091U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_TestCharacter_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_ATestCharacter, ATestCharacter::StaticClass, TEXT("ATestCharacter"), &Z_Registration_Info_UClass_ATestCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ATestCharacter), 591276300U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_TestCharacter_h_1854354514(TEXT("/Script/QuestSystem"),
-		Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_TestCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_TestCharacter_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_TestCharacter_h_2479175644(TEXT("/Script/QuestSystem"),
+		Z_CompiledInDeferFile_FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_TestCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_TestCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

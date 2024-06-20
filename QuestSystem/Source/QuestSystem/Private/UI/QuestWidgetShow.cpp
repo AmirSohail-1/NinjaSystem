@@ -1,6 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "UI/QuestWidgetShow.h"
 #include "Components/ScrollBox.h"
 #include "Components/TextBlock.h"
@@ -9,7 +6,22 @@
 void UQuestWidgetShow::NativeConstruct()
 {
 	Super::NativeConstruct();
+
+	if (QuestManager)
+	{
+		// Ensure the quest data is being fetched and used to update the UI
+		const FQuestTable* CurrentQuest = QuestManager->GetCurrentQuestData();
+		if (CurrentQuest)
+		{
+			UpdateQuestList(*CurrentQuest);
+		}
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("QuestManager is not assigned."));
+	}
 }
+
 
 void UQuestWidgetShow::UpdateQuestList(const FQuestTable& Quest)
 {
@@ -31,25 +43,9 @@ void UQuestWidgetShow::UpdateQuestList(const FQuestTable& Quest)
 			UTextBlock* TimerText = NewObject<UTextBlock>(QuestScrollBox);
 			if (TimerText)
 			{
-				TimerText->SetText(FText::FromString(FString::Printf(TEXT("%s: %s - Time Limit: %f seconds "), *Quest.Name, *Quest.Description, Quest.TimeLimit)));
+				TimerText->SetText(FText::FromString(FString::Printf(TEXT("Time Limit: %f seconds"), Quest.TimeLimit)));
 				QuestScrollBox->AddChild(TimerText);
 			}
 		}
 	}
 }
-
-// void UQuestWidgetShow::UpdateQuestListFromManager()
-// {
-// 	if (QuestManager)
-// 	{
-// 		// Get the quest data from the QuestManager component
-// 		FQuestTable QuestData = QuestManager->GetCurrentQuestData();
-//
-// 		// Update the quest list based on the QuestData
-// 		UpdateQuestList(QuestData);
-// 	}
-// 	else
-// 	{
-// 		UE_LOG(LogTemp, Error, TEXT("QuestManager is not valid."));
-// 	}
-// }
