@@ -131,6 +131,8 @@ public:
     void LoadQuestProgress();
 
     const FQuestTable* GetCurrentQuestData() const;
+    
+    void LoadFirstQuestFromDataTable();
 
 private:
     TMap<FString, FQuestTable> QuestCache;

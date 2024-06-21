@@ -15,6 +15,8 @@ ATestCharacter::ATestCharacter()
     // Initialize the QuestManagerComponent
     QuestManager = CreateDefaultSubobject<UQuestManager>(TEXT("QuestManager"));
 
+    // Assume that QuestWidget is assigned through the Blueprint
+
     // Set up character movement
     GetCharacterMovement()->bOrientRotationToMovement = true;
     GetCharacterMovement()->RotationRate = FRotator(0.0f, 540.0f, 0.0f);
@@ -29,6 +31,23 @@ void ATestCharacter::BeginPlay()
     if (QuestManager)
     {
         QuestManager->OnQuestUpdated.AddDynamic(this, &ATestCharacter::OnQuestCompleted);
+        // Load the first quest from the data table
+        QuestManager->LoadFirstQuestFromDataTable();
+        
+    }
+    else
+    {
+        UE_LOG(LogTemp, Error, TEXT("QuestManager is not initialized"));
+    }
+
+    // Check if the widget is valid
+    if (QuestWidget)
+    {
+        UE_LOG(LogTemp, Warning, TEXT("QuestWidget is valid"));
+    }
+    else
+    {
+        UE_LOG(LogTemp, Error, TEXT("QuestWidget is not assigned or invalid"));
     }
 
     // Find the QuestWidget in the UI and bind it to the QuestManager
@@ -44,6 +63,14 @@ void ATestCharacter::BeginPlay()
                 {
                     QuestWidget->QuestManager = QuestManager;
                     QuestWidget->AddToViewport();
+                }
+                
+                // Update QuestWidget with current quest data
+                const FQuestTable* CurrentQuest = QuestManager->GetCurrentQuestData();
+                if (CurrentQuest)
+                {
+                    // Update the quest widget
+                    QuestWidget->UpdateQuestList(*CurrentQuest);
                 }
             }
         }
@@ -85,6 +112,8 @@ void ATestCharacter::MoveRight(float Value)
     }
 }
 
+
+
 void ATestCharacter::Interact()
 {
     FVector Start = GetActorLocation();
@@ -120,7 +149,6 @@ void ATestCharacter::Interact()
 }
 
 
-
 void ATestCharacter::StartQuest(const FString& QuestName)
 {
     if (QuestManager)
@@ -130,10 +158,13 @@ void ATestCharacter::StartQuest(const FString& QuestName)
 
     if (QuestWidget)
     {
-        // QuestWidget->UpdateQuestList(QuestManager->GetCurrentQuest());
+        // Assuming QuestWidget->UpdateQuestList takes a list of quests or a single quest
+        const FQuestTable* CurrentQuest = QuestManager->GetCurrentQuestData();
+        if (CurrentQuest)
+        {
+            QuestWidget->UpdateQuestList(*CurrentQuest);
+        }
     }
-
-    
 }
 
 void ATestCharacter::CompleteQuest(const FString& QuestName)
@@ -142,19 +173,51 @@ void ATestCharacter::CompleteQuest(const FString& QuestName)
     {
         QuestManager->CompleteQuest(QuestName);
     }
-}
-
-void ATestCharacter::OnQuestCompleted(const FQuestTable& CompletedQuest)
-{
-    if (CompletedQuest.Name == TEXT("FirstQuest"))
-    {
-        StartQuest(TEXT("SecondQuest"));
-    }
 
     if (QuestWidget)
     {
-        QuestWidget->UpdateQuestList(CompletedQuest);
+        const FQuestTable* CurrentQuest = QuestManager->GetCurrentQuestData();
+        if (CurrentQuest)
+        {
+            UE_LOG(LogTemp, Warning, TEXT("Updating widget with current quest: %s"), *CurrentQuest->Name);
+            QuestWidget->UpdateQuestList(*CurrentQuest);
+        }
+        else
+        {
+            UE_LOG(LogTemp, Warning, TEXT("No current quest data found"));
+        }
     }
+    else
+    {
+        UE_LOG(LogTemp, Error, TEXT("QuestWidget is not assigned or invalid"));
+    }
+}
+
+
+
+void ATestCharacter::OnQuestCompleted(const FQuestTable& CompletedQuest)
+{
+    if (CompletedQuest.Name == TEXT("Find Sphere"))
+    {
+        StartQuest(TEXT("Quest 2"));
+    }
+
+    // Update the widget with the current quest
+    if (QuestWidget)
+    {
+        // Fetch the updated quest data from the QuestManager and update the widget
+        const FQuestTable* CurrentQuest = QuestManager->GetCurrentQuestData();
+        if (CurrentQuest)
+        {
+            QuestWidget->UpdateQuestList(*CurrentQuest);
+        }
+        else
+        {
+            UE_LOG(LogTemp, Warning, TEXT("No current quest found after completing quest: %s: Description %s"), *CompletedQuest.Name, *CompletedQuest.Description);
+        }
+        
+    }
+    
 }
 
 

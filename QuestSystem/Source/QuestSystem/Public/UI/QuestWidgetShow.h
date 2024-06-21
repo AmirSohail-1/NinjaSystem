@@ -14,12 +14,14 @@ public:
 	UPROPERTY(meta = (BindWidget))
 	class UScrollBox* QuestScrollBox;
 
-	UFUNCTION(BlueprintCallable, Category = "Quest")
-	void UpdateQuestList(const FQuestTable& Quest);
-
 	// Make the QuestManager a UPROPERTY to ensure it is not garbage collected
 	UPROPERTY(BlueprintReadWrite, Category = "Quest")
 	class UQuestManager* QuestManager;
+
+	UFUNCTION(BlueprintCallable, Category = "Quest")
+	void UpdateQuestList(const FQuestTable& Quest);
+
+	
 
 protected:
 	virtual void NativeConstruct() override;

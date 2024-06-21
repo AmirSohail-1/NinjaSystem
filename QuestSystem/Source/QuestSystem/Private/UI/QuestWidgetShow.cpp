@@ -14,6 +14,7 @@ void UQuestWidgetShow::NativeConstruct()
 		if (CurrentQuest)
 		{
 			UpdateQuestList(*CurrentQuest);
+			UE_LOG(LogTemp, Warning, TEXT("Native Widget Current quest: %s"), *CurrentQuest->Name);
 		}
 	}
 	else
@@ -23,18 +24,53 @@ void UQuestWidgetShow::NativeConstruct()
 }
 
 
+// void UQuestWidgetShow::UpdateQuestList(const FQuestTable& Quest)
+// {
+// 	if (QuestScrollBox)
+// 	{
+// 		QuestScrollBox->ClearChildren();
+//
+// 		// Add quest name and description
+// 		UTextBlock* QuestText = NewObject<UTextBlock>(QuestScrollBox);
+// 		if (QuestText)
+// 		{
+// 			QuestText->SetText(FText::FromString(FString::Printf(TEXT("%s: %s"), *Quest.Name, *Quest.Description)));
+// 			QuestScrollBox->AddChild(QuestText);
+// 		}
+//
+// 		// If the quest is timed, add a timer display
+// 		if (Quest.bIsTimed)
+// 		{
+// 			UTextBlock* TimerText = NewObject<UTextBlock>(QuestScrollBox);
+// 			if (TimerText)
+// 			{
+// 				TimerText->SetText(FText::FromString(FString::Printf(TEXT("%s:%s Time Limit: %f seconds"), *Quest.Name, *Quest.Description , Quest.TimeLimit)));
+// 				QuestScrollBox->AddChild(TimerText);
+// 			}
+// 		}
+// 	}
+// }
+
 void UQuestWidgetShow::UpdateQuestList(const FQuestTable& Quest)
 {
 	if (QuestScrollBox)
 	{
 		QuestScrollBox->ClearChildren();
 
-		// Add quest name and description
-		UTextBlock* QuestText = NewObject<UTextBlock>(QuestScrollBox);
-		if (QuestText)
+		// Add quest name
+		UTextBlock* QuestNameText = NewObject<UTextBlock>(QuestScrollBox);
+		if (QuestNameText)
 		{
-			QuestText->SetText(FText::FromString(FString::Printf(TEXT("%s: %s"), *Quest.Name, *Quest.Description)));
-			QuestScrollBox->AddChild(QuestText);
+			QuestNameText->SetText(FText::FromString(FString::Printf(TEXT("Quest: %s"), *Quest.Name)));
+			QuestScrollBox->AddChild(QuestNameText);
+		}
+
+		// Add quest description
+		UTextBlock* QuestDescriptionText = NewObject<UTextBlock>(QuestScrollBox);
+		if (QuestDescriptionText)
+		{
+			QuestDescriptionText->SetText(FText::FromString(FString::Printf(TEXT("Description: %s"), *Quest.Description)));
+			QuestScrollBox->AddChild(QuestDescriptionText);
 		}
 
 		// If the quest is timed, add a timer display

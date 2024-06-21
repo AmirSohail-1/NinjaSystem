@@ -24,7 +24,7 @@ void APickupActor::Interact(AActor* Interactor)
 	ATestCharacter* Character = Cast<ATestCharacter>(Interactor);
 	if (Character && Character->QuestManager)
 	{
-		Character->QuestManager->CompleteQuest(TEXT("FirstQuest"));
+		Character->QuestManager->CompleteQuest(TEXT("Find Sphere"));
 		UE_LOG( LogTemp, Warning, TEXT("Pickup Interacted WITH CHARACTER CLASS") );
 		Destroy();
 	}

@@ -29,6 +29,6 @@ struct QUESTSYSTEM_API FQuestTable : public FTableRowBase
 	float TimeLimit;
 
 	// Default constructor
-	FQuestTable()
-		: Name(TEXT("Default Quest From QuestTable C++")), Description(TEXT("Default Description  ")), bIsCompleted(false), bIsTimed(false), TimeLimit(0.0f) {}
+	// FQuestTable()
+	// 	: Name(TEXT("Default Quest From QuestTable C++")), Description(TEXT("Default Description C++  ")), bIsCompleted(false), bIsTimed(false), TimeLimit(0.0f) {}
 };
