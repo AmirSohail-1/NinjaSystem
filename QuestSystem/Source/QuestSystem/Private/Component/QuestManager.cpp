@@ -1,5 +1,5 @@
 #include "Component/QuestManager.h"
-#include "Save/QuestSaveGame.h"
+// #include "Save/QuestSaveGame.h"
 #include "Kismet/GameplayStatics.h"
 #include "TimerManager.h"
 
@@ -134,6 +134,14 @@ void UQuestManager::UpdateCache()
     }
 }
 
+const FQuestTable* UQuestManager::GetCurrentQuestData() const
+{
+    return &CurrentQuest;
+}
+
+
+
+
 void UQuestManager::SaveQuestProgress()
 {
     UQuestSaveGame* SaveGameInstance = Cast<UQuestSaveGame>(UGameplayStatics::CreateSaveGameObject(UQuestSaveGame::StaticClass()));
@@ -168,10 +176,6 @@ void UQuestManager::LoadQuestProgress()
     }
 }
 
-const FQuestTable* UQuestManager::GetCurrentQuestData() const
-{
-    return &CurrentQuest;
-}
 
 void UQuestManager::LoadFirstQuestFromDataTable()
 {

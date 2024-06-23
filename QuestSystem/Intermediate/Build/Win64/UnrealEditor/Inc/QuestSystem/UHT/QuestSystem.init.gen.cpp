@@ -21,13 +21,13 @@ void EmptyLinkFunctionForGeneratedCodeQuestSystem_init() {}
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0xFF842F6F,
-				0x111FC3EE,
+				0xA55A7BE1,
+				0x4EF69589,
 				METADATA_PARAMS(nullptr, 0)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_QuestSystem.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_QuestSystem.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_QuestSystem(Z_Construct_UPackage__Script_QuestSystem, TEXT("/Script/QuestSystem"), Z_Registration_Info_UPackage__Script_QuestSystem, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xFF842F6F, 0x111FC3EE));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_QuestSystem(Z_Construct_UPackage__Script_QuestSystem, TEXT("/Script/QuestSystem"), Z_Registration_Info_UPackage__Script_QuestSystem, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xA55A7BE1, 0x4EF69589));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

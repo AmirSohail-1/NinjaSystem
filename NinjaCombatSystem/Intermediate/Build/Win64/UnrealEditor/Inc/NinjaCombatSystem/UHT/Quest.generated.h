@@ -14,7 +14,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define NINJACOMBATSYSTEM_Quest_generated_h
 
-#define FID_ProjectSystemTest_Plugins_NinjaCombatSystem_Source_NinjaCombatSystem_Public_QuestSystem_Quest_h_12_GENERATED_BODY \
+#define FID_Users_99026_Unreal_CPP_Ninja_Plugins_NinjaCombatSystem_Source_NinjaCombatSystem_Public_QuestSystem_Quest_h_12_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FQuest_Statics; \
 	NINJACOMBATSYSTEM_API static class UScriptStruct* StaticStruct(); \
 	typedef FTableRowBase Super;
@@ -23,7 +23,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 template<> NINJACOMBATSYSTEM_API UScriptStruct* StaticStruct<struct FQuest>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_ProjectSystemTest_Plugins_NinjaCombatSystem_Source_NinjaCombatSystem_Public_QuestSystem_Quest_h
+#define CURRENT_FILE_ID FID_Users_99026_Unreal_CPP_Ninja_Plugins_NinjaCombatSystem_Source_NinjaCombatSystem_Public_QuestSystem_Quest_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

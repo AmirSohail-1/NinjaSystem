@@ -1,6 +1,6 @@
-D:\Amir\ProjectSystemTest\Plugins\InteractionModule\Intermediate\Build\Win64\UnrealEditor\Development\InteractionModule\Module.InteractionModule.cpp
+C:\Users\99026\Unreal\CPP\Ninja\Plugins\InteractionModule\Intermediate\Build\Win64\UnrealEditor\Development\InteractionModule\Module.InteractionModule.cpp
 /I .
-/I D:\Amir\ProjectSystemTest\Plugins\InteractionModule\Source\InteractionModule\Private
+/I C:\Users\99026\Unreal\CPP\Ninja\Plugins\InteractionModule\Source\InteractionModule\Private
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\CoreUObject\UHT
 /I Runtime
 /I Runtime\CoreUObject\Public
@@ -270,24 +270,24 @@ D:\Amir\ProjectSystemTest\Plugins\InteractionModule\Intermediate\Build\Win64\Unr
 /I Runtime\MovieSceneCapture\Public
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\AnimationDataController\UHT
 /I Developer\AnimationDataController\Public
-/I D:\Amir\ProjectSystemTest\Plugins\InteractionModule\Intermediate\Build\Win64\UnrealEditor\Inc\InteractionModule\UHT
-/I D:\Amir\ProjectSystemTest\Plugins\InteractionModule\Source
-/I D:\Amir\ProjectSystemTest\Plugins\InteractionModule\Source\InteractionModule\Public
+/I C:\Users\99026\Unreal\CPP\Ninja\Plugins\InteractionModule\Intermediate\Build\Win64\UnrealEditor\Inc\InteractionModule\UHT
+/I C:\Users\99026\Unreal\CPP\Ninja\Plugins\InteractionModule\Source
+/I C:\Users\99026\Unreal\CPP\Ninja\Plugins\InteractionModule\Source\InteractionModule\Public
 /external:W0
 /external:I ThirdParty\mimalloc\include
 /external:I ThirdParty\LibTiff\Source\Win64
 /external:I ThirdParty\LibTiff\Source
-/external:I "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.40.33807\INCLUDE"
+/external:I "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\INCLUDE"
 /external:I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt"
 /external:I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\shared"
 /external:I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\um"
 /external:I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\winrt"
-/FI"D:\Amir\ProjectSystemTest\Intermediate\Build\Win64\ProjectSystemTestEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.InclOrderUnreal5_0.h"
-/FI"D:\Amir\ProjectSystemTest\Plugins\InteractionModule\Intermediate\Build\Win64\UnrealEditor\Development\InteractionModule\Definitions.InteractionModule.h"
-/Yu"D:\Amir\ProjectSystemTest\Intermediate\Build\Win64\ProjectSystemTestEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.InclOrderUnreal5_0.h"
-/Fp"D:\Amir\ProjectSystemTest\Intermediate\Build\Win64\ProjectSystemTestEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.InclOrderUnreal5_0.h.pch"
-/Fo"D:\Amir\ProjectSystemTest\Plugins\InteractionModule\Intermediate\Build\Win64\UnrealEditor\Development\InteractionModule\Module.InteractionModule.cpp.obj"
-/sourceDependencies D:\Amir\ProjectSystemTest\Plugins\InteractionModule\Intermediate\Build\Win64\UnrealEditor\Development\InteractionModule\Module.InteractionModule.cpp.dep.json
+/FI"C:\Users\99026\Unreal\CPP\Ninja\Intermediate\Build\Win64\NinjaEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
+/FI"C:\Users\99026\Unreal\CPP\Ninja\Plugins\InteractionModule\Intermediate\Build\Win64\UnrealEditor\Development\InteractionModule\Definitions.InteractionModule.h"
+/Yu"C:\Users\99026\Unreal\CPP\Ninja\Intermediate\Build\Win64\NinjaEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
+/Fp"C:\Users\99026\Unreal\CPP\Ninja\Intermediate\Build\Win64\NinjaEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
+/Fo"C:\Users\99026\Unreal\CPP\Ninja\Plugins\InteractionModule\Intermediate\Build\Win64\UnrealEditor\Development\InteractionModule\Module.InteractionModule.cpp.obj"
+/sourceDependencies C:\Users\99026\Unreal\CPP\Ninja\Plugins\InteractionModule\Intermediate\Build\Win64\UnrealEditor\Development\InteractionModule\Module.InteractionModule.cpp.dep.json
 /Zc:inline
 /nologo
 /Oi
