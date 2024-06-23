@@ -18,6 +18,30 @@ void EmptyLinkFunctionForGeneratedCodeQuestWidgetShow() {}
 	UMG_API UClass* Z_Construct_UClass_UUserWidget();
 	UPackage* Z_Construct_UPackage__Script_QuestSystem();
 // End Cross Module References
+	DEFINE_FUNCTION(UQuestWidgetShow::execOnQuestUpdated)
+	{
+		P_GET_STRUCT_REF(FQuestTable,Z_Param_Out_UpdatedQuest);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->OnQuestUpdated(Z_Param_Out_UpdatedQuest);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UQuestWidgetShow::execUpdateTimerDisplay)
+	{
+		P_GET_PROPERTY(FFloatProperty,Z_Param_RemainingTimeSeconds);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->UpdateTimerDisplay(Z_Param_RemainingTimeSeconds);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UQuestWidgetShow::execOnTimedQuestTick)
+	{
+		P_GET_PROPERTY(FFloatProperty,Z_Param_RemainingTimeSeconds);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->OnTimedQuestTick(Z_Param_RemainingTimeSeconds);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UQuestWidgetShow::execUpdateQuestList)
 	{
 		P_GET_STRUCT_REF(FQuestTable,Z_Param_Out_Quest);
@@ -30,9 +54,84 @@ void EmptyLinkFunctionForGeneratedCodeQuestWidgetShow() {}
 	{
 		UClass* Class = UQuestWidgetShow::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "OnQuestUpdated", &UQuestWidgetShow::execOnQuestUpdated },
+			{ "OnTimedQuestTick", &UQuestWidgetShow::execOnTimedQuestTick },
 			{ "UpdateQuestList", &UQuestWidgetShow::execUpdateQuestList },
+			{ "UpdateTimerDisplay", &UQuestWidgetShow::execUpdateTimerDisplay },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_UQuestWidgetShow_OnQuestUpdated_Statics
+	{
+		struct QuestWidgetShow_eventOnQuestUpdated_Parms
+		{
+			FQuestTable UpdatedQuest;
+		};
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_UpdatedQuest_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_UpdatedQuest;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UQuestWidgetShow_OnQuestUpdated_Statics::NewProp_UpdatedQuest_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UQuestWidgetShow_OnQuestUpdated_Statics::NewProp_UpdatedQuest = { "UpdatedQuest", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(QuestWidgetShow_eventOnQuestUpdated_Parms, UpdatedQuest), Z_Construct_UScriptStruct_FQuestTable, METADATA_PARAMS(Z_Construct_UFunction_UQuestWidgetShow_OnQuestUpdated_Statics::NewProp_UpdatedQuest_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_UQuestWidgetShow_OnQuestUpdated_Statics::NewProp_UpdatedQuest_MetaData)) }; // 1480036892
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UQuestWidgetShow_OnQuestUpdated_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UQuestWidgetShow_OnQuestUpdated_Statics::NewProp_UpdatedQuest,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UQuestWidgetShow_OnQuestUpdated_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/UI/QuestWidgetShow.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UQuestWidgetShow_OnQuestUpdated_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UQuestWidgetShow, nullptr, "OnQuestUpdated", nullptr, nullptr, sizeof(Z_Construct_UFunction_UQuestWidgetShow_OnQuestUpdated_Statics::QuestWidgetShow_eventOnQuestUpdated_Parms), Z_Construct_UFunction_UQuestWidgetShow_OnQuestUpdated_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UQuestWidgetShow_OnQuestUpdated_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00440401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UQuestWidgetShow_OnQuestUpdated_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UQuestWidgetShow_OnQuestUpdated_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UQuestWidgetShow_OnQuestUpdated()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UQuestWidgetShow_OnQuestUpdated_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UQuestWidgetShow_OnTimedQuestTick_Statics
+	{
+		struct QuestWidgetShow_eventOnTimedQuestTick_Parms
+		{
+			float RemainingTimeSeconds;
+		};
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_RemainingTimeSeconds;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_UQuestWidgetShow_OnTimedQuestTick_Statics::NewProp_RemainingTimeSeconds = { "RemainingTimeSeconds", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(QuestWidgetShow_eventOnTimedQuestTick_Parms, RemainingTimeSeconds), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UQuestWidgetShow_OnTimedQuestTick_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UQuestWidgetShow_OnTimedQuestTick_Statics::NewProp_RemainingTimeSeconds,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UQuestWidgetShow_OnTimedQuestTick_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/UI/QuestWidgetShow.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UQuestWidgetShow_OnTimedQuestTick_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UQuestWidgetShow, nullptr, "OnTimedQuestTick", nullptr, nullptr, sizeof(Z_Construct_UFunction_UQuestWidgetShow_OnTimedQuestTick_Statics::QuestWidgetShow_eventOnTimedQuestTick_Parms), Z_Construct_UFunction_UQuestWidgetShow_OnTimedQuestTick_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UQuestWidgetShow_OnTimedQuestTick_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UQuestWidgetShow_OnTimedQuestTick_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UQuestWidgetShow_OnTimedQuestTick_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UQuestWidgetShow_OnTimedQuestTick()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UQuestWidgetShow_OnTimedQuestTick_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_UQuestWidgetShow_UpdateQuestList_Statics
 	{
@@ -55,7 +154,7 @@ void EmptyLinkFunctionForGeneratedCodeQuestWidgetShow() {}
 		{ "NativeConst", "" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UQuestWidgetShow_UpdateQuestList_Statics::NewProp_Quest = { "Quest", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(QuestWidgetShow_eventUpdateQuestList_Parms, Quest), Z_Construct_UScriptStruct_FQuestTable, METADATA_PARAMS(Z_Construct_UFunction_UQuestWidgetShow_UpdateQuestList_Statics::NewProp_Quest_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_UQuestWidgetShow_UpdateQuestList_Statics::NewProp_Quest_MetaData)) }; // 4046486730
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UQuestWidgetShow_UpdateQuestList_Statics::NewProp_Quest = { "Quest", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(QuestWidgetShow_eventUpdateQuestList_Parms, Quest), Z_Construct_UScriptStruct_FQuestTable, METADATA_PARAMS(Z_Construct_UFunction_UQuestWidgetShow_UpdateQuestList_Statics::NewProp_Quest_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_UQuestWidgetShow_UpdateQuestList_Statics::NewProp_Quest_MetaData)) }; // 1480036892
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UQuestWidgetShow_UpdateQuestList_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UQuestWidgetShow_UpdateQuestList_Statics::NewProp_Quest,
 	};
@@ -72,6 +171,40 @@ void EmptyLinkFunctionForGeneratedCodeQuestWidgetShow() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UQuestWidgetShow_UpdateQuestList_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UQuestWidgetShow_UpdateTimerDisplay_Statics
+	{
+		struct QuestWidgetShow_eventUpdateTimerDisplay_Parms
+		{
+			float RemainingTimeSeconds;
+		};
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_RemainingTimeSeconds;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_UQuestWidgetShow_UpdateTimerDisplay_Statics::NewProp_RemainingTimeSeconds = { "RemainingTimeSeconds", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(QuestWidgetShow_eventUpdateTimerDisplay_Parms, RemainingTimeSeconds), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UQuestWidgetShow_UpdateTimerDisplay_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UQuestWidgetShow_UpdateTimerDisplay_Statics::NewProp_RemainingTimeSeconds,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UQuestWidgetShow_UpdateTimerDisplay_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "// Function to update the timer display\n" },
+		{ "ModuleRelativePath", "Public/UI/QuestWidgetShow.h" },
+		{ "ToolTip", "Function to update the timer display" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UQuestWidgetShow_UpdateTimerDisplay_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UQuestWidgetShow, nullptr, "UpdateTimerDisplay", nullptr, nullptr, sizeof(Z_Construct_UFunction_UQuestWidgetShow_UpdateTimerDisplay_Statics::QuestWidgetShow_eventUpdateTimerDisplay_Parms), Z_Construct_UFunction_UQuestWidgetShow_UpdateTimerDisplay_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UQuestWidgetShow_UpdateTimerDisplay_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UQuestWidgetShow_UpdateTimerDisplay_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UQuestWidgetShow_UpdateTimerDisplay_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UQuestWidgetShow_UpdateTimerDisplay()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UQuestWidgetShow_UpdateTimerDisplay_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -104,7 +237,10 @@ void EmptyLinkFunctionForGeneratedCodeQuestWidgetShow() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_QuestSystem,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UQuestWidgetShow_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UQuestWidgetShow_UpdateQuestList, "UpdateQuestList" }, // 3190886893
+		{ &Z_Construct_UFunction_UQuestWidgetShow_OnQuestUpdated, "OnQuestUpdated" }, // 2952911664
+		{ &Z_Construct_UFunction_UQuestWidgetShow_OnTimedQuestTick, "OnTimedQuestTick" }, // 54282345
+		{ &Z_Construct_UFunction_UQuestWidgetShow_UpdateQuestList, "UpdateQuestList" }, // 776198653
+		{ &Z_Construct_UFunction_UQuestWidgetShow_UpdateTimerDisplay, "UpdateTimerDisplay" }, // 2618538191
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UQuestWidgetShow_Statics::Class_MetaDataParams[] = {
@@ -171,9 +307,9 @@ void EmptyLinkFunctionForGeneratedCodeQuestWidgetShow() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_Public_UI_QuestWidgetShow_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UQuestWidgetShow, UQuestWidgetShow::StaticClass, TEXT("UQuestWidgetShow"), &Z_Registration_Info_UClass_UQuestWidgetShow, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UQuestWidgetShow), 1704197937U) },
+		{ Z_Construct_UClass_UQuestWidgetShow, UQuestWidgetShow::StaticClass, TEXT("UQuestWidgetShow"), &Z_Registration_Info_UClass_UQuestWidgetShow, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UQuestWidgetShow), 3493856300U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_Public_UI_QuestWidgetShow_h_2142760522(TEXT("/Script/QuestSystem"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_Public_UI_QuestWidgetShow_h_1778294334(TEXT("/Script/QuestSystem"),
 		Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_Public_UI_QuestWidgetShow_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_Public_UI_QuestWidgetShow_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

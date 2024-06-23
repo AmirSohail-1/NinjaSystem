@@ -58,14 +58,14 @@ void EmptyLinkFunctionForGeneratedCodeQuestSaveGame() {}
 		{ "ModuleRelativePath", "Public/Save/QuestSaveGame.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_SavedQuests_Inner = { "SavedQuests", nullptr, (EPropertyFlags)0x0000000000020000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, 0, Z_Construct_UScriptStruct_FQuestTable, METADATA_PARAMS(nullptr, 0) }; // 4046486730
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_SavedQuests_Inner = { "SavedQuests", nullptr, (EPropertyFlags)0x0000000000020000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, 0, Z_Construct_UScriptStruct_FQuestTable, METADATA_PARAMS(nullptr, 0) }; // 1480036892
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_SavedQuests_MetaData[] = {
 		{ "Category", "Quests" },
 		{ "ModuleRelativePath", "Public/Save/QuestSaveGame.h" },
 	};
 #endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_SavedQuests = { "SavedQuests", nullptr, (EPropertyFlags)0x0010000000020001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(UQuestSaveGame, SavedQuests), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_SavedQuests_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_SavedQuests_MetaData)) }; // 4046486730
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_SavedQuests = { "SavedQuests", nullptr, (EPropertyFlags)0x0010000000020001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(UQuestSaveGame, SavedQuests), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_SavedQuests_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_SavedQuests_MetaData)) }; // 1480036892
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_CurrentQuestName_MetaData[] = {
 		{ "Category", "Quests" },
@@ -127,9 +127,9 @@ void EmptyLinkFunctionForGeneratedCodeQuestSaveGame() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_Public_Save_QuestSaveGame_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UQuestSaveGame, UQuestSaveGame::StaticClass, TEXT("UQuestSaveGame"), &Z_Registration_Info_UClass_UQuestSaveGame, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UQuestSaveGame), 3296097474U) },
+		{ Z_Construct_UClass_UQuestSaveGame, UQuestSaveGame::StaticClass, TEXT("UQuestSaveGame"), &Z_Registration_Info_UClass_UQuestSaveGame, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UQuestSaveGame), 3321042382U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_Public_Save_QuestSaveGame_h_3590058582(TEXT("/Script/QuestSystem"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_Public_Save_QuestSaveGame_h_2991922898(TEXT("/Script/QuestSystem"),
 		Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_Public_Save_QuestSaveGame_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_Public_Save_QuestSaveGame_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

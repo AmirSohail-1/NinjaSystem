@@ -18,11 +18,17 @@ struct FQuestTable;
 #define FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_Public_UI_QuestWidgetShow_h_11_SPARSE_DATA
 #define FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_Public_UI_QuestWidgetShow_h_11_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execOnQuestUpdated); \
+	DECLARE_FUNCTION(execUpdateTimerDisplay); \
+	DECLARE_FUNCTION(execOnTimedQuestTick); \
 	DECLARE_FUNCTION(execUpdateQuestList);
 
 
 #define FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_Public_UI_QuestWidgetShow_h_11_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execOnQuestUpdated); \
+	DECLARE_FUNCTION(execUpdateTimerDisplay); \
+	DECLARE_FUNCTION(execOnTimedQuestTick); \
 	DECLARE_FUNCTION(execUpdateQuestList);
 
 

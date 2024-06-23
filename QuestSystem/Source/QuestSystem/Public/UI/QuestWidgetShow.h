@@ -21,8 +21,20 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Quest")
 	void UpdateQuestList(const FQuestTable& Quest);
 
+	UFUNCTION()
+	 void OnTimedQuestTick(float RemainingTimeSeconds); // Delegate callback function // of DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FTimedQuestTickDelegate, float, RemainingTimeSeconds);
+	
+
 	
 
 protected:
 	virtual void NativeConstruct() override;
+	
+
+private:
+	// Function to update the timer display
+	UFUNCTION()
+	void UpdateTimerDisplay(float RemainingTimeSeconds);
+	UFUNCTION()
+	void OnQuestUpdated(const FQuestTable& UpdatedQuest);
 };

@@ -17,6 +17,10 @@ class QUESTSYSTEM_API APickupActor : public AActor  , public IQuestInteractionIn
 public:    
 	APickupActor();
 
+	UPROPERTY( EditAnywhere, BlueprintReadWrite,   Category = "Quest name Setting Variable", meta = (AllowPrivateAccess = "true") )
+	FString  QuestName;
+
+
 protected:
 	virtual void BeginPlay() override;
 

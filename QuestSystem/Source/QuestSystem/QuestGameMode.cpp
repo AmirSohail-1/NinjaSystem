@@ -15,7 +15,7 @@ void AQuestGameMode::SaveGame()
 	ATestCharacter* MyCharacter = Cast<ATestCharacter>(UGameplayStatics::GetPlayerCharacter(this, 0));
 	if (MyCharacter && MyCharacter->QuestManager)
 	{
-		MyCharacter->QuestManager->SaveQuestProgress();
+		MyCharacter->QuestManager->SaveQuestProgress();		 
 	}
 }
 

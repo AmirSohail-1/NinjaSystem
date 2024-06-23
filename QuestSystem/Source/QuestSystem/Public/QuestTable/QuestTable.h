@@ -28,7 +28,10 @@ struct QUESTSYSTEM_API FQuestTable : public FTableRowBase
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Quest")
 	float TimeLimit;
 
+	UPROPERTY(BlueprintReadOnly)
+	float RemainingTime;  // Add this line to store remaining time
+
 	// Default constructor
-	// FQuestTable()
-	// 	: Name(TEXT("Default Quest From QuestTable C++")), Description(TEXT("Default Description C++  ")), bIsCompleted(false), bIsTimed(false), TimeLimit(0.0f) {}
+	FQuestTable()
+		: Name(TEXT("Default Quest From QuestTable C++")), Description(TEXT("Default Description C++  ")), bIsCompleted(false), bIsTimed(false), TimeLimit(0.0f), RemainingTime(0.0f) {}
 };

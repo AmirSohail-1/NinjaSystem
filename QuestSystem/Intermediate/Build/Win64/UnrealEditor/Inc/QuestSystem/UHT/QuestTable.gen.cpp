@@ -62,6 +62,10 @@ template<> QUESTSYSTEM_API UScriptStruct* StaticStruct<FQuestTable>()
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_TimeLimit_MetaData[];
 #endif
 		static const UECodeGen_Private::FFloatPropertyParams NewProp_TimeLimit;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_RemainingTime_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_RemainingTime;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UECodeGen_Private::FStructParams ReturnStructParams;
 	};
@@ -128,6 +132,13 @@ template<> QUESTSYSTEM_API UScriptStruct* StaticStruct<FQuestTable>()
 	};
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FQuestTable_Statics::NewProp_TimeLimit = { "TimeLimit", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(FQuestTable, TimeLimit), METADATA_PARAMS(Z_Construct_UScriptStruct_FQuestTable_Statics::NewProp_TimeLimit_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FQuestTable_Statics::NewProp_TimeLimit_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FQuestTable_Statics::NewProp_RemainingTime_MetaData[] = {
+		{ "Category", "QuestTable" },
+		{ "ModuleRelativePath", "Public/QuestTable/QuestTable.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FQuestTable_Statics::NewProp_RemainingTime = { "RemainingTime", nullptr, (EPropertyFlags)0x0010000000000014, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(FQuestTable, RemainingTime), METADATA_PARAMS(Z_Construct_UScriptStruct_FQuestTable_Statics::NewProp_RemainingTime_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FQuestTable_Statics::NewProp_RemainingTime_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FQuestTable_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FQuestTable_Statics::NewProp_Name,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FQuestTable_Statics::NewProp_Description,
@@ -136,6 +147,7 @@ template<> QUESTSYSTEM_API UScriptStruct* StaticStruct<FQuestTable>()
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FQuestTable_Statics::NewProp_Objectives,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FQuestTable_Statics::NewProp_bIsTimed,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FQuestTable_Statics::NewProp_TimeLimit,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FQuestTable_Statics::NewProp_RemainingTime,
 	};
 	const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FQuestTable_Statics::ReturnStructParams = {
 		(UObject* (*)())Z_Construct_UPackage__Script_QuestSystem,
@@ -163,9 +175,9 @@ template<> QUESTSYSTEM_API UScriptStruct* StaticStruct<FQuestTable>()
 		static const FStructRegisterCompiledInInfo ScriptStructInfo[];
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_Public_QuestTable_QuestTable_h_Statics::ScriptStructInfo[] = {
-		{ FQuestTable::StaticStruct, Z_Construct_UScriptStruct_FQuestTable_Statics::NewStructOps, TEXT("QuestTable"), &Z_Registration_Info_UScriptStruct_QuestTable, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FQuestTable), 4046486730U) },
+		{ FQuestTable::StaticStruct, Z_Construct_UScriptStruct_FQuestTable_Statics::NewStructOps, TEXT("QuestTable"), &Z_Registration_Info_UScriptStruct_QuestTable, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FQuestTable), 1480036892U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_Public_QuestTable_QuestTable_h_1431200518(TEXT("/Script/QuestSystem"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_Public_QuestTable_QuestTable_h_4195035953(TEXT("/Script/QuestSystem"),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_Public_QuestTable_QuestTable_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_Public_QuestTable_QuestTable_h_Statics::ScriptStructInfo),
 		nullptr, 0);

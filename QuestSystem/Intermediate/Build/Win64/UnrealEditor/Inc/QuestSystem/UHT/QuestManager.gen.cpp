@@ -16,6 +16,7 @@ void EmptyLinkFunctionForGeneratedCodeQuestManager() {}
 	QUESTSYSTEM_API UClass* Z_Construct_UClass_UQuestManager_NoRegister();
 	QUESTSYSTEM_API UClass* Z_Construct_UClass_UQuestSaveGame_NoRegister();
 	QUESTSYSTEM_API UFunction* Z_Construct_UDelegateFunction_QuestSystem_OnQuestUpdated__DelegateSignature();
+	QUESTSYSTEM_API UFunction* Z_Construct_UDelegateFunction_QuestSystem_TimedQuestTickDelegate__DelegateSignature();
 	QUESTSYSTEM_API UScriptStruct* Z_Construct_UScriptStruct_FQuestTable();
 	UPackage* Z_Construct_UPackage__Script_QuestSystem();
 // End Cross Module References
@@ -40,15 +41,13 @@ void EmptyLinkFunctionForGeneratedCodeQuestManager() {}
 		{ "NativeConst", "" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_QuestSystem_OnQuestUpdated__DelegateSignature_Statics::NewProp_CurrentQuest = { "CurrentQuest", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(_Script_QuestSystem_eventOnQuestUpdated_Parms, CurrentQuest), Z_Construct_UScriptStruct_FQuestTable, METADATA_PARAMS(Z_Construct_UDelegateFunction_QuestSystem_OnQuestUpdated__DelegateSignature_Statics::NewProp_CurrentQuest_MetaData, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_QuestSystem_OnQuestUpdated__DelegateSignature_Statics::NewProp_CurrentQuest_MetaData)) }; // 4046486730
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_QuestSystem_OnQuestUpdated__DelegateSignature_Statics::NewProp_CurrentQuest = { "CurrentQuest", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(_Script_QuestSystem_eventOnQuestUpdated_Parms, CurrentQuest), Z_Construct_UScriptStruct_FQuestTable, METADATA_PARAMS(Z_Construct_UDelegateFunction_QuestSystem_OnQuestUpdated__DelegateSignature_Statics::NewProp_CurrentQuest_MetaData, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_QuestSystem_OnQuestUpdated__DelegateSignature_Statics::NewProp_CurrentQuest_MetaData)) }; // 1480036892
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_QuestSystem_OnQuestUpdated__DelegateSignature_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_QuestSystem_OnQuestUpdated__DelegateSignature_Statics::NewProp_CurrentQuest,
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_QuestSystem_OnQuestUpdated__DelegateSignature_Statics::Function_MetaDataParams[] = {
-		{ "Comment", "// DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnQuestUpdated, const FQuestTable&, CurrentQuest);\n//\n// UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))\n// class QUESTSYSTEM_API UQuestManager : public UActorComponent\n// {\n// \x09GENERATED_BODY()\n//\n// public:\n// \x09UQuestManager();\n//\n// protected:\n// \x09virtual void BeginPlay() override;\n// \x09virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;\n//\n// public:\n// \x09UPROPERTY(BlueprintAssignable, Category = \"Quest\")\n// \x09""FOnQuestUpdated OnQuestUpdated;\n//\n// \x09UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = \"Quest\")\n// \x09TArray<FQuestTable> ActiveQuests;\n//\n// \x09UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = \"Quest\")\n// \x09UDataTable* QuestDataTable;\n//\n// \x09UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = \"Quest\")\n// \x09""FString SaveSlotName;\n//\n// \x09UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = \"Quest\")\n// \x09UQuestSaveGame* QuestSaveGame;\n//\n// \x09UFUNCTION(BlueprintCallable, Category = \"Quest\")\n// \x09void AddQuest(const FQuestTable& NewQuest);\n//\n// \x09UFUNCTION(BlueprintCallable, Category = \"Quest\")\n// \x09void CompleteQuest(const FString& QuestName);\n//\n// \x09UFUNCTION(BlueprintCallable, Category = \"Quest\")\n// \x09void AddAllQuestsFromDataTable();\n//\n// \x09UFUNCTION(BlueprintCallable, Category = \"Quest\")\n// \x09void StartTimedQuest(const FString& QuestName);\n//\n// \x09UFUNCTION(BlueprintCallable, Category = \"Quest\")\n// \x09void SaveQuestProgress();\n//\n// \x09UFUNCTION(BlueprintCallable, Category = \"Quest\")\n// \x09void LoadQuestProgress();\n//\n// \x09// Add the GetCurrentQuestData function\n// \x09// UFUNCTION(BlueprintCallable, Category = \"Quest\")\n// \x09// FQuestTable* GetCurrentQuestData() const;\n// \x09""const FQuestTable* UQuestManager::GetCurrentQuestData() const\n// \x09{\n// \x09\x09return &CurrentQuest;\n// \x09}\n//\n//  \n//\n//  \n//\n// private:\n// \x09TMap<FString, FQuestTable> QuestCache;\n// \x09""FQuestTable CurrentQuest;\n// \x09""FTimerHandle TimerHandle;\n//\n// \x09void UpdateCurrentQuest();\n// \x09void CacheQuest(FQuestTable Quest);\n// \x09""FQuestTable* GetCachedQuest(FString QuestName);\n// \x09void OnTimedQuestCompleted();\n// \x09void UpdateCache();\n// };\n" },
 		{ "ModuleRelativePath", "Public/Component/QuestManager.h" },
-		{ "ToolTip", "DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnQuestUpdated, const FQuestTable&, CurrentQuest);\n\nUCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))\nclass QUESTSYSTEM_API UQuestManager : public UActorComponent\n{\n      GENERATED_BODY()\n\npublic:\n      UQuestManager();\n\nprotected:\n      virtual void BeginPlay() override;\n      virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;\n\npublic:\n      UPROPERTY(BlueprintAssignable, Category = \"Quest\")\n      FOnQuestUpdated OnQuestUpdated;\n\n      UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = \"Quest\")\n      TArray<FQuestTable> ActiveQuests;\n\n      UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = \"Quest\")\n      UDataTable* QuestDataTable;\n\n      UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = \"Quest\")\n      FString SaveSlotName;\n\n      UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = \"Quest\")\n      UQuestSaveGame* QuestSaveGame;\n\n      UFUNCTION(BlueprintCallable, Category = \"Quest\")\n      void AddQuest(const FQuestTable& NewQuest);\n\n      UFUNCTION(BlueprintCallable, Category = \"Quest\")\n      void CompleteQuest(const FString& QuestName);\n\n      UFUNCTION(BlueprintCallable, Category = \"Quest\")\n      void AddAllQuestsFromDataTable();\n\n      UFUNCTION(BlueprintCallable, Category = \"Quest\")\n      void StartTimedQuest(const FString& QuestName);\n\n      UFUNCTION(BlueprintCallable, Category = \"Quest\")\n      void SaveQuestProgress();\n\n      UFUNCTION(BlueprintCallable, Category = \"Quest\")\n      void LoadQuestProgress();\n\n       Add the GetCurrentQuestData function\n       UFUNCTION(BlueprintCallable, Category = \"Quest\")\n       FQuestTable* GetCurrentQuestData() const;\n      const FQuestTable* UQuestManager::GetCurrentQuestData() const\n      {\n              return &CurrentQuest;\n      }\n\n\n\n\n\nprivate:\n      TMap<FString, FQuestTable> QuestCache;\n      FQuestTable CurrentQuest;\n      FTimerHandle TimerHandle;\n\n      void UpdateCurrentQuest();\n      void CacheQuest(FQuestTable Quest);\n      FQuestTable* GetCachedQuest(FString QuestName);\n      void OnTimedQuestCompleted();\n      void UpdateCache();\n};" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_QuestSystem_OnQuestUpdated__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_QuestSystem, nullptr, "OnQuestUpdated__DelegateSignature", nullptr, nullptr, sizeof(Z_Construct_UDelegateFunction_QuestSystem_OnQuestUpdated__DelegateSignature_Statics::_Script_QuestSystem_eventOnQuestUpdated_Parms), Z_Construct_UDelegateFunction_QuestSystem_OnQuestUpdated__DelegateSignature_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_QuestSystem_OnQuestUpdated__DelegateSignature_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00130000, 0, 0, METADATA_PARAMS(Z_Construct_UDelegateFunction_QuestSystem_OnQuestUpdated__DelegateSignature_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_QuestSystem_OnQuestUpdated__DelegateSignature_Statics::Function_MetaDataParams)) };
@@ -60,6 +59,45 @@ void EmptyLinkFunctionForGeneratedCodeQuestManager() {}
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_QuestSystem_OnQuestUpdated__DelegateSignature_Statics::FuncParams);
 		}
 		return ReturnFunction;
+	}
+	struct Z_Construct_UDelegateFunction_QuestSystem_TimedQuestTickDelegate__DelegateSignature_Statics
+	{
+		struct _Script_QuestSystem_eventTimedQuestTickDelegate_Parms
+		{
+			float RemainingTimeSeconds;
+		};
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_RemainingTimeSeconds;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UDelegateFunction_QuestSystem_TimedQuestTickDelegate__DelegateSignature_Statics::NewProp_RemainingTimeSeconds = { "RemainingTimeSeconds", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(_Script_QuestSystem_eventTimedQuestTickDelegate_Parms, RemainingTimeSeconds), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_QuestSystem_TimedQuestTickDelegate__DelegateSignature_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_QuestSystem_TimedQuestTickDelegate__DelegateSignature_Statics::NewProp_RemainingTimeSeconds,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_QuestSystem_TimedQuestTickDelegate__DelegateSignature_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/Component/QuestManager.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_QuestSystem_TimedQuestTickDelegate__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_QuestSystem, nullptr, "TimedQuestTickDelegate__DelegateSignature", nullptr, nullptr, sizeof(Z_Construct_UDelegateFunction_QuestSystem_TimedQuestTickDelegate__DelegateSignature_Statics::_Script_QuestSystem_eventTimedQuestTickDelegate_Parms), Z_Construct_UDelegateFunction_QuestSystem_TimedQuestTickDelegate__DelegateSignature_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_QuestSystem_TimedQuestTickDelegate__DelegateSignature_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00130000, 0, 0, METADATA_PARAMS(Z_Construct_UDelegateFunction_QuestSystem_TimedQuestTickDelegate__DelegateSignature_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_QuestSystem_TimedQuestTickDelegate__DelegateSignature_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UDelegateFunction_QuestSystem_TimedQuestTickDelegate__DelegateSignature()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_QuestSystem_TimedQuestTickDelegate__DelegateSignature_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	DEFINE_FUNCTION(UQuestManager::execGetRemainingTime)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(float*)Z_Param__Result=P_THIS->GetRemainingTime();
+		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(UQuestManager::execLoadQuestProgress)
 	{
@@ -113,6 +151,7 @@ void EmptyLinkFunctionForGeneratedCodeQuestManager() {}
 			{ "AddAllQuestsFromDataTable", &UQuestManager::execAddAllQuestsFromDataTable },
 			{ "AddQuest", &UQuestManager::execAddQuest },
 			{ "CompleteQuest", &UQuestManager::execCompleteQuest },
+			{ "GetRemainingTime", &UQuestManager::execGetRemainingTime },
 			{ "LoadQuestProgress", &UQuestManager::execLoadQuestProgress },
 			{ "SaveQuestProgress", &UQuestManager::execSaveQuestProgress },
 			{ "StartTimedQuest", &UQuestManager::execStartTimedQuest },
@@ -163,14 +202,16 @@ void EmptyLinkFunctionForGeneratedCodeQuestManager() {}
 		{ "NativeConst", "" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UQuestManager_AddQuest_Statics::NewProp_NewQuest = { "NewQuest", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(QuestManager_eventAddQuest_Parms, NewQuest), Z_Construct_UScriptStruct_FQuestTable, METADATA_PARAMS(Z_Construct_UFunction_UQuestManager_AddQuest_Statics::NewProp_NewQuest_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_UQuestManager_AddQuest_Statics::NewProp_NewQuest_MetaData)) }; // 4046486730
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UQuestManager_AddQuest_Statics::NewProp_NewQuest = { "NewQuest", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(QuestManager_eventAddQuest_Parms, NewQuest), Z_Construct_UScriptStruct_FQuestTable, METADATA_PARAMS(Z_Construct_UFunction_UQuestManager_AddQuest_Statics::NewProp_NewQuest_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_UQuestManager_AddQuest_Statics::NewProp_NewQuest_MetaData)) }; // 1480036892
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UQuestManager_AddQuest_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UQuestManager_AddQuest_Statics::NewProp_NewQuest,
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UQuestManager_AddQuest_Statics::Function_MetaDataParams[] = {
 		{ "Category", "Quest" },
+		{ "Comment", "// Functions\n" },
 		{ "ModuleRelativePath", "Public/Component/QuestManager.h" },
+		{ "ToolTip", "Functions" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UQuestManager_AddQuest_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UQuestManager, nullptr, "AddQuest", nullptr, nullptr, sizeof(Z_Construct_UFunction_UQuestManager_AddQuest_Statics::QuestManager_eventAddQuest_Parms), Z_Construct_UFunction_UQuestManager_AddQuest_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UQuestManager_AddQuest_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04420401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UQuestManager_AddQuest_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UQuestManager_AddQuest_Statics::Function_MetaDataParams)) };
@@ -221,6 +262,41 @@ void EmptyLinkFunctionForGeneratedCodeQuestManager() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UQuestManager_CompleteQuest_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UQuestManager_GetRemainingTime_Statics
+	{
+		struct QuestManager_eventGetRemainingTime_Parms
+		{
+			float ReturnValue;
+		};
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_UQuestManager_GetRemainingTime_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(QuestManager_eventGetRemainingTime_Parms, ReturnValue), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UQuestManager_GetRemainingTime_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UQuestManager_GetRemainingTime_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UQuestManager_GetRemainingTime_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Quest" },
+		{ "Comment", "// Timer functions for UI updates\n" },
+		{ "ModuleRelativePath", "Public/Component/QuestManager.h" },
+		{ "ToolTip", "Timer functions for UI updates" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UQuestManager_GetRemainingTime_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UQuestManager, nullptr, "GetRemainingTime", nullptr, nullptr, sizeof(Z_Construct_UFunction_UQuestManager_GetRemainingTime_Statics::QuestManager_eventGetRemainingTime_Parms), Z_Construct_UFunction_UQuestManager_GetRemainingTime_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UQuestManager_GetRemainingTime_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UQuestManager_GetRemainingTime_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UQuestManager_GetRemainingTime_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UQuestManager_GetRemainingTime()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UQuestManager_GetRemainingTime_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -327,6 +403,10 @@ void EmptyLinkFunctionForGeneratedCodeQuestManager() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_OnQuestUpdated_MetaData[];
 #endif
 		static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_OnQuestUpdated;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_OnTimedQuestTick_MetaData[];
+#endif
+		static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_OnTimedQuestTick;
 		static const UECodeGen_Private::FStructPropertyParams NewProp_ActiveQuests_Inner;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_ActiveQuests_MetaData[];
@@ -354,8 +434,9 @@ void EmptyLinkFunctionForGeneratedCodeQuestManager() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UQuestManager_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UQuestManager_AddAllQuestsFromDataTable, "AddAllQuestsFromDataTable" }, // 275133110
-		{ &Z_Construct_UFunction_UQuestManager_AddQuest, "AddQuest" }, // 2012638739
+		{ &Z_Construct_UFunction_UQuestManager_AddQuest, "AddQuest" }, // 1407545119
 		{ &Z_Construct_UFunction_UQuestManager_CompleteQuest, "CompleteQuest" }, // 1092773254
+		{ &Z_Construct_UFunction_UQuestManager_GetRemainingTime, "GetRemainingTime" }, // 3169621984
 		{ &Z_Construct_UFunction_UQuestManager_LoadQuestProgress, "LoadQuestProgress" }, // 850461122
 		{ &Z_Construct_UFunction_UQuestManager_SaveQuestProgress, "SaveQuestProgress" }, // 1326283406
 		{ &Z_Construct_UFunction_UQuestManager_StartTimedQuest, "StartTimedQuest" }, // 3993003913
@@ -371,18 +452,31 @@ void EmptyLinkFunctionForGeneratedCodeQuestManager() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UQuestManager_Statics::NewProp_OnQuestUpdated_MetaData[] = {
 		{ "Category", "Quest" },
+		{ "Comment", "// Delegates\n" },
 		{ "ModuleRelativePath", "Public/Component/QuestManager.h" },
+		{ "ToolTip", "Delegates" },
 	};
 #endif
-	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UQuestManager_Statics::NewProp_OnQuestUpdated = { "OnQuestUpdated", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(UQuestManager, OnQuestUpdated), Z_Construct_UDelegateFunction_QuestSystem_OnQuestUpdated__DelegateSignature, METADATA_PARAMS(Z_Construct_UClass_UQuestManager_Statics::NewProp_OnQuestUpdated_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UQuestManager_Statics::NewProp_OnQuestUpdated_MetaData)) }; // 3988956856
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UQuestManager_Statics::NewProp_ActiveQuests_Inner = { "ActiveQuests", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, 0, Z_Construct_UScriptStruct_FQuestTable, METADATA_PARAMS(nullptr, 0) }; // 4046486730
+	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UQuestManager_Statics::NewProp_OnQuestUpdated = { "OnQuestUpdated", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(UQuestManager, OnQuestUpdated), Z_Construct_UDelegateFunction_QuestSystem_OnQuestUpdated__DelegateSignature, METADATA_PARAMS(Z_Construct_UClass_UQuestManager_Statics::NewProp_OnQuestUpdated_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UQuestManager_Statics::NewProp_OnQuestUpdated_MetaData)) }; // 1167635159
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UQuestManager_Statics::NewProp_OnTimedQuestTick_MetaData[] = {
+		{ "Category", "Quest" },
+		{ "Comment", "// Delegate to broadcast timed quest tick updates\n" },
+		{ "ModuleRelativePath", "Public/Component/QuestManager.h" },
+		{ "ToolTip", "Delegate to broadcast timed quest tick updates" },
+	};
+#endif
+	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UQuestManager_Statics::NewProp_OnTimedQuestTick = { "OnTimedQuestTick", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(UQuestManager, OnTimedQuestTick), Z_Construct_UDelegateFunction_QuestSystem_TimedQuestTickDelegate__DelegateSignature, METADATA_PARAMS(Z_Construct_UClass_UQuestManager_Statics::NewProp_OnTimedQuestTick_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UQuestManager_Statics::NewProp_OnTimedQuestTick_MetaData)) }; // 629046313
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UQuestManager_Statics::NewProp_ActiveQuests_Inner = { "ActiveQuests", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, 0, Z_Construct_UScriptStruct_FQuestTable, METADATA_PARAMS(nullptr, 0) }; // 1480036892
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UQuestManager_Statics::NewProp_ActiveQuests_MetaData[] = {
 		{ "Category", "Quest" },
+		{ "Comment", "// Variables\n" },
 		{ "ModuleRelativePath", "Public/Component/QuestManager.h" },
+		{ "ToolTip", "Variables" },
 	};
 #endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UQuestManager_Statics::NewProp_ActiveQuests = { "ActiveQuests", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(UQuestManager, ActiveQuests), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UQuestManager_Statics::NewProp_ActiveQuests_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UQuestManager_Statics::NewProp_ActiveQuests_MetaData)) }; // 4046486730
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UQuestManager_Statics::NewProp_ActiveQuests = { "ActiveQuests", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(UQuestManager, ActiveQuests), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UQuestManager_Statics::NewProp_ActiveQuests_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UQuestManager_Statics::NewProp_ActiveQuests_MetaData)) }; // 1480036892
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UQuestManager_Statics::NewProp_QuestDataTable_MetaData[] = {
 		{ "Category", "Quest" },
@@ -406,6 +500,7 @@ void EmptyLinkFunctionForGeneratedCodeQuestManager() {}
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UQuestManager_Statics::NewProp_QuestSaveGame = { "QuestSaveGame", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(UQuestManager, QuestSaveGame), Z_Construct_UClass_UQuestSaveGame_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UQuestManager_Statics::NewProp_QuestSaveGame_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UQuestManager_Statics::NewProp_QuestSaveGame_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UQuestManager_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UQuestManager_Statics::NewProp_OnQuestUpdated,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UQuestManager_Statics::NewProp_OnTimedQuestTick,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UQuestManager_Statics::NewProp_ActiveQuests_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UQuestManager_Statics::NewProp_ActiveQuests,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UQuestManager_Statics::NewProp_QuestDataTable,
@@ -449,9 +544,9 @@ void EmptyLinkFunctionForGeneratedCodeQuestManager() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_Public_Component_QuestManager_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UQuestManager, UQuestManager::StaticClass, TEXT("UQuestManager"), &Z_Registration_Info_UClass_UQuestManager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UQuestManager), 547843531U) },
+		{ Z_Construct_UClass_UQuestManager, UQuestManager::StaticClass, TEXT("UQuestManager"), &Z_Registration_Info_UClass_UQuestManager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UQuestManager), 346691098U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_Public_Component_QuestManager_h_866852646(TEXT("/Script/QuestSystem"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_Public_Component_QuestManager_h_2178310233(TEXT("/Script/QuestSystem"),
 		Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_Public_Component_QuestManager_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_Public_Component_QuestManager_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

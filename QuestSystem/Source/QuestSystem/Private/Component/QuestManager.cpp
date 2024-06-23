@@ -6,365 +6,270 @@
 
 
 
-UQuestManager::UQuestManager()
-{
-    PrimaryComponentTick.bCanEverTick = true;
-    SaveSlotName = TEXT("QuestSaveSlot");
+ UQuestManager::UQuestManager()
+ {
+     PrimaryComponentTick.bCanEverTick = true;
+     // SaveSlotName = TEXT("QuestSaveSlot");
 
-    
-}
+     
+ }
 
-void UQuestManager::BeginPlay()
-{
-    Super::BeginPlay();
-    LoadQuestProgress();
-}
-
-void UQuestManager::EndPlay(const EEndPlayReason::Type EndPlayReason)
-{
-    SaveQuestProgress();
-    Super::EndPlay(EndPlayReason);
-}
-
-void UQuestManager::AddQuest(const FQuestTable& NewQuest)
-{
-    ActiveQuests.Add(NewQuest);
-    CacheQuest(NewQuest);
-     UpdateCurrentQuest(); // Ensure this updates the current quest appropriately
-    UE_LOG(LogTemp, Warning, TEXT("Quest Added: %s"), *NewQuest.Name);
-    UpdateCurrentQuest();
-}
-
-void UQuestManager::CompleteQuest(const FString& QuestName)
-{
-    for (FQuestTable& Quest : ActiveQuests)
-    {
-        if (Quest.Name == QuestName)
-        {
-            Quest.bIsCompleted = true;
-            UE_LOG(LogTemp, Warning, TEXT("Quest Completed: %s"), *Quest.Name);
-            break;
-        }
-    }
-    UpdateCurrentQuest();
-}
-
-void UQuestManager::AddAllQuestsFromDataTable()
-{
-    if (QuestDataTable)
-    {
-        static const FString ContextString(TEXT("QuestDataContext"));
-        TArray<FName> RowNames = QuestDataTable->GetRowNames();
-        for (const FName& RowName : RowNames)
-        {
-            FQuestTable* Quest = QuestDataTable->FindRow<FQuestTable>(RowName, ContextString);
-            if (Quest)
-            {
-                AddQuest(*Quest);
-            }
-        }
-    }
-    else
-    {
-        UE_LOG(LogTemp, Error, TEXT("QuestDataTable is not assigned."));
-    }
-    UpdateCurrentQuest();
-}
-
-void UQuestManager::UpdateCurrentQuest()
-{
-    //
-    bool bFoundNextQuest = false;
-
-    for (const FQuestTable& Quest : ActiveQuests)
-    {
-        UE_LOG(LogTemp, Warning, TEXT("Updating quest: %s, Description: %s"), *Quest.Name, *Quest.Description);
-        
-        if (!Quest.bIsCompleted)
-        {
-            if (!bFoundNextQuest || Quest.Name == CurrentQuest.Name)
-            {
-                CurrentQuest = Quest;
-                OnQuestUpdated.Broadcast(CurrentQuest);
-                bFoundNextQuest = true;
-
-                if (CurrentQuest.bIsTimed)
-                {
-                    GetWorld()->GetTimerManager().SetTimer(TimerHandle, this, &UQuestManager::OnTimedQuestCompleted, CurrentQuest.TimeLimit, false);
-                }
-                break;
-            }
-        }
-    }
-}
+ void UQuestManager::BeginPlay()
+ {
+     Super::BeginPlay();
+     // LoadQuestProgress();
+ }
 
 
 
-void UQuestManager::CacheQuest(FQuestTable Quest)
-{
-    QuestCache.Add(Quest.Name, Quest);
-}
+ void UQuestManager::EndPlay(const EEndPlayReason::Type EndPlayReason)
+ {
+     SaveQuestProgress();
+     Super::EndPlay(EndPlayReason);
+ }
 
-FQuestTable* UQuestManager::GetCachedQuest(FString QuestName)
-{
-    return QuestCache.Find(QuestName);
-}
+ void UQuestManager::AddQuest(const FQuestTable& NewQuest)
+ {
+     ActiveQuests.Add(NewQuest);
+     CacheQuest(NewQuest);
+      UpdateCurrentQuest();							// Ensure this updates the current quest appropriately
+     UE_LOG(LogTemp, Warning, TEXT("Quest Added: %s"), *NewQuest.Name);
+     OnQuestUpdated.Broadcast(NewQuest);            // Broadcast quest update
+ }
 
-void UQuestManager::OnTimedQuestCompleted()
-{
-    UE_LOG(LogTemp, Warning, TEXT("Timed Quest Completed: %s"), *CurrentQuest.Name);
-    CompleteQuest(CurrentQuest.Name);
-}
+ 
 
+ void UQuestManager::CompleteQuest(const FString& QuestName)
+ {
+     for (FQuestTable& Quest : ActiveQuests)
+     {
+         if (Quest.Name == QuestName)
+         {
+             Quest.bIsCompleted = true;
+             UE_LOG(LogTemp, Warning, TEXT("Quest Completed: %s"), *Quest.Name);
+             break;
+         }
+     }
+     UpdateCurrentQuest();
+ }
+
+ void UQuestManager::AddAllQuestsFromDataTable()
+ {
+     if (QuestDataTable)
+     {
+         static const FString ContextString(TEXT("QuestDataContext"));
+         TArray<FName> RowNames = QuestDataTable->GetRowNames();
+         for (const FName& RowName : RowNames)
+         {
+             FQuestTable* Quest = QuestDataTable->FindRow<FQuestTable>(RowName, ContextString);
+             if (Quest)
+             {
+                 AddQuest(*Quest);
+             }
+         }
+     }
+     else
+     {
+         UE_LOG(LogTemp, Error, TEXT("QuestDataTable is not assigned."));
+     }
+     UpdateCurrentQuest();
+ }
+
+ void UQuestManager::UpdateCurrentQuest()
+ {
+     //
+     bool bFoundNextQuest = false;
+
+     for (const FQuestTable& Quest : ActiveQuests)
+     {
+         UE_LOG(LogTemp, Warning, TEXT("Updating quest: %s, Description: %s"), *Quest.Name, *Quest.Description);
+         
+         if (!Quest.bIsCompleted)
+         {
+             if (!bFoundNextQuest || Quest.Name == CurrentQuest.Name)
+             {
+                 CurrentQuest = Quest;
+                 OnQuestUpdated.Broadcast(CurrentQuest);
+                 bFoundNextQuest = true;
+
+					// Start the timer if the quest is a timed quest
+                 if (CurrentQuest.bIsTimed)
+                 {
+                     GetWorld()->GetTimerManager().SetTimer(TimerHandle, this, &UQuestManager::OnTimedQuestCompleted, CurrentQuest.TimeLimit, false);
+                 }
+                 break;
+             }
+         }
+     }
+ }
+
+
+
+ void UQuestManager::CacheQuest(FQuestTable Quest)
+ {
+     QuestCache.Add(Quest.Name, Quest);
+ }
+
+ FQuestTable* UQuestManager::GetCachedQuest(FString QuestName)
+ {
+     return QuestCache.Find(QuestName);
+ }
+
+ 
+// Timed Quest timing update for UI. logic start
+
+// void UQuestManager::OnTimedQuestCompleted()
+//  {
+//      UE_LOG(LogTemp, Warning, TEXT("Timed Quest Completed: %s"), *CurrentQuest.Name);
+//      CompleteQuest(CurrentQuest.Name);
+//  }
+
+float UQuestManager::GetRemainingTime() const
+ {
+     return CurrentTimeRemaining;
+ }
+
+// void UQuestManager::StartTimedQuest(const FString& QuestName)
+//  {
+//      FQuestTable* Quest = GetCachedQuest(QuestName);
+//      if (Quest && Quest->bIsTimed)
+//      {
+//          CurrentQuest = *Quest;
+//          CurrentTimeRemaining = Quest->TimeLimit;
+//          OnQuestUpdated.Broadcast(CurrentQuest);
+//
+//          // Set timer to update remaining time
+//          GetWorld()->GetTimerManager().SetTimer(TimerHandle, this, &UQuestManager::UpdateQuestTimer, 1.0f, true);
+//      }
+//  }
+
+
+// void UQuestManager::UpdateQuestTimer()
+//  {
+//      if (CurrentTimeRemaining > 0)
+//      {
+//          CurrentTimeRemaining -= 1.0f; // Decrease remaining time by 1 second
+//          OnTimedQuestTick.Broadcast(CurrentTimeRemaining); // Broadcast updated time remaining
+//          OnQuestUpdated.Broadcast(CurrentQuest); // Broadcast updated quest data
+//      }
+//      else
+//      {
+//          // Handle completion or failure of timed quest
+//          GetWorld()->GetTimerManager().ClearTimer(TimerHandle);
+//          OnTimedQuestCompleted();
+//      }
+//  }
+
+/** 
+ */
 void UQuestManager::StartTimedQuest(const FString& QuestName)
-{
-    FQuestTable* Quest = GetCachedQuest(QuestName);
-    if (Quest && Quest->bIsTimed)
-    {
-        GetWorld()->GetTimerManager().SetTimer(TimerHandle, this, &UQuestManager::OnTimedQuestCompleted, Quest->TimeLimit, false);
-    }
-}
+ {
+     FQuestTable* Quest = GetCachedQuest(QuestName);
+     if (Quest && Quest->bIsTimed)
+     {
+         // Clear any existing timer
+         GetWorld()->GetTimerManager().ClearTimer(TimerHandle);
 
-void UQuestManager::UpdateCache()
-{
-    QuestCache.Empty();
-    for (const FQuestTable& Quest : ActiveQuests)
-    {
-        CacheQuest(Quest);
-    }
-}
+         CurrentQuest = *Quest;
+         CurrentTimeRemaining = Quest->TimeLimit;
+         OnQuestUpdated.Broadcast(CurrentQuest);
+
+         // Set timer to update remaining time
+         GetWorld()->GetTimerManager().SetTimer(TimerHandle, this, &UQuestManager::UpdateQuestTimer, 1.0f, true);
+     }
+     else
+     {
+         UE_LOG(LogTemp, Error, TEXT("Quest %s not found or is not timed."), *QuestName);
+     }
+ }
+
+void UQuestManager::UpdateQuestTimer()
+ {
+     if (CurrentTimeRemaining > 0)
+     {
+         CurrentTimeRemaining -= 1.0f; // Decrease remaining time by 1 second
+         OnTimedQuestTick.Broadcast(CurrentTimeRemaining); // Broadcast updated time remaining
+     }
+     else
+     {
+         // Handle completion or failure of timed quest
+         GetWorld()->GetTimerManager().ClearTimer(TimerHandle);
+         OnTimedQuestCompleted();
+     }
+ }
+ 
 
 const FQuestTable* UQuestManager::GetCurrentQuestData() const
-{
-    return &CurrentQuest;
-}
+ {
+     return ActiveQuests.IsValidIndex(0) ? &ActiveQuests[0] : nullptr;
+ }
+// const FQuestTable* UQuestManager::GetCurrentQuestData() const                // old way
+//  {
+//      return &CurrentQuest;
+//  }
+
+
+void UQuestManager::OnTimedQuestCompleted()
+ {
+     UE_LOG(LogTemp, Warning, TEXT("Timed Quest Completed: %s"), *CurrentQuest.Name);
+     CompleteQuest(CurrentQuest.Name);
+     OnQuestUpdated.Broadcast(CurrentQuest);
+ }
+ 
+
+// Timed Quest timing update for UI. logic end 
+
+ void UQuestManager::UpdateCache()
+ {
+     QuestCache.Empty();					// Clear the cache than how will NextQuest taken from Cache ? 
+     for (const FQuestTable& Quest : ActiveQuests)
+     {
+         if(!Quest.bIsCompleted)
+         {
+             CacheQuest(Quest);
+         }
+     }
+ }
+
+ 
 
 
 
+ void UQuestManager::SaveQuestProgress()
+ {
+     UQuestSaveGame* SaveGameInstance = Cast<UQuestSaveGame>(UGameplayStatics::CreateSaveGameObject(UQuestSaveGame::StaticClass()));
+     if (SaveGameInstance)
+     {
+         SaveGameInstance->SavedQuests = ActiveQuests;
+         SaveGameInstance->CurrentQuestName = CurrentQuest.Name;
+         SaveGameInstance->bCanChangeQuest = CurrentQuest.bIsCompleted;
 
-void UQuestManager::SaveQuestProgress()
-{
-    UQuestSaveGame* SaveGameInstance = Cast<UQuestSaveGame>(UGameplayStatics::CreateSaveGameObject(UQuestSaveGame::StaticClass()));
-    if (SaveGameInstance)
-    {
-        SaveGameInstance->SavedQuests = ActiveQuests;
-        SaveGameInstance->CurrentQuestName = CurrentQuest.Name;
-        SaveGameInstance->bCanChangeQuest = CurrentQuest.bIsCompleted;
+         UGameplayStatics::SaveGameToSlot(SaveGameInstance, SaveSlotName, 0);
+         UE_LOG(LogTemp, Warning, TEXT("Quest progress saved."));
+     }
+ }
 
-        UGameplayStatics::SaveGameToSlot(SaveGameInstance, SaveSlotName, 0);
-        UE_LOG(LogTemp, Warning, TEXT("Quest progress saved."));
-    }
-}
-
-void UQuestManager::LoadQuestProgress()
-{
-    UQuestSaveGame* LoadGameInstance = Cast<UQuestSaveGame>(UGameplayStatics::LoadGameFromSlot(SaveSlotName, 0));
-    if (LoadGameInstance)
-    {
-        ActiveQuests = LoadGameInstance->SavedQuests;
-        FQuestTable* LoadedQuest = GetCachedQuest(LoadGameInstance->CurrentQuestName);
-        if (LoadedQuest)
-        {
-            CurrentQuest = *LoadedQuest;
-            CurrentQuest.bIsCompleted = LoadGameInstance->bCanChangeQuest;
-        }
-        UE_LOG(LogTemp, Warning, TEXT("Quest progress loaded."));
-    }
-    else
-    {
-        AddAllQuestsFromDataTable();
-    }
-}
-
-
-void UQuestManager::LoadFirstQuestFromDataTable()
-{
-    if (QuestDataTable)
-    {
-        static const FString ContextString(TEXT("QuestDataContext"));
-        TArray<FName> RowNames = QuestDataTable->GetRowNames();
-        if (RowNames.Num() > 0)
-        {
-            FQuestTable* FirstQuest = QuestDataTable->FindRow<FQuestTable>(RowNames[0], ContextString);
-            if (FirstQuest)
-            {
-                CurrentQuest = *FirstQuest;
-                OnQuestUpdated.Broadcast(CurrentQuest);
-            }
-        }
-        else
-        {
-            UE_LOG(LogTemp, Error, TEXT("No quests found in QuestDataTable."));
-        }
-    }
-    else
-    {
-        UE_LOG(LogTemp, Error, TEXT("QuestDataTable is not assigned."));
-    }
-}
+ void UQuestManager::LoadQuestProgress()
+ {
+     UQuestSaveGame* LoadGameInstance = Cast<UQuestSaveGame>(UGameplayStatics::LoadGameFromSlot(SaveSlotName, 0));
+     if (LoadGameInstance)
+     {
+         ActiveQuests = LoadGameInstance->SavedQuests;
+         FQuestTable* LoadedQuest = GetCachedQuest(LoadGameInstance->CurrentQuestName);
+         if (LoadedQuest)
+         {
+             CurrentQuest = *LoadedQuest;
+             CurrentQuest.bIsCompleted = LoadGameInstance->bCanChangeQuest;
+         }
+         UE_LOG(LogTemp, Warning, TEXT("Quest progress loaded."));
+     }
+     else
+     {
+         AddAllQuestsFromDataTable();
+     }
+ }
+ 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
-// UQuestManager::UQuestManager()
-// {
-// 	PrimaryComponentTick.bCanEverTick = true;
-// 	SaveSlotName = TEXT("QuestSaveSlot");
-// }
-//
-// void UQuestManager::BeginPlay()
-// {
-// 	Super::BeginPlay();
-// 	LoadQuestProgress();
-// }
-//
-// void UQuestManager::EndPlay(const EEndPlayReason::Type EndPlayReason)
-// {
-// 	SaveQuestProgress();
-// 	Super::EndPlay(EndPlayReason);
-// }
-//
-// void UQuestManager::AddQuest(const FQuestTable& NewQuest)
-// {
-// 	ActiveQuests.Add(NewQuest);
-// 	CacheQuest(NewQuest);
-// 	UE_LOG(LogTemp, Warning, TEXT("Quest Added: %s"), *NewQuest.Name);
-// 	UpdateCurrentQuest();
-// }
-//
-// void UQuestManager::CompleteQuest(const FString& QuestName)
-// {
-// 	for (FQuestTable& Quest : ActiveQuests)
-// 	{
-// 		if (Quest.Name == QuestName)
-// 		{
-// 			Quest.bIsCompleted = true;
-// 			UE_LOG(LogTemp, Warning, TEXT("Quest Completed: %s"), *Quest.Name);
-// 			break;
-// 		}
-// 	}
-// 	UpdateCurrentQuest();
-// }
-//
-// void UQuestManager::AddAllQuestsFromDataTable()
-// {
-// 	if (QuestDataTable)
-// 	{
-// 		static const FString ContextString(TEXT("QuestDataContext"));
-// 		TArray<FName> RowNames = QuestDataTable->GetRowNames();
-// 		for (const FName& RowName : RowNames)
-// 		{
-// 			FQuestTable* Quest = QuestDataTable->FindRow<FQuestTable>(RowName, ContextString);
-// 			if (Quest)
-// 			{
-// 				AddQuest(*Quest);
-// 			}
-// 		}
-// 	}
-// 	else
-// 	{
-// 		UE_LOG(LogTemp, Error, TEXT("QuestDataTable is not assigned."));
-// 	}
-// 	UpdateCurrentQuest();
-// }
-//
-// void UQuestManager::UpdateCurrentQuest()
-// {
-// 	bool bFoundNextQuest = false;
-//
-// 	for (const FQuestTable& Quest : ActiveQuests)
-// 	{
-// 		if (!Quest.bIsCompleted)
-// 		{
-// 			if (!bFoundNextQuest || Quest.Name == CurrentQuest.Name)
-// 			{
-// 				CurrentQuest = Quest;
-// 				OnQuestUpdated.Broadcast(CurrentQuest);
-// 				bFoundNextQuest = true;
-//
-// 				// Start the timer if the quest is a timed quest
-// 				if (CurrentQuest.bIsTimed)
-// 				{
-// 					GetWorld()->GetTimerManager().SetTimer(TimerHandle, this, &UQuestManager::OnTimedQuestCompleted, CurrentQuest.TimeLimit, false);
-// 				}
-// 				break;
-// 			}
-// 		}
-// 	}
-// }
-//
-// void UQuestManager::CacheQuest(FQuestTable Quest)
-// {
-// 	QuestCache.Add(Quest.Name, Quest);
-// }
-//
-// FQuestTable* UQuestManager::GetCachedQuest(FString QuestName)
-// {
-// 	return QuestCache.Find(QuestName);
-// }
-//
-// void UQuestManager::OnTimedQuestCompleted()
-// {
-// 	UE_LOG(LogTemp, Warning, TEXT("Timed Quest Completed: %s"), *CurrentQuest.Name);
-// 	CompleteQuest(CurrentQuest.Name);
-// }
-//
-// void UQuestManager::StartTimedQuest(const FString& QuestName)
-// {
-// 	FQuestTable* Quest = GetCachedQuest(QuestName);
-// 	if (Quest && Quest->bIsTimed)
-// 	{
-// 		GetWorld()->GetTimerManager().SetTimer(TimerHandle, this, &UQuestManager::OnTimedQuestCompleted, Quest->TimeLimit, false);
-// 	}
-// }
-//
-// void UQuestManager::UpdateCache()
-// {
-// 	// Implement cache update logic here
-// }
-//
-// void UQuestManager::SaveQuestProgress()
-// {
-// 	UQuestSaveGame* SaveGameInstance = Cast<UQuestSaveGame>(UGameplayStatics::CreateSaveGameObject(UQuestSaveGame::StaticClass()));
-// 	if (SaveGameInstance)
-// 	{
-// 		SaveGameInstance->SavedQuests = ActiveQuests;
-// 		SaveGameInstance->CurrentQuestName = CurrentQuest.Name;
-// 		SaveGameInstance->bCanChangeQuest = CurrentQuest.bIsCompleted;
-//
-// 		UGameplayStatics::SaveGameToSlot(SaveGameInstance, SaveSlotName, 0);
-// 		UE_LOG(LogTemp, Warning, TEXT("Quest progress saved."));
-// 	}
-// }
-//
-// void UQuestManager::LoadQuestProgress()
-// {
-// 	UQuestSaveGame* LoadGameInstance = Cast<UQuestSaveGame>(UGameplayStatics::LoadGameFromSlot(SaveSlotName, 0));
-// 	if (LoadGameInstance)
-// 	{
-// 		ActiveQuests = LoadGameInstance->SavedQuests;
-// 		FQuestTable* LoadedQuest = GetCachedQuest(LoadGameInstance->CurrentQuestName);
-// 		if (LoadedQuest)
-// 		{
-// 			CurrentQuest = *LoadedQuest;
-// 			CurrentQuest.bIsCompleted = LoadGameInstance->bCanChangeQuest;
-// 		}
-// 		UE_LOG(LogTemp, Warning, TEXT("Quest progress loaded."));
-// 	}
-// 	else
-// 	{
-// 		AddAllQuestsFromDataTable();
-// 	}
-// }
+ 
+ 

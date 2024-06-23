@@ -31,8 +31,9 @@ void ATestCharacter::BeginPlay()
     if (QuestManager)
     {
         QuestManager->OnQuestUpdated.AddDynamic(this, &ATestCharacter::OnQuestCompleted);
-        // Load the first quest from the data table
-        QuestManager->LoadFirstQuestFromDataTable();
+        // Load the first quest from the data table when the game starts
+        StartQuest(TEXT("Quest 1"));
+        
         
     }
     else
@@ -197,9 +198,19 @@ void ATestCharacter::CompleteQuest(const FString& QuestName)
 
 void ATestCharacter::OnQuestCompleted(const FQuestTable& CompletedQuest)
 {
-    if (CompletedQuest.Name == TEXT("Find Sphere"))
+    if (CompletedQuest.Name == TEXT("Quest 1"))
     {
         StartQuest(TEXT("Quest 2"));
+    }
+
+    if (CompletedQuest.Name == TEXT("Quest 2"))
+    {
+        StartQuest(TEXT("Quest 3"));
+    }
+
+    if (CompletedQuest.Name == TEXT("Quest 3"))
+    {
+        // StartQuest(TEXT("Quest 4"));
     }
 
     // Update the widget with the current quest
