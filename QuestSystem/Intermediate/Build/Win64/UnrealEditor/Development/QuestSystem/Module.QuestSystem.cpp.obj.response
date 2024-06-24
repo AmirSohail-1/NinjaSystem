@@ -1,6 +1,6 @@
-C:\Users\99026\Unreal\CPP\Ninja\Plugins\QuestSystem\Intermediate\Build\Win64\UnrealEditor\Development\QuestSystem\Module.QuestSystem.cpp
+D:\Amir\ProjectSystemTest\Plugins\QuestSystem\Intermediate\Build\Win64\UnrealEditor\Development\QuestSystem\Module.QuestSystem.cpp
 /I .
-/I C:\Users\99026\Unreal\CPP\Ninja\Plugins\QuestSystem\Source\QuestSystem\Private
+/I D:\Amir\ProjectSystemTest\Plugins\QuestSystem\Source\QuestSystem\Private
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\CoreUObject\UHT
 /I Runtime
 /I Runtime\CoreUObject\Public
@@ -270,24 +270,24 @@ C:\Users\99026\Unreal\CPP\Ninja\Plugins\QuestSystem\Intermediate\Build\Win64\Unr
 /I Runtime\MovieSceneCapture\Public
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\AnimationDataController\UHT
 /I Developer\AnimationDataController\Public
-/I C:\Users\99026\Unreal\CPP\Ninja\Plugins\QuestSystem\Intermediate\Build\Win64\UnrealEditor\Inc\QuestSystem\UHT
-/I C:\Users\99026\Unreal\CPP\Ninja\Plugins\QuestSystem\Source
-/I C:\Users\99026\Unreal\CPP\Ninja\Plugins\QuestSystem\Source\QuestSystem\Public
+/I D:\Amir\ProjectSystemTest\Plugins\QuestSystem\Intermediate\Build\Win64\UnrealEditor\Inc\QuestSystem\UHT
+/I D:\Amir\ProjectSystemTest\Plugins\QuestSystem\Source
+/I D:\Amir\ProjectSystemTest\Plugins\QuestSystem\Source\QuestSystem\Public
 /external:W0
 /external:I ThirdParty\mimalloc\include
 /external:I ThirdParty\LibTiff\Source\Win64
 /external:I ThirdParty\LibTiff\Source
-/external:I "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\INCLUDE"
+/external:I "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.40.33807\INCLUDE"
 /external:I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt"
 /external:I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\shared"
 /external:I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\um"
 /external:I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\winrt"
-/FI"C:\Users\99026\Unreal\CPP\Ninja\Intermediate\Build\Win64\NinjaEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
-/FI"C:\Users\99026\Unreal\CPP\Ninja\Plugins\QuestSystem\Intermediate\Build\Win64\UnrealEditor\Development\QuestSystem\Definitions.QuestSystem.h"
-/Yu"C:\Users\99026\Unreal\CPP\Ninja\Intermediate\Build\Win64\NinjaEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
-/Fp"C:\Users\99026\Unreal\CPP\Ninja\Intermediate\Build\Win64\NinjaEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
-/Fo"C:\Users\99026\Unreal\CPP\Ninja\Plugins\QuestSystem\Intermediate\Build\Win64\UnrealEditor\Development\QuestSystem\Module.QuestSystem.cpp.obj"
-/sourceDependencies C:\Users\99026\Unreal\CPP\Ninja\Plugins\QuestSystem\Intermediate\Build\Win64\UnrealEditor\Development\QuestSystem\Module.QuestSystem.cpp.dep.json
+/FI"D:\Amir\ProjectSystemTest\Intermediate\Build\Win64\ProjectSystemTestEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.InclOrderUnreal5_0.h"
+/FI"D:\Amir\ProjectSystemTest\Plugins\QuestSystem\Intermediate\Build\Win64\UnrealEditor\Development\QuestSystem\Definitions.QuestSystem.h"
+/Yu"D:\Amir\ProjectSystemTest\Intermediate\Build\Win64\ProjectSystemTestEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.InclOrderUnreal5_0.h"
+/Fp"D:\Amir\ProjectSystemTest\Intermediate\Build\Win64\ProjectSystemTestEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.InclOrderUnreal5_0.h.pch"
+/Fo"D:\Amir\ProjectSystemTest\Plugins\QuestSystem\Intermediate\Build\Win64\UnrealEditor\Development\QuestSystem\Module.QuestSystem.cpp.obj"
+/sourceDependencies D:\Amir\ProjectSystemTest\Plugins\QuestSystem\Intermediate\Build\Win64\UnrealEditor\Development\QuestSystem\Module.QuestSystem.cpp.dep.json
 /Zc:inline
 /nologo
 /Oi

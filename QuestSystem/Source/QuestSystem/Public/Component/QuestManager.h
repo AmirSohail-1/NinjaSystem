@@ -10,7 +10,6 @@
 
 
  
-
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnQuestUpdated, const FQuestTable&, CurrentQuest);
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FTimedQuestTickDelegate, float, RemainingTimeSeconds);

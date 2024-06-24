@@ -30,6 +30,7 @@ IntegerArray.Sort([](const int32& A, const int32& B) {
 if (IntegerArray.Num() < 10)
 {
     IntegerArray.SetNum(10); // Increase capacity
+    UE_Log(TempLog, Warning,TEXT("Size: "));
 }
 
 //////////////////////////////// TMap ////////////////////////////////////

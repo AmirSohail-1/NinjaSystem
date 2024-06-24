@@ -1,9 +1,7 @@
 #include "Component/QuestManager.h"
-// #include "Save/QuestSaveGame.h"
+#include "Save/QuestSaveGame.h"
 #include "Kismet/GameplayStatics.h"
 #include "TimerManager.h"
-
-
 
 
  UQuestManager::UQuestManager()
@@ -11,7 +9,6 @@
      PrimaryComponentTick.bCanEverTick = true;
      // SaveSlotName = TEXT("QuestSaveSlot");
 
-     
  }
 
  void UQuestManager::BeginPlay()
@@ -102,8 +99,7 @@
          }
      }
  }
-
-
+ 
 
  void UQuestManager::CacheQuest(FQuestTable Quest)
  {
@@ -116,13 +112,8 @@
  }
 
  
-// Timed Quest timing update for UI. logic start
-
-// void UQuestManager::OnTimedQuestCompleted()
-//  {
-//      UE_LOG(LogTemp, Warning, TEXT("Timed Quest Completed: %s"), *CurrentQuest.Name);
-//      CompleteQuest(CurrentQuest.Name);
-//  }
+// Timed Quest timing update for UI. logic start     ---------------------------------------------
+ 
 
 float UQuestManager::GetRemainingTime() const
  {
@@ -215,9 +206,17 @@ void UQuestManager::OnTimedQuestCompleted()
      CompleteQuest(CurrentQuest.Name);
      OnQuestUpdated.Broadcast(CurrentQuest);
  }
- 
 
-// Timed Quest timing update for UI. logic end 
+
+// void UQuestManager::OnTimedQuestCompleted()
+//  {
+//      UE_LOG(LogTemp, Warning, TEXT("Timed Quest Completed: %s"), *CurrentQuest.Name);
+//      CompleteQuest(CurrentQuest.Name);
+//  }
+
+
+
+// Timed Quest timing update for UI. logic end ---------------------------------------------
 
  void UQuestManager::UpdateCache()
  {

@@ -27,7 +27,39 @@ ATestCharacter::ATestCharacter()
 void ATestCharacter::BeginPlay()
 {
     Super::BeginPlay();
+///////////////////////////////////////////////////
+    TArray<int32> IntegerArray;
 
+    // Add elements: Add elements to the array
+    IntegerArray.Add(1);
+    IntegerArray.Add(2);
+    IntegerArray.Add(3);
+
+    // Remove elements: Remove elements by index
+    IntegerArray.RemoveAt(1);
+
+    // Update elements: Update an element by index
+    IntegerArray[0] = 10;
+
+    // Iterate: Iterate over elements using range-based for loop
+    for (int32 Element : IntegerArray)
+    {
+        // Print value
+        UE_LOG(LogTemp, Log, TEXT("Element: %d"), Element);
+    }
+
+    // Sorting: Sort elements in ascending order
+    IntegerArray.Sort([](const int32& A, const int32& B) {
+        return A < B;
+    });
+
+    // Check capacity & increase: Check number of elements and resize if needed
+    if (IntegerArray.Num() < 10)
+    {
+        IntegerArray.SetNum(10); // Increase capacity
+        UE_LOG(LogTemp, Warning, TEXT("Array capacity increased to 10: check here &d"), IntegerArray.Num() );
+    }
+/////////////////////////////////////////////////////
     if (QuestManager)
     {
         QuestManager->OnQuestUpdated.AddDynamic(this, &ATestCharacter::OnQuestCompleted);

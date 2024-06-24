@@ -14,14 +14,14 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define QUESTSYSTEM_NPCQuestStruct_generated_h
 
-#define FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_NPCQuestStruct_h_10_GENERATED_BODY \
+#define FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_NPCQuestStruct_h_10_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FNPCQuestStruct_Statics; \
 	static class UScriptStruct* StaticStruct();
 
 
 template<> QUESTSYSTEM_API UScriptStruct* StaticStruct<struct FNPCQuestStruct>();
 
-#define FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_NPCQuestStruct_h_32_GENERATED_BODY \
+#define FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_NPCQuestStruct_h_32_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FNPCQuestHolder_Statics; \
 	static class UScriptStruct* StaticStruct();
 
@@ -29,7 +29,7 @@ template<> QUESTSYSTEM_API UScriptStruct* StaticStruct<struct FNPCQuestStruct>()
 template<> QUESTSYSTEM_API UScriptStruct* StaticStruct<struct FNPCQuestHolder>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_Users_99026_Unreal_CPP_Ninja_Plugins_QuestSystem_Source_QuestSystem_NPCQuestStruct_h
+#define CURRENT_FILE_ID FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_NPCQuestStruct_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
