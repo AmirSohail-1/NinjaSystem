@@ -51,5 +51,24 @@ public:
 	UFUNCTION()
 	void Interact();
 
+	// Player Save Date Getter , Setter
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
+	int32 Health;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
+	int32 Experience;
+
+	UFUNCTION(BlueprintCallable, Category = "Stats")
+	int32 GetHealth() const { return Health; }
+
+	UFUNCTION(BlueprintCallable, Category = "Stats")
+	void SetHealth(int32 NewHealth) { Health = NewHealth; }
+
+	UFUNCTION(BlueprintCallable, Category = "Stats")
+	int32 GetExperience() const { return Experience; }
+
+	UFUNCTION(BlueprintCallable, Category = "Stats")
+	void SetExperience(int32 NewExperience) { Experience = NewExperience; }
+
 	
 };

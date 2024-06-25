@@ -9,8 +9,10 @@ UCLASS()
 class QUESTSYSTEM_API UQuestSaveGame : public USaveGame
 {
 	GENERATED_BODY()
-
+ 
 public:
+	UQuestSaveGame();
+	
 	UPROPERTY(VisibleAnywhere, Category = "Quests")
 	TArray<FQuestTable> SavedQuests;
 
@@ -20,5 +22,23 @@ public:
 	UPROPERTY(VisibleAnywhere, Category = "Quests")
 	bool bCanChangeQuest;
 
-	UQuestSaveGame();
+	// Player Data
+	UPROPERTY(VisibleAnywhere, Category = Basic)
+	FVector PlayerLocation;
+
+	UPROPERTY(VisibleAnywhere, Category = Basic)
+	FRotator PlayerRotation;
+
+	UPROPERTY(VisibleAnywhere, Category = Basic)
+	int32 PlayerHealth;
+
+	UPROPERTY(VisibleAnywhere, Category = Basic)
+	int32 PlayerExperience;
+
+	UPROPERTY(VisibleAnywhere, Category = Basic)
+	FString CheckpointName;
+
+ 
+
+	
 };

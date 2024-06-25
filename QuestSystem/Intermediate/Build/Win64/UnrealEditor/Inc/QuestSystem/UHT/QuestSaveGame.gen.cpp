@@ -10,6 +10,8 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeQuestSaveGame() {}
 // Cross Module References
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FRotator();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	ENGINE_API UClass* Z_Construct_UClass_USaveGame();
 	QUESTSYSTEM_API UClass* Z_Construct_UClass_UQuestSaveGame();
 	QUESTSYSTEM_API UClass* Z_Construct_UClass_UQuestSaveGame_NoRegister();
@@ -44,6 +46,26 @@ void EmptyLinkFunctionForGeneratedCodeQuestSaveGame() {}
 #endif
 		static void NewProp_bCanChangeQuest_SetBit(void* Obj);
 		static const UECodeGen_Private::FBoolPropertyParams NewProp_bCanChangeQuest;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_PlayerLocation_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_PlayerLocation;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_PlayerRotation_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_PlayerRotation;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_PlayerHealth_MetaData[];
+#endif
+		static const UECodeGen_Private::FIntPropertyParams NewProp_PlayerHealth;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_PlayerExperience_MetaData[];
+#endif
+		static const UECodeGen_Private::FIntPropertyParams NewProp_PlayerExperience;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CheckpointName_MetaData[];
+#endif
+		static const UECodeGen_Private::FStrPropertyParams NewProp_CheckpointName;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -84,11 +106,53 @@ void EmptyLinkFunctionForGeneratedCodeQuestSaveGame() {}
 		((UQuestSaveGame*)Obj)->bCanChangeQuest = 1;
 	}
 	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_bCanChangeQuest = { "bCanChangeQuest", nullptr, (EPropertyFlags)0x0010000000020001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, sizeof(bool), sizeof(UQuestSaveGame), &Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_bCanChangeQuest_SetBit, METADATA_PARAMS(Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_bCanChangeQuest_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_bCanChangeQuest_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_PlayerLocation_MetaData[] = {
+		{ "Category", "Basic" },
+		{ "Comment", "// Player Data\n" },
+		{ "ModuleRelativePath", "Public/Save/QuestSaveGame.h" },
+		{ "ToolTip", "Player Data" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_PlayerLocation = { "PlayerLocation", nullptr, (EPropertyFlags)0x0010000000020001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(UQuestSaveGame, PlayerLocation), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_PlayerLocation_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_PlayerLocation_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_PlayerRotation_MetaData[] = {
+		{ "Category", "Basic" },
+		{ "ModuleRelativePath", "Public/Save/QuestSaveGame.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_PlayerRotation = { "PlayerRotation", nullptr, (EPropertyFlags)0x0010000000020001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(UQuestSaveGame, PlayerRotation), Z_Construct_UScriptStruct_FRotator, METADATA_PARAMS(Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_PlayerRotation_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_PlayerRotation_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_PlayerHealth_MetaData[] = {
+		{ "Category", "Basic" },
+		{ "ModuleRelativePath", "Public/Save/QuestSaveGame.h" },
+	};
+#endif
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_PlayerHealth = { "PlayerHealth", nullptr, (EPropertyFlags)0x0010000000020001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(UQuestSaveGame, PlayerHealth), METADATA_PARAMS(Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_PlayerHealth_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_PlayerHealth_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_PlayerExperience_MetaData[] = {
+		{ "Category", "Basic" },
+		{ "ModuleRelativePath", "Public/Save/QuestSaveGame.h" },
+	};
+#endif
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_PlayerExperience = { "PlayerExperience", nullptr, (EPropertyFlags)0x0010000000020001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(UQuestSaveGame, PlayerExperience), METADATA_PARAMS(Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_PlayerExperience_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_PlayerExperience_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_CheckpointName_MetaData[] = {
+		{ "Category", "Basic" },
+		{ "ModuleRelativePath", "Public/Save/QuestSaveGame.h" },
+	};
+#endif
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_CheckpointName = { "CheckpointName", nullptr, (EPropertyFlags)0x0010000000020001, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(UQuestSaveGame, CheckpointName), METADATA_PARAMS(Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_CheckpointName_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_CheckpointName_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UQuestSaveGame_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_SavedQuests_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_SavedQuests,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_CurrentQuestName,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_bCanChangeQuest,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_PlayerLocation,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_PlayerRotation,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_PlayerHealth,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_PlayerExperience,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UQuestSaveGame_Statics::NewProp_CheckpointName,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UQuestSaveGame_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UQuestSaveGame>::IsAbstract,
@@ -127,9 +191,9 @@ void EmptyLinkFunctionForGeneratedCodeQuestSaveGame() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_Public_Save_QuestSaveGame_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UQuestSaveGame, UQuestSaveGame::StaticClass, TEXT("UQuestSaveGame"), &Z_Registration_Info_UClass_UQuestSaveGame, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UQuestSaveGame), 3321042382U) },
+		{ Z_Construct_UClass_UQuestSaveGame, UQuestSaveGame::StaticClass, TEXT("UQuestSaveGame"), &Z_Registration_Info_UClass_UQuestSaveGame, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UQuestSaveGame), 1583358399U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_Public_Save_QuestSaveGame_h_2991922898(TEXT("/Script/QuestSystem"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_Public_Save_QuestSaveGame_h_3446412698(TEXT("/Script/QuestSystem"),
 		Z_CompiledInDeferFile_FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_Public_Save_QuestSaveGame_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_Public_Save_QuestSaveGame_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

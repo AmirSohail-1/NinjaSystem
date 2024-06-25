@@ -95,6 +95,11 @@ void EmptyLinkFunctionForGeneratedCodeQuestGameMode() {}
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CurrentCheckpointName_MetaData[];
+#endif
+		static const UECodeGen_Private::FStrPropertyParams NewProp_CurrentCheckpointName;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
 	};
@@ -115,6 +120,18 @@ void EmptyLinkFunctionForGeneratedCodeQuestGameMode() {}
 		{ "ShowCategories", "Input|MouseInput Input|TouchInput" },
 	};
 #endif
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AQuestGameMode_Statics::NewProp_CurrentCheckpointName_MetaData[] = {
+		{ "Category", "Checkpoint" },
+		{ "Comment", "// Track the current checkpoint name\n" },
+		{ "ModuleRelativePath", "QuestGameMode.h" },
+		{ "ToolTip", "Track the current checkpoint name" },
+	};
+#endif
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_AQuestGameMode_Statics::NewProp_CurrentCheckpointName = { "CurrentCheckpointName", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(AQuestGameMode, CurrentCheckpointName), METADATA_PARAMS(Z_Construct_UClass_AQuestGameMode_Statics::NewProp_CurrentCheckpointName_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AQuestGameMode_Statics::NewProp_CurrentCheckpointName_MetaData)) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AQuestGameMode_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AQuestGameMode_Statics::NewProp_CurrentCheckpointName,
+	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AQuestGameMode_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AQuestGameMode>::IsAbstract,
 	};
@@ -124,11 +141,11 @@ void EmptyLinkFunctionForGeneratedCodeQuestGameMode() {}
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		FuncInfo,
-		nullptr,
+		Z_Construct_UClass_AQuestGameMode_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		UE_ARRAY_COUNT(FuncInfo),
-		0,
+		UE_ARRAY_COUNT(Z_Construct_UClass_AQuestGameMode_Statics::PropPointers),
 		0,
 		0x009002ACu,
 		METADATA_PARAMS(Z_Construct_UClass_AQuestGameMode_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_AQuestGameMode_Statics::Class_MetaDataParams))
@@ -152,9 +169,9 @@ void EmptyLinkFunctionForGeneratedCodeQuestGameMode() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_QuestGameMode_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AQuestGameMode, AQuestGameMode::StaticClass, TEXT("AQuestGameMode"), &Z_Registration_Info_UClass_AQuestGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AQuestGameMode), 3384998870U) },
+		{ Z_Construct_UClass_AQuestGameMode, AQuestGameMode::StaticClass, TEXT("AQuestGameMode"), &Z_Registration_Info_UClass_AQuestGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AQuestGameMode), 417243381U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_QuestGameMode_h_94160214(TEXT("/Script/QuestSystem"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_QuestGameMode_h_3852049509(TEXT("/Script/QuestSystem"),
 		Z_CompiledInDeferFile_FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_QuestGameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_QuestGameMode_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

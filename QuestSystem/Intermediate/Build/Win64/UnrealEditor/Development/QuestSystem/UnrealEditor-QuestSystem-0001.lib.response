@@ -1,0 +1,12 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-QuestSystem-0001.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"D:\Amir\ProjectSystemTest\Intermediate\Build\Win64\ProjectSystemTestEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.InclOrderUnreal5_0.h.obj"
+"D:\Amir\ProjectSystemTest\Plugins\QuestSystem\Intermediate\Build\Win64\UnrealEditor\Development\QuestSystem\Module.QuestSystem.cpp.obj"
+"D:\Amir\ProjectSystemTest\Plugins\QuestSystem\Intermediate\Build\Win64\UnrealEditor\Development\QuestSystem\Default.rc2.res"
+/OUT:"D:\Amir\ProjectSystemTest\Plugins\QuestSystem\Intermediate\Build\Win64\UnrealEditor\Development\QuestSystem\UnrealEditor-QuestSystem-0001.lib"

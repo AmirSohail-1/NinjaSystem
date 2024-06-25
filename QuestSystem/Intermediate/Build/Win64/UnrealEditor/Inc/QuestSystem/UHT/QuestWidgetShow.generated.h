@@ -18,16 +18,24 @@ struct FQuestTable;
 #define FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_Public_UI_QuestWidgetShow_h_11_SPARSE_DATA
 #define FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_Public_UI_QuestWidgetShow_h_11_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execHideMissionCompleteText); \
+	DECLARE_FUNCTION(execOnQuestCompleted); \
 	DECLARE_FUNCTION(execOnQuestUpdated); \
 	DECLARE_FUNCTION(execUpdateTimerDisplay); \
+	DECLARE_FUNCTION(execClearQuestDetails); \
+	DECLARE_FUNCTION(execShowMissionComplete); \
 	DECLARE_FUNCTION(execOnTimedQuestTick); \
 	DECLARE_FUNCTION(execUpdateQuestList);
 
 
 #define FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_Public_UI_QuestWidgetShow_h_11_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execHideMissionCompleteText); \
+	DECLARE_FUNCTION(execOnQuestCompleted); \
 	DECLARE_FUNCTION(execOnQuestUpdated); \
 	DECLARE_FUNCTION(execUpdateTimerDisplay); \
+	DECLARE_FUNCTION(execClearQuestDetails); \
+	DECLARE_FUNCTION(execShowMissionComplete); \
 	DECLARE_FUNCTION(execOnTimedQuestTick); \
 	DECLARE_FUNCTION(execUpdateQuestList);
 

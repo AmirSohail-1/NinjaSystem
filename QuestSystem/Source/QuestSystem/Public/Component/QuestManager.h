@@ -14,6 +14,8 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnQuestUpdated, const FQuestTable&,
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FTimedQuestTickDelegate, float, RemainingTimeSeconds);
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnQuestCompleted, const FString&, QuestName);
+
 
 UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class QUESTSYSTEM_API UQuestManager : public UActorComponent
@@ -36,7 +38,10 @@ public:
     UPROPERTY(BlueprintAssignable, Category = "Quest")
     FTimedQuestTickDelegate OnTimedQuestTick;
 
- 
+    UPROPERTY(BlueprintAssignable, Category = "Quest")
+    FOnQuestCompleted OnQuestCompleted;
+
+
     // Variables
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Quest")
     TArray<FQuestTable> ActiveQuests;

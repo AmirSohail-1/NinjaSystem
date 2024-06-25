@@ -48,7 +48,7 @@ public: \
 
 #define FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_QuestGameMode_h_15_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API AQuestGameMode(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
+	NO_API AQuestGameMode(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AQuestGameMode) \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, AQuestGameMode); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AQuestGameMode); \
@@ -61,8 +61,6 @@ public: \
 
 
 #define FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_QuestGameMode_h_15_ENHANCED_CONSTRUCTORS \
-	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API AQuestGameMode(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AQuestGameMode(AQuestGameMode&&); \
@@ -70,7 +68,7 @@ private: \
 public: \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, AQuestGameMode); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AQuestGameMode); \
-	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AQuestGameMode) \
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AQuestGameMode) \
 	NO_API virtual ~AQuestGameMode();
 
 

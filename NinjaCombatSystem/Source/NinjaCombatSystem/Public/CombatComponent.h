@@ -11,6 +11,7 @@ UCLASS(ClassGroup=(Custom), meta=(BlueprintSpawnableComponent))
 class NINJACOMBATSYSTEM_API UCombatComponent : public UActorComponent
 {
 	GENERATED_BODY()
+	
 
 public:
 	// Sets default values for this component's properties

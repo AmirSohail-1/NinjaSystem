@@ -19,6 +19,36 @@ void EmptyLinkFunctionForGeneratedCodeTestCharacter() {}
 	QUESTSYSTEM_API UScriptStruct* Z_Construct_UScriptStruct_FQuestTable();
 	UPackage* Z_Construct_UPackage__Script_QuestSystem();
 // End Cross Module References
+	DEFINE_FUNCTION(ATestCharacter::execSetExperience)
+	{
+		P_GET_PROPERTY(FIntProperty,Z_Param_NewExperience);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetExperience(Z_Param_NewExperience);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ATestCharacter::execGetExperience)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(int32*)Z_Param__Result=P_THIS->GetExperience();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ATestCharacter::execSetHealth)
+	{
+		P_GET_PROPERTY(FIntProperty,Z_Param_NewHealth);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetHealth(Z_Param_NewHealth);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ATestCharacter::execGetHealth)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(int32*)Z_Param__Result=P_THIS->GetHealth();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ATestCharacter::execInteract)
 	{
 		P_FINISH;
@@ -71,10 +101,14 @@ void EmptyLinkFunctionForGeneratedCodeTestCharacter() {}
 		UClass* Class = ATestCharacter::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "CompleteQuest", &ATestCharacter::execCompleteQuest },
+			{ "GetExperience", &ATestCharacter::execGetExperience },
+			{ "GetHealth", &ATestCharacter::execGetHealth },
 			{ "Interact", &ATestCharacter::execInteract },
 			{ "MoveForward", &ATestCharacter::execMoveForward },
 			{ "MoveRight", &ATestCharacter::execMoveRight },
 			{ "OnQuestCompleted", &ATestCharacter::execOnQuestCompleted },
+			{ "SetExperience", &ATestCharacter::execSetExperience },
+			{ "SetHealth", &ATestCharacter::execSetHealth },
 			{ "StartQuest", &ATestCharacter::execStartQuest },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -117,6 +151,72 @@ void EmptyLinkFunctionForGeneratedCodeTestCharacter() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ATestCharacter_CompleteQuest_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ATestCharacter_GetExperience_Statics
+	{
+		struct TestCharacter_eventGetExperience_Parms
+		{
+			int32 ReturnValue;
+		};
+		static const UECodeGen_Private::FIntPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_ATestCharacter_GetExperience_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(TestCharacter_eventGetExperience_Parms, ReturnValue), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ATestCharacter_GetExperience_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ATestCharacter_GetExperience_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ATestCharacter_GetExperience_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Stats" },
+		{ "ModuleRelativePath", "TestCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ATestCharacter_GetExperience_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ATestCharacter, nullptr, "GetExperience", nullptr, nullptr, sizeof(Z_Construct_UFunction_ATestCharacter_GetExperience_Statics::TestCharacter_eventGetExperience_Parms), Z_Construct_UFunction_ATestCharacter_GetExperience_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ATestCharacter_GetExperience_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ATestCharacter_GetExperience_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ATestCharacter_GetExperience_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ATestCharacter_GetExperience()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ATestCharacter_GetExperience_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ATestCharacter_GetHealth_Statics
+	{
+		struct TestCharacter_eventGetHealth_Parms
+		{
+			int32 ReturnValue;
+		};
+		static const UECodeGen_Private::FIntPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_ATestCharacter_GetHealth_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(TestCharacter_eventGetHealth_Parms, ReturnValue), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ATestCharacter_GetHealth_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ATestCharacter_GetHealth_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ATestCharacter_GetHealth_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Stats" },
+		{ "ModuleRelativePath", "TestCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ATestCharacter_GetHealth_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ATestCharacter, nullptr, "GetHealth", nullptr, nullptr, sizeof(Z_Construct_UFunction_ATestCharacter_GetHealth_Statics::TestCharacter_eventGetHealth_Parms), Z_Construct_UFunction_ATestCharacter_GetHealth_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ATestCharacter_GetHealth_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ATestCharacter_GetHealth_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ATestCharacter_GetHealth_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ATestCharacter_GetHealth()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ATestCharacter_GetHealth_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -246,6 +346,72 @@ void EmptyLinkFunctionForGeneratedCodeTestCharacter() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_ATestCharacter_SetExperience_Statics
+	{
+		struct TestCharacter_eventSetExperience_Parms
+		{
+			int32 NewExperience;
+		};
+		static const UECodeGen_Private::FIntPropertyParams NewProp_NewExperience;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_ATestCharacter_SetExperience_Statics::NewProp_NewExperience = { "NewExperience", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(TestCharacter_eventSetExperience_Parms, NewExperience), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ATestCharacter_SetExperience_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ATestCharacter_SetExperience_Statics::NewProp_NewExperience,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ATestCharacter_SetExperience_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Stats" },
+		{ "ModuleRelativePath", "TestCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ATestCharacter_SetExperience_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ATestCharacter, nullptr, "SetExperience", nullptr, nullptr, sizeof(Z_Construct_UFunction_ATestCharacter_SetExperience_Statics::TestCharacter_eventSetExperience_Parms), Z_Construct_UFunction_ATestCharacter_SetExperience_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ATestCharacter_SetExperience_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ATestCharacter_SetExperience_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ATestCharacter_SetExperience_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ATestCharacter_SetExperience()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ATestCharacter_SetExperience_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ATestCharacter_SetHealth_Statics
+	{
+		struct TestCharacter_eventSetHealth_Parms
+		{
+			int32 NewHealth;
+		};
+		static const UECodeGen_Private::FIntPropertyParams NewProp_NewHealth;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_ATestCharacter_SetHealth_Statics::NewProp_NewHealth = { "NewHealth", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(TestCharacter_eventSetHealth_Parms, NewHealth), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ATestCharacter_SetHealth_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ATestCharacter_SetHealth_Statics::NewProp_NewHealth,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ATestCharacter_SetHealth_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Stats" },
+		{ "ModuleRelativePath", "TestCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ATestCharacter_SetHealth_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ATestCharacter, nullptr, "SetHealth", nullptr, nullptr, sizeof(Z_Construct_UFunction_ATestCharacter_SetHealth_Statics::TestCharacter_eventSetHealth_Parms), Z_Construct_UFunction_ATestCharacter_SetHealth_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ATestCharacter_SetHealth_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ATestCharacter_SetHealth_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ATestCharacter_SetHealth_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ATestCharacter_SetHealth()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ATestCharacter_SetHealth_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_ATestCharacter_StartQuest_Statics
 	{
 		struct TestCharacter_eventStartQuest_Parms
@@ -311,6 +477,14 @@ void EmptyLinkFunctionForGeneratedCodeTestCharacter() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_QuestWidget_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_QuestWidget;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_Health_MetaData[];
+#endif
+		static const UECodeGen_Private::FIntPropertyParams NewProp_Health;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_Experience_MetaData[];
+#endif
+		static const UECodeGen_Private::FIntPropertyParams NewProp_Experience;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -321,10 +495,14 @@ void EmptyLinkFunctionForGeneratedCodeTestCharacter() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ATestCharacter_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_ATestCharacter_CompleteQuest, "CompleteQuest" }, // 1605984589
+		{ &Z_Construct_UFunction_ATestCharacter_GetExperience, "GetExperience" }, // 2133248722
+		{ &Z_Construct_UFunction_ATestCharacter_GetHealth, "GetHealth" }, // 1735202456
 		{ &Z_Construct_UFunction_ATestCharacter_Interact, "Interact" }, // 3151869290
 		{ &Z_Construct_UFunction_ATestCharacter_MoveForward, "MoveForward" }, // 3718427898
 		{ &Z_Construct_UFunction_ATestCharacter_MoveRight, "MoveRight" }, // 342393883
 		{ &Z_Construct_UFunction_ATestCharacter_OnQuestCompleted, "OnQuestCompleted" }, // 3609085497
+		{ &Z_Construct_UFunction_ATestCharacter_SetExperience, "SetExperience" }, // 2490306439
+		{ &Z_Construct_UFunction_ATestCharacter_SetHealth, "SetHealth" }, // 821155806
 		{ &Z_Construct_UFunction_ATestCharacter_StartQuest, "StartQuest" }, // 2851887232
 	};
 #if WITH_METADATA
@@ -357,10 +535,28 @@ void EmptyLinkFunctionForGeneratedCodeTestCharacter() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ATestCharacter_Statics::NewProp_QuestWidget = { "QuestWidget", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(ATestCharacter, QuestWidget), Z_Construct_UClass_UQuestWidgetShow_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ATestCharacter_Statics::NewProp_QuestWidget_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ATestCharacter_Statics::NewProp_QuestWidget_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ATestCharacter_Statics::NewProp_Health_MetaData[] = {
+		{ "Category", "Stats" },
+		{ "Comment", "// Player Save Date Getter , Setter\n" },
+		{ "ModuleRelativePath", "TestCharacter.h" },
+		{ "ToolTip", "Player Save Date Getter , Setter" },
+	};
+#endif
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_ATestCharacter_Statics::NewProp_Health = { "Health", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(ATestCharacter, Health), METADATA_PARAMS(Z_Construct_UClass_ATestCharacter_Statics::NewProp_Health_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ATestCharacter_Statics::NewProp_Health_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ATestCharacter_Statics::NewProp_Experience_MetaData[] = {
+		{ "Category", "Stats" },
+		{ "ModuleRelativePath", "TestCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_ATestCharacter_Statics::NewProp_Experience = { "Experience", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(ATestCharacter, Experience), METADATA_PARAMS(Z_Construct_UClass_ATestCharacter_Statics::NewProp_Experience_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ATestCharacter_Statics::NewProp_Experience_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ATestCharacter_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATestCharacter_Statics::NewProp_QuestManager,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATestCharacter_Statics::NewProp_QuestWidgetClass,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATestCharacter_Statics::NewProp_QuestWidget,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATestCharacter_Statics::NewProp_Health,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATestCharacter_Statics::NewProp_Experience,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ATestCharacter_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ATestCharacter>::IsAbstract,
@@ -399,9 +595,9 @@ void EmptyLinkFunctionForGeneratedCodeTestCharacter() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_TestCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ATestCharacter, ATestCharacter::StaticClass, TEXT("ATestCharacter"), &Z_Registration_Info_UClass_ATestCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ATestCharacter), 1895768300U) },
+		{ Z_Construct_UClass_ATestCharacter, ATestCharacter::StaticClass, TEXT("ATestCharacter"), &Z_Registration_Info_UClass_ATestCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ATestCharacter), 3856152346U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_TestCharacter_h_1223249505(TEXT("/Script/QuestSystem"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_TestCharacter_h_3999714492(TEXT("/Script/QuestSystem"),
 		Z_CompiledInDeferFile_FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_TestCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_TestCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

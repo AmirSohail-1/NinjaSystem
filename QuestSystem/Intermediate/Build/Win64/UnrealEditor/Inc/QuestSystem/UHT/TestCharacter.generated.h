@@ -18,6 +18,10 @@ struct FQuestTable;
 #define FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_TestCharacter_h_15_SPARSE_DATA
 #define FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_TestCharacter_h_15_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execSetExperience); \
+	DECLARE_FUNCTION(execGetExperience); \
+	DECLARE_FUNCTION(execSetHealth); \
+	DECLARE_FUNCTION(execGetHealth); \
 	DECLARE_FUNCTION(execInteract); \
 	DECLARE_FUNCTION(execMoveRight); \
 	DECLARE_FUNCTION(execMoveForward); \
@@ -28,6 +32,10 @@ struct FQuestTable;
 
 #define FID_ProjectSystemTest_Plugins_QuestSystem_Source_QuestSystem_TestCharacter_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execSetExperience); \
+	DECLARE_FUNCTION(execGetExperience); \
+	DECLARE_FUNCTION(execSetHealth); \
+	DECLARE_FUNCTION(execGetHealth); \
 	DECLARE_FUNCTION(execInteract); \
 	DECLARE_FUNCTION(execMoveRight); \
 	DECLARE_FUNCTION(execMoveForward); \

@@ -2,6 +2,7 @@
 	"RemapUnityFiles": 
 	{
 		"Module.QuestSystem.cpp.obj": [
+			"CheckpointBase.gen.cpp.obj",
 			"MyQuestPrintActor.gen.cpp.obj",
 			"NPCQuestStruct.gen.cpp.obj",
 			"PickupActor.gen.cpp.obj",
@@ -14,6 +15,7 @@
 			"QuestTable.gen.cpp.obj",
 			"QuestWidgetShow.gen.cpp.obj",
 			"TestCharacter.gen.cpp.obj",
+			"CheckpointBase.cpp.obj",
 			"NPCQuestStruct.cpp.obj",
 			"PickupActor.cpp.obj",
 			"QuestManager.cpp.obj",

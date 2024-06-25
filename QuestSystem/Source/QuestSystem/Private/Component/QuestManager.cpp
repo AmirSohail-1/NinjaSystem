@@ -7,21 +7,21 @@
  UQuestManager::UQuestManager()
  {
      PrimaryComponentTick.bCanEverTick = true;
-     // SaveSlotName = TEXT("QuestSaveSlot");
+     SaveSlotName = TEXT("QuestSaveSlot");           // Set the save slot name      
 
  }
 
  void UQuestManager::BeginPlay()
  {
      Super::BeginPlay();
-     // LoadQuestProgress();
+     LoadQuestProgress();            // Load quest progress when the game starts
  }
 
 
 
  void UQuestManager::EndPlay(const EEndPlayReason::Type EndPlayReason)
  {
-     SaveQuestProgress();
+     SaveQuestProgress();           // Save quest progress when the game ends
      Super::EndPlay(EndPlayReason);
  }
 
@@ -44,6 +44,7 @@
          {
              Quest.bIsCompleted = true;
              UE_LOG(LogTemp, Warning, TEXT("Quest Completed: %s"), *Quest.Name);
+             OnQuestCompleted.Broadcast(QuestName); // Broadcast the quest completion event with the name of the completed quest
              break;
          }
      }
