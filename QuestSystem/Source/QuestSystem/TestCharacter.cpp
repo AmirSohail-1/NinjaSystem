@@ -2,6 +2,7 @@
 #include "GameFramework/Actor.h"
 #include "Kismet/GameplayStatics.h"
 #include "DrawDebugHelpers.h"
+#include "SAdvancedRotationInputBox.h"
 #include "Engine/World.h"
 #include "GameFramework/PlayerController.h"
 #include "GameFramework/CharacterMovementComponent.h"
@@ -37,7 +38,6 @@ void ATestCharacter::BeginPlay()
         QuestManager->OnQuestUpdated.AddDynamic(this, &ATestCharacter::OnQuestCompleted);
         // Load the first quest from the data table when the game starts
         StartQuest(TEXT("Quest 1"));
-        
         
     }
     else
@@ -168,6 +168,8 @@ void ATestCharacter::StartQuest(const FString& QuestName)
         if (CurrentQuest)
         {
             QuestWidget->UpdateQuestList(*CurrentQuest);
+            FString X = CurrentQuest->Name;
+            UE_LOG(LogTemp, TEXT("Updating widget with current quest: %s "), *X );
         }
     }
 }
@@ -204,7 +206,7 @@ void ATestCharacter::OnQuestCompleted(const FQuestTable& CompletedQuest)
 {
     if (CompletedQuest.Name == TEXT("Quest 1"))
     {
-        StartQuest(TEXT("Quest 2"));
+        // StartQuest(TEXT("Quest 2"));
         UE_LOG(LogTemp, Warning, TEXT("Quest 1 completed"));
     }
 
